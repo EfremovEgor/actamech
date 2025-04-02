@@ -1,0 +1,18 @@
+---
+interface Props {
+	issueName: string;
+	info: string;
+	type?: "issue" | "volume";
+}
+const { issueName, info, type = "volume" } = Astro.props;
+---
+
+<a
+	class=`flex flex-col gap-4 border-b-secondary border-b-2 pb-4 min-w-2/3 max-w-3/4 pr-16 max-auto cursor-pointer`
+	href="/volumes/1"
+>
+	<div>
+		<p class="font-semibold text-lg">{issueName}</p>
+		<p class="font-bold text-accent">{info}</p>
+	</div>
+</a>

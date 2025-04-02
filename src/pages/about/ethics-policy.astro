@@ -1,0 +1,35 @@
+---
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import GuidanceForAuthors from "@components/pages/ethics-policy/GuidanceForAuthors.astro";
+import GuidanceForEditorial from "@components/pages/ethics-policy/GuidanceForEditorial.astro";
+import GuidanceForEditorInChief from "@components/pages/ethics-policy/GuidanceForEditorInChief.astro";
+import GuidanceForPeerReviewers from "@components/pages/ethics-policy/GuidanceForPeerReviewers.astro";
+import GuidanceInConflicts from "@components/pages/ethics-policy/GuidanceInConflicts.astro";
+---
+
+<BaseInformationPageLayout
+  head={{
+    title: "Ethical Publication Policy",
+    description: "Acta Mechanica et Imperium ethical publication policy",
+  }}
+  image={aboutPageMainImage}
+  pageTitle="Ethical Publication Policy"
+>
+  <div class="container mx-auto mt-8">
+    <section class="text-justify">
+      Ethical publication policy pursued by the editorial board of the
+      scientific on-line journal «Acta Mechanica Et Imperium» meets the criteria
+      of the scholarly community and framework of publication ethics that
+      implies honesty, confidentiality, oversight of publications, resolving
+      conflicts of interest etc. and is stated in the guidelines by the
+      Committee on Publication Ethics (COPE) as well as leading Russian and
+      foreign peer-reviewed journals and publishing houses.
+    </section>
+    <GuidanceForAuthors />
+    <GuidanceForEditorial />
+    <GuidanceForEditorInChief />
+    <GuidanceForPeerReviewers />
+    <GuidanceInConflicts />
+  </div>
+</BaseInformationPageLayout>

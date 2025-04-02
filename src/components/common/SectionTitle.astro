@@ -1,0 +1,19 @@
+---
+interface Props {
+	title: string;
+	alt?: boolean;
+	classNameTitle?: string;
+}
+const { title, alt = false, classNameTitle = "" } = Astro.props;
+---
+
+<!-- <div class=`${alt?"border-b-secondary":"border-b-accent"} border-b-2`>
+	<div class="container mx-auto pt-12 pb-8">
+		<h1 class="text-4xl uppercase">{title}</h1>
+	</div>
+</div> -->
+<div class=`${alt?"border-b-secondary":"border-b-accent"} border-b-2`>
+	<div class="container mx-auto pt-16 pb-4">
+		<h1 class=`text-3xl uppercase ${classNameTitle}`>{title}</h1>
+	</div>
+</div>

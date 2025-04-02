@@ -1,0 +1,20 @@
+---
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import AimsAndScopeSection from "@components/pages/journal-insights/sections/AimsAndScopeSection.astro";
+import JournalInsights from "@components/pages/journal-insights/sections/JournalInsights.astro";
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: "Aims and scope",
+		description: "Acta Mechanica et Imperium Aims and scope",
+	}}
+	image={aboutPageMainImage}
+	pageTitle="Aims and scope"
+>
+	<div class="container mx-auto mt-8">
+		<AimsAndScopeSection />
+	</div>
+	<JournalInsights />
+</BaseInformationPageLayout>

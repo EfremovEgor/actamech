@@ -1,0 +1,24 @@
+---
+import type { ICallForPaper } from "@components/types/interfaces/callForPapers";
+
+type Props = Omit<ICallForPaper, "lastUpdated" | "articles">;
+const { id, title, submissionDeadline, description, editors } = Astro.props;
+---
+
+<div class="bg-secondary/5 rounded-base px-4 py-8">
+	<div>
+		<a
+			class="text-xl border-underline-2 w-fit cursor-pointer hover-accent"
+			href={`/calls-for-papers/${id}`}>{title}</a
+		>
+		<p class="text-justify overflow-ellipsis line-clamp-4 mt-4">
+			{description}
+		</p>
+		<p class="text-accent mt-4">
+			Guest Editors: {editors.map((editor) => editor.fullName).join(", ")}
+		</p>
+		<p class="mt-4 text-tertiary-text">
+			Submission deadline: {submissionDeadline}
+		</p>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<section class="grid auto-rows-auto grid-cols-[min-content_auto] gap-x-2">
+  <!-- <div class="w-8 bg-secondary h-3 rounded-base self-center"></div> -->
+  <h1 class="text-heading uppercase self-center">{title}</h1>
+  <div class="w-0"></div>
+  <slot />
+</section>

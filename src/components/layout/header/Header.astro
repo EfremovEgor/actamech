@@ -1,0 +1,162 @@
+---
+import { Image } from "astro:assets";
+import siteIcon from "@assets/icons/siteIconLight.png";
+import headerLogoImage from "@assets/images/headerLogoImage.png";
+import LinkSecondarySolid from "@components/common/links/LinkSecondarySolid";
+import HeaderDropdown from "./HeaderDropdown.astro";
+import HeaderLink from "./HeaderLink.astro";
+import EiExternalLink from "~icons/ei/external-link";
+import EiSearch from "~icons/ei/search";
+import HeaderDropdownLink from "./HeaderDropdownLink.astro";
+---
+
+<div id="page-filler" class="bg-accent h-0.5 fixed top-0 left-0 z-30"></div>
+<header
+  transition:persist
+  class="border-accent w-full bg-secondary text-secondary-text z-20 text-sm"
+>
+  <div class="mx-auto container flex flex-row justify-between items-center">
+    <a href="/" class="py-4 flex flex-row items-center h-fit my-auto gap-2">
+      <Image priority class="h-10 w-auto" src={siteIcon} alt="Site icon" />
+      <span class="font-semibold font-[ZT-Neue-Ralewe-Regular] text-xs"
+        >ACTA MECHANICA <br /> ET IMPERIUM
+      </span>
+    </a>
+    <ul class="py-4 flex-row gap-8 hidden md:flex">
+      <li>
+        <HeaderLink text="News" url="/news" />
+      </li>
+      <li>
+        <HeaderDropdown text="Articles & Issues">
+          <ul class="flex flex-col gap-5 text-sm">
+            <HeaderDropdownLink text="Latest issue" url="/volumes/1" />
+            <HeaderDropdownLink text="All issues" url="/articles/all-issues" />
+            <HeaderDropdownLink
+              text="Articles in press"
+              url="/articles/articles-in-press"
+            />
+            <HeaderDropdownLink
+              text="Article collections"
+              url="/articles/special-issues"
+            />
+          </ul>
+        </HeaderDropdown>
+      </li>
+      <li>
+        <HeaderDropdown text="About">
+          <ul class="flex flex-col gap-5 text-sm">
+            <HeaderDropdownLink
+              text="Aims and scope"
+              url="/about/aims-and-scope"
+            />
+            <HeaderDropdownLink
+              text="Editorial board"
+              url="/about/editorial-board"
+            />
+            <HeaderDropdownLink
+              text="Ethics Policy"
+              url="/about/ethics-policy"
+            />
+            <HeaderDropdownLink
+              text="Declaration on privacy"
+              url="/about/declaration-on-privacy"
+            />
+          </ul>
+        </HeaderDropdown>
+      </li>
+
+      <li>
+        <HeaderDropdown text="Publish">
+          <ul class="flex flex-col gap-5 text-sm">
+            <HeaderDropdownLink
+              external
+              target="_blank"
+              text="Submit your article"
+              url="https://confchair.org"
+            />
+            <HeaderDropdownLink
+              text="Guide for authors"
+              url="/publish/guide-for-authors"
+            />
+          </ul>
+        </HeaderDropdown>
+      </li>
+    </ul>
+    <div>
+      <div class="flex flex-row self-stretch items-center">
+        <a
+          href="/"
+          class="w-fit hover:text-accent uppercase font-semibold whitespace-nowrap px-4 border-x-1 border-accent h-full flex items-center"
+        >
+          <span>
+            Submit an article <EiExternalLink
+              className="inline my-auto"
+            /></span
+          >
+        </a>
+
+        <a
+          href="/"
+          class="w-fit hover:text-accent uppercase font-semibold whitespace-nowrap px-4 border-r-1 border-accent h-full flex items-center"
+        >
+          <span> Guide for authors </span>
+        </a>
+        <div>
+          <div class="p-4 text-2xl cursor-pointer hover:text-accent">
+            <EiSearch />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function offsetDropdown(event: any) {
+      const target: HTMLElement = event.target;
+
+      if (target.offsetLeft + target.scrollWidth >= document.body.clientWidth) {
+        const element = target.querySelector<HTMLElement>(
+          ".header-dropdown-items-container"
+        );
+        if (element)
+          element.style.left = `-${target.offsetLeft + target.scrollWidth - document.body.clientWidth + 10}px`;
+      }
+    }
+    function toggleHeader() {
+      const header = document.querySelector("header");
+      const maxHeight = document.body.scrollHeight - window.innerHeight;
+      const pageFiller = document.querySelector("#page-filler");
+      if (header)
+        if (window.scrollY >= 320) {
+          header.style.position = "sticky";
+          header.style.top = "0";
+        } else header.style.position = "";
+      if (pageFiller)
+        pageFiller.setAttribute(
+          "style",
+          `width:${(100 * window.scrollY) / maxHeight}%`
+        );
+    }
+    toggleHeader();
+    window.addEventListener("DOMContentLoaded", () => {
+      document
+        .querySelectorAll(".header-dropdown-wrapper")
+        .forEach((element) => {
+          element.addEventListener("mouseenter", offsetDropdown);
+        });
+      document
+        .querySelectorAll<HTMLElement>(".header-dropdown-wrapper")
+        .forEach((element: HTMLElement) => {
+          element.addEventListener("mouseleave", (event: any) => {
+            const target: HTMLElement = event.target;
+            const element = target.querySelector<HTMLElement>(
+              ".header-dropdown-items-container"
+            );
+            if (element) element.style.left = "";
+          });
+        });
+      window.addEventListener("scroll", function () {
+        toggleHeader();
+      });
+    });
+  </script>
+</header>

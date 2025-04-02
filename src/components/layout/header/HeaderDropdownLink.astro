@@ -1,0 +1,17 @@
+---
+import type { IHeaderLink } from "./interfaces";
+
+interface Props extends IHeaderLink {}
+const { text, url, target, external = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+import EiExternalLink from "~icons/ei/external-link";
+---
+
+<a
+	class=`${currentPath === url?"text-accent":""} w-fit  underline-on-hover uppercase font-semibold whitespace-nowrap mr-2 hover:ml-1 hover:mr-1 transition-[margin]`
+	{...{ target }}
+	href={url}
+>
+	{text}
+	{external && <EiExternalLink className="inline" />}
+</a>

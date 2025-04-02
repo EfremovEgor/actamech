@@ -1,0 +1,154 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import indexImage from "@assets/images/index/indexImage.jpg";
+import indexAboutImage from "@assets/images/index/indexAboutImage.png";
+import EvaArrowRightFill from "~icons/eva/arrow-right-fill";
+import SectionTitle from "@components/common/SectionTitle.astro";
+import ArticleCard from "@components/pages/index/ArticleCard.astro";
+---
+
+<BaseLayout>
+  <div class="w-full relative">
+    <Image
+      class="w-full brightness-50 h-80 object-cover object-[25%_0%] bg-scroll"
+      src={indexImage}
+      alt={"Main page image"}
+    />
+    <div
+      class="text-secondary-text absolute z-10
+            top-0 left-0 h-full w-full
+            flex items-center justify-center flex-col
+            gap-10"
+    >
+      <h1 class="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
+        ACTA MECHANICA ET IMPERIUM
+      </h1>
+      <span class="px-8 py-2 italic border-accent border-b-2 text-xl">
+        Publishing model: Online
+      </span>
+    </div>
+  </div>
+  <div class=`container mx-auto py-8 bg-no-repeat bg-cover`>
+    <h1 class="text-3xl text-accent uppercase ml-4">About actamech</h1>
+
+    <div
+      class="text-left-border ml-4 mt-8 grid grid-flow-row-dense grid-cols-4"
+    >
+      <div class="col-span-3">
+        <div class="flex flex-row gap-16">
+          <p class="font-semibold text-justify">
+            Acta Mechanica et Imperium is an electronic journal published 4
+            times per year.
+          </p>
+          <p class="font-semibold text-justify">
+            This edition is focused on the publication of topical materials
+            related to mechanics and control, also covering a wide range of
+            subject areas related to modern research and development in these
+            fields.
+          </p>
+        </div>
+        <p class="mt-4 text-justify">
+          In addition to regular issues, the journal publishes select special
+          issues on topics of current interest, such as: microgravity, space
+          station technology, geostationary orbits, and space economics. Other
+          subject areas include Guidance Navigation & Control, Attitude &
+          Orbital Dynamics, Mission Design, Operation & Optimization, Space
+          Power & Propulsion, Advanced Space Materials, Sensors, Actuators &
+          On-Board Equipment, Space Projects & Lessons Learned, Space Structures
+          On The Moon & Mars, Lunar & Asteroid Resources, Remote Sensing
+          Applications, Artificial Intelligence In Space Applications.
+        </p>
+      </div>
+      <Image
+        src={indexAboutImage}
+        alt="About"
+        class="col-span-1 my-auto h-auto w-4/5 mx-auto rotate-[150deg]"
+      />
+    </div>
+    <a
+      href="/about/aims-and-scope"
+      class="ml-auto w-fit mt-8 text-secondary hover:text-accent font-bold flex flex-row items-center transition-colors
+duration-150 ease-in-out group underline-on-hover"
+    >
+      <span>READ MORE</span>
+      <EvaArrowRightFill />
+    </a>
+    <SectionTitle title="Editor-in-Chief" classNameTitle="text-accent" />
+    <article class="text-left-border mt-8 ml-4">
+      <h2 class="text-lg text-accent font-semibold ml-0 indent-0">
+        Yury N. Razoumny
+      </h2>
+
+      <p class="indent-0">
+        Professor Doctor, Director of Academy of Engineering of RUDN University,
+        Academician of Russian Academy of Cosmonautics, Academician of
+        International Academy of Astronautics, IAA, Lifetime Associate Fellow,
+        American Institute of Aeronautics and Astronautics, AIAA
+      </p>
+    </article>
+    <SectionTitle title="Latest Articles" classNameTitle="text-accent" />
+    <div class="flex flex-row flex-wrap gap-8 mt-8">
+      <ArticleCard
+        title="Optimal robust online tracking control for space manipulator in task space using off-policy reinforcement learning"
+        authors="Hongji Zhuang, Hang Zhou, Qiang Shen, Shufan Wu, Vladimir Yu. Razoumny, Yury N. Razoumny"
+      />
+      <ArticleCard
+        title="Optimal robust online tracking control for space manipulator in task space using off-policy reinforcement learning"
+        authors="Hongji Zhuang, Hang Zhou, Qiang Shen, Shufan Wu, Vladimir Yu. Razoumny, Yury N. Razoumny"
+      />
+      <ArticleCard
+        title="Optimal robust online tracking control for space manipulator in task space using off-policy reinforcement learning"
+        authors="Hongji Zhuang, Hang Zhou, Qiang Shen, Shufan Wu, Vladimir Yu. Razoumny, Yury N. Razoumny"
+      />
+      <ArticleCard
+        title="Optimal robust online tracking control for space manipulator in task space using off-policy reinforcement learning"
+        authors="Hongji Zhuang, Hang Zhou, Qiang Shen, Shufan Wu, Vladimir Yu. Razoumny, Yury N. Razoumny"
+      />
+      <ArticleCard
+        title="Optimal robust online tracking control for space manipulator in task space using off-policy reinforcement learning"
+        authors="Hongji Zhuang, Hang Zhou, Qiang Shen, Shufan Wu, Vladimir Yu. Razoumny, Yury N. Razoumny"
+      />
+    </div>
+  </div>
+
+  <!-- <div class="container mx-auto py-16">
+		<p class="font-bold text-accent mb-8">ABOUT AMEI</p>
+		<div class="grid grid-cols-5 gap-2">
+			<section>
+				<p class="font-medium text-lg">
+					AMEI is a globally<br />
+					renowned, highly cited <br />
+					scientific journal <br />
+					known for its extensive <br />
+					coverage and impact.
+				</p>
+			</section>
+			<section class="text-justify col-span-3">
+				Lorem Ipsum is simply dummy text of the printing and typesetting
+				industry. Lorem Ipsum has been the industry's standard dummy
+				text ever since the 1500s, when an unknown printer took a galley
+				of type and scrambled it to make a type specimen book. It has
+				survived not only five centuries, but also the leap into
+				electronic typesetting, remaining essentially unchanged. It was
+				popularised in the 1960s with the release of Letraset sheets
+				containing Lorem Ipsum passages, and more recently with desktop
+				publishing software like Aldus PageMaker including versions of
+				Lorem Ipsum.
+			</section>
+			<Image
+				src={indexAboutImage}
+				alt="About"
+				class="col-span-1 my-auto rotate-[150deg]"
+			/>
+		</div>
+		<a
+			href="/about"
+			class="ml-auto w-fit mt-8 text-secondary hover:text-accent font-bold flex flex-row items-center transition-colors
+			duration-150 ease-in-out group underline-on-hover"
+		>
+			<span>READ MORE</span>
+			<EvaArrowRightFill />
+		</a>
+	</div> -->
+</BaseLayout>

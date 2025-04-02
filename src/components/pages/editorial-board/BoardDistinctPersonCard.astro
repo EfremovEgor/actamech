@@ -1,0 +1,17 @@
+---
+interface Props {
+  fullName: string;
+  country: string;
+  affiliation: string;
+  color?: "accent" | "secondary";
+}
+const { fullName, country, affiliation, color = "accent" } = Astro.props;
+---
+
+<div class=`flex flex-col gap-4 border-b-${color} border-b-2 pb-4 pr-16`>
+  <div>
+    <p class="font-semibold text-lg">{fullName}</p>
+    <p class="font-semibold">{affiliation}</p>
+    <p class="font-semibold text-tertiary-text">{country}</p>
+  </div>
+</div>

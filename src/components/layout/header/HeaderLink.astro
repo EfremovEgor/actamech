@@ -1,0 +1,15 @@
+---
+import type { IHeaderLink } from "./interfaces";
+
+interface Props extends IHeaderLink {}
+const { text, url, target } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<a
+	class=`${currentPath === url?"text-accent":""} w-fit underline-on-hover uppercase font-semibold whitespace-nowrap`
+	{...{ target }}
+	href={url}
+>
+	{text}
+</a>

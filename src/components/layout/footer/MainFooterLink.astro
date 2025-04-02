@@ -1,0 +1,13 @@
+---
+import EiExternalLink from "~icons/ei/external-link";
+interface Props {
+	text: string;
+	url: string;
+	external?: boolean;
+}
+const { text, url, external = false } = Astro.props;
+---
+
+<a class="w-fit underline-on-hover uppercase text-sm font-semibold" href={url}
+	>{text}{external && <EiExternalLink className="inline" />}</a
+>

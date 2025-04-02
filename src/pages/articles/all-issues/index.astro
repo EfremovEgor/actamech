@@ -1,0 +1,130 @@
+---
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import BoardDistinctPersonCard from "@components/pages/editorial-board/BoardDistinctPersonCard.astro";
+import IssueCard from "@components/pages/all-issues/IssueCard.astro";
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: "All Journal Issues",
+		description: "Acta Mechanica et Imperium all issues",
+	}}
+	image={aboutPageMainImage}
+	pageTitle="All issues"
+>
+	<div class="container mx-auto mt-8">
+		<div class="flex flex-row divide-secondary">
+			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+				<div>
+					<h2 class="font-semibold pb-2 border-b-1 border-b-accent">
+						All issues:
+					</h2>
+					<ul class="flex flex-col gap-2 mt-4">
+						<li>2025 — Volumes 226-230</li>
+						<li>2024 — Volumes 221-225</li>
+						<li>2023 — Volumes 216-220</li>
+						<li>2022 — Volumes 211-215</li>
+					</ul>
+				</div>
+			</div>
+			<div
+				class="pl-8 flex-1 flex flex-col gap-16 border-l-border-primary border-l-1"
+			>
+				<div>
+					<h2 class="text-xl font-semibold pb-2 border-b-2 w-1/2">
+						2025 — Volumes 226-230
+					</h2>
+					<div class="mt-8 grid grid-cols-2 gap-8">
+						<IssueCard
+							{...{
+								issueName: "Volume 232",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 231",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 230",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 229",
+								info: "In progress (July 2025)",
+							}}
+						/>
+					</div>
+				</div>
+				<div>
+					<h2 class="text-xl font-semibold pb-2 border-b-2 w-1/2">
+						2024 — Volumes 221-225
+					</h2>
+					<div class="mt-8 grid grid-cols-2 gap-8">
+						<IssueCard
+							{...{
+								issueName: "Volume 232",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 231",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 230",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 229",
+								info: "In progress (July 2025)",
+							}}
+						/>
+					</div>
+				</div>
+				<div>
+					<h2 class="text-xl font-semibold pb-2 border-b-2 w-1/2">
+						2023 — Volumes 202-213
+					</h2>
+					<div class="mt-8 grid grid-cols-2 gap-8">
+						<IssueCard
+							{...{
+								issueName: "Volume 232",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 231",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 230",
+								info: "In progress (July 2025)",
+							}}
+						/>
+						<IssueCard
+							{...{
+								issueName: "Volume 229",
+								info: "In progress (July 2025)",
+							}}
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseInformationPageLayout>

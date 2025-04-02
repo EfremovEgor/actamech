@@ -1,0 +1,23 @@
+---
+interface Props {
+	title: string;
+	authors: string;
+}
+const { title, authors } = Astro.props;
+---
+
+<div
+	class="bg-secondary/5 flex flex-col w-1/4 flex-grow p-4 rounded-t-base border-b-4 border-accent"
+>
+	<a
+		href="/articles/1S009457652400732X"
+		class="text-lg font-semibold text-justify hover-accent">{title}</a
+	>
+	<p class="mt-2 text-sm text-justify">{authors}</p>
+	<a
+		href="/pdf/main.pdf"
+		target="_blank"
+		class="ml-auto text-xs block font-bold underline uppercase mt-4 hover-accent"
+		>View PDF</a
+	>
+</div>

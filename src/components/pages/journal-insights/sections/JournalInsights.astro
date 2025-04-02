@@ -1,0 +1,145 @@
+---
+import SectionTitle from "@components/common/SectionTitle.astro";
+import BulletSection from "./components/BulletSection.astro";
+import AbstractingAndIndexing from "./AbstractingAndIndexing.astro";
+import ArticlePublishingOptions from "./ArticlePublishingOptions.astro";
+import SubjectAreas from "./SubjectAreas.astro";
+import ContentDelimiter from "@components/common/ContentDelimiter.astro";
+---
+
+<div class="container mx-auto mt-8">
+  <SectionTitle title="Journal Insights" />
+
+  <!-- <div class="grid grid-cols-3 justify-between w-full gap-10 mt-8">
+    <div
+      class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
+    >
+      Registration Certificate <br />EL № FS77-00000
+    </div>
+
+    <div
+      class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
+    >
+      ISSN <br />
+      2400-9900
+    </div>
+    <div
+      class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
+    >
+      Journal Impact Factor <br /> 41.577
+    </div>
+    <div
+      class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
+    >
+      Journal Publisher <br />RUDN University
+    </div>
+
+    <div
+      class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
+    >
+      Publication frequency <br />
+      4 times a year
+    </div>
+    <div
+      class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
+    >
+      Language <br /> English
+    </div>
+  </div> -->
+  <!-- <section class="container mx-auto mt-8 grid grid-cols-2">
+    <div class="flex
+	flex-col
+	gap-4
+	mr-4">
+      <BulletSection title="Registration">
+        <p class="text-justify">
+          The electronic journal «Acta Mechanica et Imperium» is registered by
+          the Federal Service for Supervision in the Sphere of Telecom,
+          Information Technologies and Mass Communication. Registration
+          Certificate El № FS77-00000, 1 March 2025. The journal is registered
+          in Centre International de l’ISSN and has an International Standard
+          Serial Number of periodicals E-ISSN 2400-9900.
+        </p>
+      </BulletSection>
+      <BulletSection title="Publisher of the journal">
+        <p class="text-justify">
+          Peoples Friendship University of Russia named after Patrice Lumumba
+          (RUDN University)
+        </p>
+      </BulletSection>
+    </div>
+
+    <div class="w-full border-l-1 border-l-border-primary pl-4 text-justify">
+      <h1 class="text-heading uppercase self-center">
+        Publication frequency and mode:
+      </h1>
+      <p class="mt-2">
+        Peer-reviewed scientific journal « Acta Mechanica Et Imperium» — an
+        electronic journal published 4 times per year (quarterly). The articles
+        in English languages are accepted for publication.
+      </p>
+    </div>
+  </section> -->
+  <div class="container mx-auto mt-8 grid grid-cols-4 text-secondary">
+    <div class="px-4 py-6 border-r-1 border-r-border-primary">
+      <h1 class="text-xl text-center rounded-base font-bold">
+        Journal Impact Factor
+      </h1>
+      <p
+        class="text-center font-semibold text-accent border-b-2 border-b-border-secondary pb-2"
+      >
+        41.577
+      </p>
+    </div>
+    <div class="px-4 py-6 border-r-1 border-r-border-primary">
+      <h1 class="text-xl text-center rounded-base font-bold">ISSN</h1>
+      <p
+        class="text-center font-semibold text-accent border-b-2 border-b-border-secondary pb-2"
+      >
+        2400-9900
+      </p>
+    </div>
+    <div class="px-4 py-6 border-r-1 border-r-border-primary">
+      <h1 class="text-xl text-center rounded-base font-bold">
+        Publication frequency
+      </h1>
+      <p
+        class="text-center font-semibold text-accent border-b-2 border-b-border-secondary pb-2"
+      >
+        4 times a year
+      </p>
+    </div>
+    <div class="px-4 py-6">
+      <h1 class="text-xl text-center rounded-base font-bold">Language</h1>
+      <p
+        class="text-center font-semibold text-accent border-b-2 border-b-border-secondary pb-2"
+      >
+        English
+      </p>
+    </div>
+  </div>
+  <!-- <ContentDelimiter className="my-8" /> -->
+  <div class="container mx-auto mt-8">
+    <h1 class="text-heading uppercase self-center">
+      Publication frequency and mode:
+    </h1>
+    <p class="mt-2">
+      Peoples Friendship University of Russia named after Patrice Lumumba (RUDN
+      University).
+    </p>
+    <h1 class="text-heading uppercase self-center mt-4">
+      Registration Certificate:
+    </h1>
+    <p class="mt-2">
+      The electronic journal «Acta Mechanica et Imperium» is registered by the
+      Federal Service for Supervision in the Sphere of Telecom, Information
+      Technologies and Mass Communication. Registration Certificate El №
+      FS77-00000, 1 March 2025. The journal is registered in Centre
+      International de l’ISSN and has an International Standard Serial Number of
+      periodicals E-ISSN 2400-9900.
+    </p>
+  </div>
+  <SubjectAreas />
+  <ArticlePublishingOptions />
+  <AbstractingAndIndexing />
+</div>

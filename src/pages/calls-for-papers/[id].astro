@@ -1,0 +1,91 @@
+---
+export const prerender = false;
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import ArticleCard from "@components/common/articles/ArticleCard";
+import { ARTICLES } from "../articles/ExampleArticle";
+import { EXAMPLE_CALLS } from "./ExampleCall";
+import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+const { id } = Astro.params;
+const callForPapers = EXAMPLE_CALLS[0];
+const article = ARTICLES[0];
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: callForPapers.title,
+		description: "Acta Mechanica et Imperium all issues",
+	}}
+	image={aboutPageMainImage}
+	pageTitle="CALLS FOR PAPERS"
+>
+	<div class="container mx-auto mt-8">
+		<h1 class="text-3xl border-underline-2 pb-4 w-fit">
+			{callForPapers.title}
+		</h1>
+		<p class="mt-4 text-lg text-tertiary-text">
+			Submission deadline: {callForPapers.submissionDeadline}
+		</p>
+		<article
+			class="base-text-section whitespace-pre-wrap bg-secondary/5 rounded-base px-4 py-4 text-lg mt-4"
+		>{callForPapers.description}
+		</article>
+		<SectionTitleNoContainer title="Guest Editors" />
+		<div class="grid grid-cols-2 gap-8 mt-8">
+			{
+				callForPapers.editors.map((editor) => (
+					<div class="bg-secondary/5 rounded-base px-4 py-4">
+						<h1 class="text-accent">
+							{editor.title}
+							{editor.fullName}
+						</h1>
+						<p class="mt-4 text-sm">
+							{editor.affiliation}, {editor.country}
+						</p>
+					</div>
+				))
+			}
+		</div>
+		<SectionTitleNoContainer title="Manuscript submission information" />
+		<section class="base-text-section mt-8">
+			<p>Open for Submission: 7 Jun 2025 to 31 July 2025</p>
+			<p>Submission Site: Editorial Manager</p>
+			<p>
+				Article Type Name: "6th International SciTech Space Forum 2025"
+				- please select this item when you submit manuscripts online
+			</p>
+			<p>
+				All manuscripts will be peer-reviewed. Submissions will be
+				evaluated based on originality, significance, technical quality,
+				and clarity. Once accepted, articles will be posted online
+				immediately and published in a journal regular issue within
+				weeks. Articles will also be simultaneously collected in the
+				online special issue.
+			</p>
+			<p>
+				For any inquiries about the appropriateness of contribution
+				topics, welcome to contact Leading Guest Editor (Prof. S.
+				Ivanov).
+			</p>
+			<p class="py-2"></p>
+			<p>
+				Guide for Authors will be helpful for your future contributions,
+				read more: Guide for authors - Acta Mechanica Et Imperium - ISSN
+				2400-9900 (elsevier.com)
+			</p>
+			<p class="py-2"></p>
+			<p>
+				For more information about our Journal, please visit our
+				ScienceDirect Page: Acta Mechanica Et Imperium | Journal |
+				ScienceDirect.com by Elsevier
+			</p>
+		</section>
+		<SectionTitleNoContainer title="Keywords" />
+		<ul class="list mt-8 text-xl">
+			<li>Planetary Defense;</li>
+			<li>Near-Earth Objects;</li>
+			<li>Asteroids;</li>
+			<li>Comets</li>
+		</ul>
+	</div>
+</BaseInformationPageLayout>

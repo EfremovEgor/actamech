@@ -1,0 +1,38 @@
+@reference "@styles/global.css";
+
+/* .editorial-board-content {
+    >div:not(.col-span-2) {
+        @apply border-r-1 border-l-[var(--color-secondary)];
+
+        >p:first-child:not(:nth-child(2)) {
+            @apply text-xl;
+        }
+
+        >p:nth-child(2) {
+            @apply text-lg ml-4;
+        }
+
+
+    }
+
+    >div.col-span-2 {
+        @apply py-4 pl-8;
+    }
+
+    >div:not(.col-span-2):not(:empty) {}
+} */
+.editorial-board-content {
+    th {
+        @apply font-normal text-start align-top;
+    }
+
+    th,
+    td {
+        @apply px-6 py-2;
+    }
+
+    th,
+    td:first-child {
+        border-right: 1px solid #000;
+    }
+}

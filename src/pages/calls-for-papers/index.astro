@@ -1,0 +1,23 @@
+---
+export const prerender = false;
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import CallForPapersItem from "@components/pages/calls-for-papers/CallForPapersItem.astro";
+import { EXAMPLE_CALLS } from "./ExampleCall";
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: `Calls for papers`,
+		description: "Acta Mechanica et Imperium all issues",
+	}}
+	image={aboutPageMainImage}
+	pageTitle=`Calls for papers`
+>
+	<div class="container mx-auto mt-8">
+		<div class="mt-8 flex flex-col gap-8">
+			<CallForPapersItem {...EXAMPLE_CALLS[0]} />
+			<CallForPapersItem {...EXAMPLE_CALLS[0]} />
+		</div>
+	</div>
+</BaseInformationPageLayout>

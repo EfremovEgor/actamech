@@ -1,0 +1,165 @@
+---
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import SectionTitle from "@components/common/SectionTitle.astro";
+---
+
+<BaseInformationPageLayout
+  head={{
+    title: "Declaration on privacy",
+    description: "Acta Mechanica et Imperium ethical publication policy",
+  }}
+  image={aboutPageMainImage}
+  pageTitle="Declaration on privacy"
+>
+  <div class="container mx-auto mt-8">
+    <article class="text-left-border">
+      <p>
+        Any information about authors (family name, name, patronymic, position,
+        academic degree, academic title, ORCID, Scopus Author ID, Science Index
+        of the author, author’s organization, organization address, e-mail
+        address, phone number for readers to communicate with authors), given by
+        them to be published in the journal, becomes accessible for anybody;
+        authors confirm consent at the time of manuscript submission.
+        Publication of the above-mentioned data is accomplished allowing for
+        authors’ interests as it makes for complete and correct account of
+        publications and their citation by relevant reference organizations and
+        for providing possible contacts between authors and scientific society
+        as a whole.
+      </p>
+      <p>
+        Private information which is given to the journal by authors apart from
+        the above-mentioned obligatory data, including additional e-mail
+        addresses and phone numbers, will be used only for contacting authors in
+        the process of preparing a paper for publication. The Editorial board
+        undertakes not to give this private information to any third parties
+        which can use it for pursuing any other goals.
+      </p>
+    </article>
+  </div>
+  <SectionTitle title="Policy towards plagiarism" />
+  <section class="container mx-auto mt-8">
+    <article class="text-left-border">
+      <p>
+        All the papers submitted to the Editorial office at the preliminary
+        stage of consideration are to be inspected in relation to correctness of
+        borrowings. Should there be any justified suspicions in plagiarism or
+        should any technical tricks which can allow to hide it be detected a
+        paper is not accepted for further consideration. Authors are informed
+        about a paper rejection due to occurrence of suspicion in plagiarism.
+        Should plagiarism be detected in a paper which has already been
+        published such paper is retracted from publication without any
+        possibility to be recovered (without physical removal and only by
+        publishing a statement on plagiarism occurrence on the relevant
+        web-pages on the journal web-site and a paper file). Should any
+        incorrect borrowing occur in a submitted paper, all cases of such
+        borrowings are to be considered individually.
+      </p>
+      <p>The Editorial office treat the following as plagiarism:</p>
+      <ul class="list">
+        <li>
+          use (word-for-word citing) of any materials in any volume without
+          indicating a source;
+        </li>
+        <li>
+          use of images, figures, photos, tables, graphs, schemes and any other
+          graphic information without indicating a source;
+        </li>
+        <li>
+          use of images, figures, photos, tables, graphs, schemes and any other
+          graphic information published in scientific and popular editions
+          without a copyright holder’s consent;
+        </li>
+        <li>
+          absence of written consent to use materials authors or copyright
+          holders of which forbid use of their materials without firm agreement.
+        </li>
+      </ul>
+      <p>The Editorial office treat the following as incorrect borrowings:</p>
+      <ul class="list">
+        <li>
+          absence of graphic highlighting of a word-for-word cited text but with
+          a link to s source;
+        </li>
+        <li>
+          incorrect references (incomplete data on reference description of a
+          source which make its identification rather complicated);
+        </li>
+        <li>
+          a reference which is given not to the first source of a borrowed text
+          without clear indication of the fact (an error in determining the
+          original source);
+        </li>
+        <li>
+          absence of references from the text to sources given in a paper
+          references;
+        </li>
+        <li>
+          excessive citing (when there are references to sources and graphic
+          highlighting of a cited text), a volume of which cannot be justified
+          by a paper genre and goals.
+        </li>
+      </ul>
+      <p>
+        An acceptable volume of citing (correct borrowings) cannot exceed 30% of
+        the total paper volume. This requirement is not applicable to reviews
+        and other papers which objectively require greater citing volumes. Such
+        materials are considered by the Editorial office individually. Papers
+        the content of which corresponds to other scientific materials of the
+        same author (thesis, abstract of a thesis, monograph, previous
+        publications in journals and collections) in volume greater than 30% are
+        not accepted for publishing.
+      </p>
+    </article>
+  </section>
+  <SectionTitle title="The rules of retraction" />
+  <section class="container mx-auto mt-8">
+    <article class="text-left-border">
+      <p>
+        Revocation of text from the publication (retraction) is a mechanism of
+        correcting the published information and alerts readers that the
+        publication contains serious deficiencies or erroneous data that cannot
+        be trusted. The unreliability of the data may be the result of bona fide
+        error or deliberate violations.
+      </p>
+      <p>
+        Retraction is also used to alert readers about the cases of duplicate
+        publications (when authors present the same data in several
+        publications), plagiarism and concealment of conflicts of interest that
+        could affect the interpretation of the data or recommendations about
+        their use.
+      </p>
+      <p>
+        Grounds for revocation of the article is the violation of the ethical
+        principles of the journal. Among the grounds for revocation of the
+        article include:
+      </p>
+      <ul class="list">
+        <li>
+          the presence of illegal borrowing (plagiarism) in a large volume;
+        </li>
+        <li>duplicate articles in multiple periodicals;</li>
+        <li>
+          detection in the work of fraud or fabrication (e.g., manipulation of
+          experimental data);
+        </li>
+        <li>
+          detection in the work of serious mistakes (e.g., incorrect
+          interpretation of results), which casts doubt on its scientific value;
+        </li>
+        <li>
+          not correct the composition of the authors (no author; includes
+          individuals who do not meet the criteria of authorship);
+        </li>
+        <li>hidden conflict of interest;</li>
+        <li>reproduction of articles without the author’s consent;</li>
+        <li>other violations of ethical principles of the journal.</li>
+      </ul>
+      <p>The reason for the retraction of article are:</p>
+      <ul class="list">
+        <li>the author’s appeal on the revocation of the article;</li>
+        <li>the decide of the chief editor of the journal.</li>
+      </ul>
+    </article>
+  </section>
+</BaseInformationPageLayout>

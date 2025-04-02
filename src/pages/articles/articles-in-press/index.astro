@@ -1,0 +1,84 @@
+---
+export const prerender = false;
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import F7ChevronLeft2 from "~icons/f7/chevron-left-2";
+import F7ChevronRight2 from "~icons/f7/chevron-right-2";
+import ArticleCard from "@components/common/articles/ArticleCard";
+import { ARTICLES } from "../ExampleArticle";
+const { id } = Astro.params;
+const article = ARTICLES[0];
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: `Articles in press`,
+		description: "Acta Mechanica et Imperium all issues",
+	}}
+	image={aboutPageMainImage}
+	pageTitle=`Articles in press`
+>
+	<div class="container mx-auto mt-8">
+		<div class="flex-1 gap-16">
+			<p class="text-xl my-16">
+				Articles in press are accepted, peer reviewed articles that are
+				not yet assigned to volumes/issues, but are citable using DOI.
+			</p>
+			<div>
+				<h1 class="border-underline-2 pb-4 text-lg">
+					Regular articles
+				</h1>
+				<div class="flex flex-col gap-12 mt-8">
+					<ArticleCard
+						client:visible
+						{...article}
+						abstract={article.content.find(
+							(content) => content.type == "abstract"
+						)?.content}
+						extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+					/>
+					<ArticleCard
+						client:visible
+						{...article}
+						abstract={article.content.find(
+							(content) => content.type == "abstract"
+						)?.content}
+						extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+					/>
+					<ArticleCard
+						client:visible
+						{...article}
+						abstract={article.content.find(
+							(content) => content.type == "abstract"
+						)?.content}
+						extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+					/>
+					<ArticleCard
+						client:visible
+						{...article}
+						abstract={article.content.find(
+							(content) => content.type == "abstract"
+						)?.content}
+						extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+					/>
+					<ArticleCard
+						client:visible
+						{...article}
+						abstract={article.content.find(
+							(content) => content.type == "abstract"
+						)?.content}
+						extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+					/>
+					<ArticleCard
+						client:visible
+						{...article}
+						abstract={article.content.find(
+							(content) => content.type == "abstract"
+						)?.content}
+						extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseInformationPageLayout>
