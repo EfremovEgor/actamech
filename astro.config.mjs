@@ -30,7 +30,9 @@ export default defineConfig({
 			}),
 		],
 	},
-
+	server: {
+		allowedHosts: ["actamech.com", "actamech"],
+	},
 	adapter: node({
 		mode: "standalone",
 	}),
