@@ -1,0 +1,25 @@
+---
+import { type IBreadcrumb } from "@components/types/interfaces/common";
+interface Props extends IBreadcrumb {}
+const { navigation } = Astro.props;
+---
+
+<div class="flex flex-row items-center gap-2 font-semibold text-xs">
+  {
+    navigation.map((item, index) => (
+      <>
+        {item.url ? (
+          <a class=" text-tertiary-text uppercase hover-accent" href={item.url}>
+            {item.name}
+          </a>
+        ) : (
+          <span class="text-tertiary-text uppercase cursor-default">
+            {item.name}
+          </span>
+        )}
+
+        {index <= navigation.length - 2 && <span class="select-none">></span>}
+      </>
+    ))
+  }
+</div>

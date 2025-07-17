@@ -1,139 +1,151 @@
 ---
 export const prerender = false;
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
 import ArticleCard from "@components/common/articles/ArticleCard";
 import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
 const { id } = Astro.params;
 import { ARTICLES } from "../ExampleArticle";
+import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
+import { NAVIGATION } from "@lib/client/navigation";
 const article = ARTICLES[0];
 ---
 
 <BaseInformationPageLayout
-  head={{
-    title: "5th BRICS/Africa SciTech Forum",
-    description: "Acta Mechanica et Imperium 5th BRICS/Africa SciTech Forum",
-  }}
-  image={aboutPageMainImage}
-  pageTitle="Article Collections"
+	head={{
+		title: "5th BRICS/Africa SciTech Forum",
+		description:
+			"Acta Mechanica et Imperium 5th BRICS/Africa SciTech Forum",
+	}}
+	navigation={{
+		navigation: [
+			...NAVIGATION.articlesAndIssues.articleCollectionitem,
+			{
+				name: "scitech 2024",
+				url: "/articles/special-issues/scitech2024",
+			},
+		],
+	}}
+	image={mainImage}
+	pageTitle="Article Collections"
 >
-  <div class="container mx-auto mt-8">
-    <h1 class="text-3xl border-underline-2 pb-4 w-fit">
-      5th BRICS/Africa SciTech Forum on Space Flight Mechanics and Space
-      Structures and Materials
-    </h1>
-    <p class="mt-4 text-lg text-tertiary-text">
-      Last update 27-30 November 2024
-    </p>
-    <article
-      class="base-text-section bg-secondary/5 rounded-base px-4 py-4 text-lg mt-4"
-    >
-      This special issue highlights selected proceedings of the 5th BRICS/Africa
-      SciTech Forum on Space Flight Mechanics and Space Structures and
-      Materials, which was held November 2024 in Moscow, Russia (RUDN
-      University). The papers in this special issue cover a range of topics
-      related to planetary defense, which is defense against Earth impacts by
-      hazardous asteroids and comets. These include Spaceflight Mechanics, Space
-      Systems & Technology, Planetary Defence & Near-Earth Objects, Deep Space
-      Exploration, Earth Observations, Human Spaceflight, Space Operations &
-      Support, Space Safety & Security, Space Materials & Structures, Space
-      Propulsion, Space Communication & Navigation, Space Economics &
-      Commercialization.
-    </article>
-    <SectionTitleNoContainer title="Guest Editors" />
-    <div class="grid grid-cols-2 gap-8 mt-8">
-      <div class="bg-secondary/5 rounded-base px-4 py-4">
-        <h1 class="text-accent">Prof. Yury Razoumny</h1>
-        <p class="mt-4 text-sm">
-          Director of Academy of Engineering, RUDN University, Russia
-        </p>
-      </div>
-      <div class="bg-secondary/5 rounded-base px-4 py-4">
-        <h1 class="text-accent">Prof. Shufan Wu</h1>
-        <p class="mt-4 text-sm">
-          Professor and Director, Shanghai Jiao Tong University, China
-        </p>
-      </div>
-      <div class="bg-secondary/5 rounded-base px-4 py-4">
-        <h1 class="text-accent">Prof. Antonio Prado</h1>
-        <p class="mt-4 text-sm">
-          Pro-Rector and Professor, National Institute for Space Research,
-          Brazil
-        </p>
-      </div>
+	<div class="container mx-auto mt-8">
+		<h1 class="text-3xl border-underline-2 pb-4 w-fit">
+			5th BRICS/Africa SciTech Forum on Space Flight Mechanics and Space
+			Structures and Materials
+		</h1>
+		<p class="mt-4 text-lg text-tertiary-text">
+			Last update 27-30 November 2024
+		</p>
+		<article
+			class="base-text-section bg-secondary/5 rounded-base px-4 py-4 text-lg mt-4"
+		>
+			This special issue highlights selected proceedings of the 5th
+			BRICS/Africa SciTech Forum on Space Flight Mechanics and Space
+			Structures and Materials, which was held November 2024 in Moscow,
+			Russia (RUDN University). The papers in this special issue cover a
+			range of topics related to planetary defense, which is defense
+			against Earth impacts by hazardous asteroids and comets. These
+			include Spaceflight Mechanics, Space Systems & Technology, Planetary
+			Defence & Near-Earth Objects, Deep Space Exploration, Earth
+			Observations, Human Spaceflight, Space Operations & Support, Space
+			Safety & Security, Space Materials & Structures, Space Propulsion,
+			Space Communication & Navigation, Space Economics &
+			Commercialization.
+		</article>
+		<SectionTitleNoContainer title="Guest Editors" />
+		<div class="grid grid-cols-2 gap-8 mt-8">
+			<div class="bg-secondary/5 rounded-base px-4 py-4">
+				<h1 class="text-accent">Prof. Yury Razoumny</h1>
+				<p class="mt-4 text-sm">
+					Director of Academy of Engineering, RUDN University, Russia
+				</p>
+			</div>
+			<div class="bg-secondary/5 rounded-base px-4 py-4">
+				<h1 class="text-accent">Prof. Shufan Wu</h1>
+				<p class="mt-4 text-sm">
+					Professor and Director, Shanghai Jiao Tong University, China
+				</p>
+			</div>
+			<div class="bg-secondary/5 rounded-base px-4 py-4">
+				<h1 class="text-accent">Prof. Antonio Prado</h1>
+				<p class="mt-4 text-sm">
+					Pro-Rector and Professor, National Institute for Space
+					Research, Brazil
+				</p>
+			</div>
 
-      <div class="bg-secondary/5 rounded-base px-4 py-4">
-        <h1 class="text-accent">Dr. Ravinder Rena</h1>
-        <p class="mt-4 text-sm">
-          Professor, Durban University of Technology, South Africa
-        </p>
-      </div>
-      <div class="bg-secondary/5 rounded-base px-4 py-4">
-        <h1 class="text-accent">Dr. Ketan Kotecha</h1>
-        <p class="mt-4 text-sm">
-          Dean and Professor, Symbiosis Institute of Technology, India
-        </p>
-      </div>
+			<div class="bg-secondary/5 rounded-base px-4 py-4">
+				<h1 class="text-accent">Dr. Ravinder Rena</h1>
+				<p class="mt-4 text-sm">
+					Professor, Durban University of Technology, South Africa
+				</p>
+			</div>
+			<div class="bg-secondary/5 rounded-base px-4 py-4">
+				<h1 class="text-accent">Dr. Ketan Kotecha</h1>
+				<p class="mt-4 text-sm">
+					Dean and Professor, Symbiosis Institute of Technology, India
+				</p>
+			</div>
 
-      <div class="bg-secondary/5 rounded-base px-4 py-4">
-        <h1 class="text-accent">Prof. Giancarlo Genta</h1>
-        <p class="mt-4 text-sm">
-          Professor Emeritus, Politecnico di Torino, Italy
-        </p>
-      </div>
-    </div>
-    <SectionTitleNoContainer title="Articles" />
-    <p class="mt-4 text-lg text-tertiary-text">
-      <div class="flex flex-col gap-12 mt-8">
-        <ArticleCard
-          client:visible
-          {...article}
-          abstract={article.content.find(
-            (content) => content.type == "abstract"
-          )?.content}
-          extra="Research Article | March 21, 2025"
-        />
-        <ArticleCard
-          client:visible
-          {...article}
-          abstract={article.content.find(
-            (content) => content.type == "abstract"
-          )?.content}
-          extra="Research Article | March 21, 2025"
-        />
-        <ArticleCard
-          client:visible
-          {...article}
-          abstract={article.content.find(
-            (content) => content.type == "abstract"
-          )?.content}
-          extra="Research Article | March 21, 2025"
-        />
-        <ArticleCard
-          client:visible
-          {...article}
-          abstract={article.content.find(
-            (content) => content.type == "abstract"
-          )?.content}
-          extra="Research Article | March 21, 2025"
-        />
-        <ArticleCard
-          client:visible
-          {...article}
-          abstract={article.content.find(
-            (content) => content.type == "abstract"
-          )?.content}
-          extra="Research Article | March 21, 2025"
-        />
-        <ArticleCard
-          client:visible
-          {...article}
-          abstract={article.content.find(
-            (content) => content.type == "abstract"
-          )?.content}
-          extra="Research Article | March 21, 2025"
-        />
-      </div>
-    </p>
-  </div>
+			<div class="bg-secondary/5 rounded-base px-4 py-4">
+				<h1 class="text-accent">Prof. Giancarlo Genta</h1>
+				<p class="mt-4 text-sm">
+					Professor Emeritus, Politecnico di Torino, Italy
+				</p>
+			</div>
+		</div>
+		<SectionTitleNoContainer title="Articles" />
+		<p class="mt-4 text-lg text-tertiary-text">
+			<div class="flex flex-col gap-12 mt-8">
+				<ArticleCard
+					client:visible
+					{...article}
+					abstract={article.content.find(
+						(content) => content.type == "abstract"
+					)?.content}
+					extra="Research Article | March 21, 2025"
+				/>
+				<ArticleCard
+					client:visible
+					{...article}
+					abstract={article.content.find(
+						(content) => content.type == "abstract"
+					)?.content}
+					extra="Research Article | March 21, 2025"
+				/>
+				<ArticleCard
+					client:visible
+					{...article}
+					abstract={article.content.find(
+						(content) => content.type == "abstract"
+					)?.content}
+					extra="Research Article | March 21, 2025"
+				/>
+				<ArticleCard
+					client:visible
+					{...article}
+					abstract={article.content.find(
+						(content) => content.type == "abstract"
+					)?.content}
+					extra="Research Article | March 21, 2025"
+				/>
+				<ArticleCard
+					client:visible
+					{...article}
+					abstract={article.content.find(
+						(content) => content.type == "abstract"
+					)?.content}
+					extra="Research Article | March 21, 2025"
+				/>
+				<ArticleCard
+					client:visible
+					{...article}
+					abstract={article.content.find(
+						(content) => content.type == "abstract"
+					)?.content}
+					extra="Research Article | March 21, 2025"
+				/>
+			</div>
+		</p>
+	</div>
 </BaseInformationPageLayout>

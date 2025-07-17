@@ -26,6 +26,11 @@ const Authors = ({ authors }: { authors: IArticleAuthor[] }) => {
               onClick={() => handleClick(author)}
             >
               {author.fullName}
+              <sup>
+                {author.affiliations
+                  ?.map((affiliation) => affiliation.id)
+                  .join(" ")}
+              </sup>
             </span>
             {index < authors.length - 1 && ", "}
           </>
@@ -39,7 +44,7 @@ const Authors = ({ authors }: { authors: IArticleAuthor[] }) => {
           }}
         />
       )}
-      <AuthorsAffiliations />
+      <AuthorsAffiliations authors={authors} />
     </>
   );
 };

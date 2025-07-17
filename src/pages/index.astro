@@ -17,20 +17,27 @@ import ArticleCard from "@components/pages/index/ArticleCard.astro";
     />
     <div
       class="text-secondary-text absolute z-10
+            
             top-0 left-0 h-full w-full
-            flex items-center justify-center flex-col
-            gap-10"
+            flex items-center justify-center"
     >
-      <h1 class="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
-        ACTA MECHANICA ET IMPERIUM
-      </h1>
-      <span class="px-8 py-2 italic border-accent border-b-2 text-xl">
-        Publishing model: Online
-      </span>
+      <div
+        class="py-8 backdrop-blur-xs w-full flex items-center justify-center flex-col"
+      >
+        <h1 class="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
+          ACTA MECHANICA ET IMPERIUM
+        </h1>
+        <div class="text-center flex flex-col gap-4 mt-4">
+          <p class="px-8 py-2 italic border-accent border-b-2 text-xl">
+            Publishing model: Online
+          </p>
+          <p>ISSN: 2400-9900</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class=`container mx-auto py-8 bg-no-repeat bg-cover`>
-    <h1 class="text-3xl text-accent uppercase ml-4">About actamech</h1>
+    <h1 class="text-3xl text-accent uppercase ml-4">ABOUT JOURNAL</h1>
 
     <div
       class="text-left-border ml-4 mt-8 grid grid-flow-row-dense grid-cols-4"

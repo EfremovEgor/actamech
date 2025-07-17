@@ -1,57 +1,73 @@
 ---
 export const prerender = false;
-import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
 import { ARTICLES } from "./ExampleArticle";
 import ArticleNav from "@components/articles/ArticleNav";
 import "@styles/articles/articles.css";
 import ArticleContent from "@components/articles/ArticleContent";
 import Authors from "@components/pages/article-item/Authors";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Breadcrumb from "@components/common/Breadcrumb.astro";
 const { id } = Astro.params;
 const article = ARTICLES.find((article) => article.id == id);
 if (!article) {
-  return new Response(null, { status: 404 });
+	return new Response(null, { status: 404 });
 }
 ---
 
 <BaseLayout
-  head={{
-    title: article.title,
-    description: article.highlights?.join(", ").toLowerCase(),
-  }}
+	head={{
+		title: article.title,
+		description: article.highlights?.join(", ").toLowerCase(),
+	}}
 >
-  <div class="container mx-auto">
-    <div class="border-b-secondary border-b-2 pb-8">
-      <div class="text-center mt-8">
-        <h1 class="text-3xl uppercase">ACTA MECHANICA ET IMPERIUM</h1>
-        <h2 class="text-xl uppercase">{article.collectionInfo}</h2>
-      </div>
-    </div>
-    <div class="mt-8 border-b-secondary border-b-2 pb-4">
-      <div class="text-center mt-16">
-        <h1 class="text-3xl font-semibold">{article.title}</h1>
-        <Authors client:load authors={article.authors} />
-      </div>
-      <div class="flex flex-row justify-between text-primary-text/30 mt-16">
-        <span
-          class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-left"
-        >
-          Research paper
-        </span>
-        <span
-          class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-right"
-        >
-          <a target="_blank" href=`https://doi.org/${article.doi}`>
-            {article.doi}
-          </a>
-        </span>
-      </div>
-    </div>
+	<div class="container mx-auto mt-8">
+		<Breadcrumb
+			{...{
+				navigation: [
+					{ name: "Home", url: "/" },
+					{
+						name: "Volumes And Articles",
+						url: "/articles/all-issues",
+					},
+					{ name: `Volume 1`, url: `/volumes/${id}` },
+					{ name: `${id}`, url: `/articles/${id}` },
+				],
+			}}
+		/>
+	</div>
+	<div class="container mx-auto">
+		<div class="border-b-secondary border-b-2 pb-8">
+			<div class="text-center mt-8">
+				<h1 class="text-3xl uppercase">ACTA MECHANICA ET IMPERIUM</h1>
+				<h2 class="text-xl uppercase">{article.collectionInfo}</h2>
+			</div>
+		</div>
+		<div class="mt-8 border-b-secondary border-b-2 pb-4">
+			<div class="text-center mt-16">
+				<h1 class="text-3xl font-semibold">{article.title}</h1>
+				<Authors client:load authors={article.authors} />
+			</div>
+			<div
+				class="flex flex-row justify-between text-primary-text/30 mt-16"
+			>
+				<span
+					class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-left"
+				>
+					Research paper
+				</span>
+				<span
+					class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-right"
+				>
+					<a target="_blank" href=`https://doi.org/${article.doi}`>
+						{article.doi}
+					</a>
+				</span>
+			</div>
+		</div>
 
-    <div class="flex flex-row mt-16 article_grid">
-      <ArticleNav client:load article={article} />
-      <ArticleContent article={article} />
-    </div>
-  </div>
+		<div class="flex flex-row mt-16 article_grid">
+			<ArticleNav client:load article={article} />
+			<ArticleContent article={article} />
+		</div>
+	</div>
 </BaseLayout>

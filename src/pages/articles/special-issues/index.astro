@@ -1,25 +1,28 @@
 ---
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
 import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
-import CallForPapersItem from "@components/pages/special-issues/CallForPapersItem.astro";
-import { EXAMPLE_CALLS } from "src/pages/calls-for-papers/ExampleCall";
 import ArticleCard from "@components/common/articles/ArticleCard";
 import { ARTICLES } from "../ExampleArticle";
+import { NAVIGATION } from "@lib/client/navigation";
+import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
 const article = ARTICLES[0];
 ---
 
 <BaseInformationPageLayout
-  head={{
-    title: "Special issues and article collections",
-    description:
-      "Acta Mechanica et Imperium special issues and article collections",
-  }}
-  image={aboutPageMainImage}
-  pageTitle="Special issues and article collections"
+	head={{
+		title: "Special issues and article collections",
+		description:
+			"Acta Mechanica et Imperium special issues and article collections",
+	}}
+	navigation={{
+		navigation:
+			NAVIGATION.articlesAndIssues.specialIssuesAndArticleCollections,
+	}}
+	image={mainImage}
+	pageTitle="Special issues and article collections"
 >
-  <div class="container mx-auto mt-8">
-    <!-- <SectionTitleNoContainer top="0" title="Calls for papers" />
+	<div class="container mx-auto mt-8">
+		<!-- <SectionTitleNoContainer top="0" title="Calls for papers" />
 		<div class="mt-8 flex flex-col gap-8">
 			<CallForPapersItem {...EXAMPLE_CALLS[0]} />
 			<CallForPapersItem {...EXAMPLE_CALLS[0]} />
@@ -30,112 +33,116 @@ const article = ARTICLES[0];
 			class="w-fit ml-auto block mt-8 underline text-tertiary-text hover-accent"
 			>View all Calls for Papers for Special Issues</a
 		> -->
-    <!-- <SectionTitleNoContainer title="Article collections" /> -->
+		<!-- <SectionTitleNoContainer title="Article collections" /> -->
 
-    <!-- <p class="mt-10"> -->
-    <p>
-      This page contains a list of all available article collections, special
-      issues and supplements published within the journal.
-    </p>
-    <div class="mt-8 flex flex-col gap-8">
-      <div class="grid grid-cols-2 gap-8">
-        <a
-          href="/articles/special-issues/scitech2024"
-          class="flex flex-col justify-around text-center bg-secondary/5 rounded-base p-4 w-full"
-        >
-          <span class="text-lg font-semibold"
-            >5th BRICS/Africa SciTech Forum on Space Flight Mechanics and Space
-            Structures and Materials</span
-          >
-          <span class="text-sm">Last update 18 November 2024</span>
-        </a>
-        <div class="py-4 text-sm border-b-secondary border-b-2 w-full">
-          <span>Edited by:</span>
-          <ul class="mt-4 flex flex-col gap-2">
-            <li>
-              Prof. Yury Razoumny - Director of Academy of Engineering, RUDN
-              University, Russia
-            </li>
-            <li>
-              Prof. Antonio Prado - Pro-Rector and Professor, National Institute
-              for Space Research, Brazil
-            </li>
-            <li>
-              Dr. Ketan Kotecha - Dean and Professor, Symbiosis Institute of
-              Technology, India
-            </li>
-            <li>
-              Prof. Shufan Wu - Professor and Director, Shanghai Jiao Tong
-              University, China
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 gap-8">
-        <a
-          href="/articles/special-issues/scitech2024"
-          class="flex flex-col justify-around text-center bg-secondary/5 rounded-base p-4 w-full"
-        >
-          <span class="text-lg font-semibold"
-            >4th BRICS/Africa SciTech Forum on Space Flight Mechanics and Space
-            Structures and Materials</span
-          >
-          <span class="text-sm">Last update 18 November 2023</span>
-        </a>
-        <div class="py-4 text-sm border-b-secondary border-b-2 w-full">
-          <span>Edited by:</span>
-          <ul class="mt-4 flex flex-col gap-2">
-            <li>
-              Prof. Yury Razoumny - Director of Academy of Engineering, RUDN
-              University, Russia
-            </li>
-            <li>
-              Prof. Antonio Prado - Pro-Rector and Professor, National Institute
-              for Space Research, Brazil
-            </li>
-            <li>
-              Dr. Ketan Kotecha - Dean and Professor, Symbiosis Institute of
-              Technology, India
-            </li>
-            <li>
-              Prof. Shufan Wu - Professor and Director, Shanghai Jiao Tong
-              University, China
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+		<!-- <p class="mt-10"> -->
+		<p>
+			This page contains a list of all available article collections,
+			special issues and supplements published within the journal.
+		</p>
+		<div class="mt-8 flex flex-col gap-8">
+			<div class="grid grid-cols-2 gap-8">
+				<a
+					href="/articles/special-issues/scitech2024"
+					class="flex flex-col justify-around text-center bg-secondary/5 rounded-base p-4 w-full"
+				>
+					<span class="text-lg font-semibold"
+						>5th BRICS/Africa SciTech Forum on Space Flight
+						Mechanics and Space Structures and Materials</span
+					>
+					<span class="text-sm">Last update 18 November 2024</span>
+				</a>
+				<div class="py-4 text-sm border-b-secondary border-b-2 w-full">
+					<span>Edited by:</span>
+					<ul class="mt-4 flex flex-col gap-2">
+						<li>
+							Prof. Yury Razoumny - Director of Academy of
+							Engineering, RUDN University, Russia
+						</li>
+						<li>
+							Prof. Antonio Prado - Pro-Rector and Professor,
+							National Institute for Space Research, Brazil
+						</li>
+						<li>
+							Dr. Ketan Kotecha - Dean and Professor, Symbiosis
+							Institute of Technology, India
+						</li>
+						<li>
+							Prof. Shufan Wu - Professor and Director, Shanghai
+							Jiao Tong University, China
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="grid grid-cols-2 gap-8">
+				<a
+					href="/articles/special-issues/scitech2024"
+					class="flex flex-col justify-around text-center bg-secondary/5 rounded-base p-4 w-full"
+				>
+					<span class="text-lg font-semibold"
+						>4th BRICS/Africa SciTech Forum on Space Flight
+						Mechanics and Space Structures and Materials</span
+					>
+					<span class="text-sm">Last update 18 November 2023</span>
+				</a>
+				<div class="py-4 text-sm border-b-secondary border-b-2 w-full">
+					<span>Edited by:</span>
+					<ul class="mt-4 flex flex-col gap-2">
+						<li>
+							Prof. Yury Razoumny - Director of Academy of
+							Engineering, RUDN University, Russia
+						</li>
+						<li>
+							Prof. Antonio Prado - Pro-Rector and Professor,
+							National Institute for Space Research, Brazil
+						</li>
+						<li>
+							Dr. Ketan Kotecha - Dean and Professor, Symbiosis
+							Institute of Technology, India
+						</li>
+						<li>
+							Prof. Shufan Wu - Professor and Director, Shanghai
+							Jiao Tong University, China
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-    <SectionTitleNoContainer title="Latest Articles" />
-    <div class="flex flex-col gap-12 mt-8">
-      <ArticleCard
-        client:visible
-        {...article}
-        abstract={article.content.find((content) => content.type == "abstract")
-          ?.content}
-        extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
-      />
-      <ArticleCard
-        client:visible
-        {...article}
-        abstract={article.content.find((content) => content.type == "abstract")
-          ?.content}
-        extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
-      />
-      <ArticleCard
-        client:visible
-        {...article}
-        abstract={article.content.find((content) => content.type == "abstract")
-          ?.content}
-        extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
-      />
-      <ArticleCard
-        client:visible
-        {...article}
-        abstract={article.content.find((content) => content.type == "abstract")
-          ?.content}
-        extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
-      />
-    </div>
-  </div>
+		<SectionTitleNoContainer title="Latest Articles" />
+		<div class="flex flex-col gap-12 mt-8">
+			<ArticleCard
+				client:visible
+				{...article}
+				abstract={article.content.find(
+					(content) => content.type == "abstract"
+				)?.content}
+				extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+			/>
+			<ArticleCard
+				client:visible
+				{...article}
+				abstract={article.content.find(
+					(content) => content.type == "abstract"
+				)?.content}
+				extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+			/>
+			<ArticleCard
+				client:visible
+				{...article}
+				abstract={article.content.find(
+					(content) => content.type == "abstract"
+				)?.content}
+				extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+			/>
+			<ArticleCard
+				client:visible
+				{...article}
+				abstract={article.content.find(
+					(content) => content.type == "abstract"
+				)?.content}
+				extra="Research Article | In Press, Journal Pre-proof, Available online 27 April 2025"
+			/>
+		</div>
+	</div>
 </BaseInformationPageLayout>

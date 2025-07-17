@@ -3,12 +3,16 @@ import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro"
 import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
 import SectionTitle from "@components/common/SectionTitle.astro";
 import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+import { NAVIGATION } from "@lib/client/navigation";
 ---
 
 <BaseInformationPageLayout
   head={{
     title: `Author Guidelines`,
     description: "Acta Mechanica et Imperium Author Guidelines",
+  }}
+  navigation={{
+    navigation: NAVIGATION.publish.guideForAuthors,
   }}
   image={aboutPageMainImage}
   pageTitle=`Author Guidelines`

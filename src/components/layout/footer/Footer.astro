@@ -13,7 +13,7 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 >
   <div class="container flex justify-between m-auto">
     <a href="/" class="flex flex-row items-center my-auto gap-4 h-full">
-      <div class="w-[330px]">
+      <div>
         <h1 class="font-semibold font-playfair-display text-xl text-nowrap">
           ACTA MECHANICA ET IMPERIUM
         </h1>
@@ -23,13 +23,15 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 					Et Imperium», ActaMech Journal)
 				</p> -->
         <div class="mt-6 flex flex-row gap-2 justify-between">
-          <MaterialSymbolsMailOutline className="text-3xl" />
-          <Image class="h-10 w-auto ml-5" src={RUDNLogo} alt="RUDN Logo" />
-          <Image
-            class="h-10 w-auto ml-5"
-            src={ConfChairLogo}
-            alt="ConfChair Logo"
-          />
+          <Image class="h-10 w-auto" src={RUDNLogo} alt="RUDN Logo" />
+          <div class="flex flex-row gap-2 items-center">
+            <Image
+              class="h-10 w-auto"
+              src={ConfChairLogo}
+              alt="ConfChair Logo"
+            />
+            <p class="text-xl">ConfChair</p>
+          </div>
         </div>
       </div>
       <Image class="h-30 w-auto ml-5" src={siteIcon} alt="Site icon" />
@@ -58,6 +60,7 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
         <MainFooterLink text="Editorial board" url="/" />
         <MainFooterLink text="Ethics Policy" url="/" />
         <MainFooterLink text="Declaration on privacy" url="/" />
+        <MainFooterLink text="Contacts" url="/" />
       </div>
     </section>
     <div
@@ -77,18 +80,19 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
     class="text-gray-400 text-sm flex flex-row justify-between items-end border-t-2 px-4 pt-2 border-t-primary"
   >
     <section>
-      <p>Copyright © 2025 RUDN University. All rights reserved.</p>
-      <p>AMEI is a partner of RUDN University and RAS.</p>
+      <p>Copyright © 2025. All rights reserved.</p>
     </section>
     <section>
-      <a class="hover:text-gray-100 base-colors-transition" href="/contacts"
-        >Contact</a
+      <a
+        class="hover:text-gray-100 base-colors-transition"
+        href="/about/contacts">Contact</a
       > |
       <a class="hover:text-gray-100 base-colors-transition" href="/sitemap"
         >Site Map</a
       > |
-      <a class="hover:text-gray-100 base-colors-transition" href="/policy"
-        >Terms & Privacy Policy</a
+      <a
+        class="hover:text-gray-100 base-colors-transition"
+        href="/about/declaration-on-privacy">Terms & Privacy Policy</a
       >
     </section>
   </div>

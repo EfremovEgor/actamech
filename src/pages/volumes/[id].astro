@@ -1,137 +1,150 @@
 ---
 export const prerender = false;
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
 import F7ChevronLeft2 from "~icons/f7/chevron-left-2";
 import F7ChevronRight2 from "~icons/f7/chevron-right-2";
 import ArticleCard from "@components/common/articles/ArticleCard";
 import { ARTICLES } from "../articles/ExampleArticle";
+import { NAVIGATION } from "@lib/client/navigation";
 const { id } = Astro.params;
 const article = ARTICLES[0];
 ---
 
 <BaseInformationPageLayout
-  head={{
-    title: `Volume ${id}`,
-    description: "Acta Mechanica et Imperium all issues",
-  }}
-  image={aboutPageMainImage}
-  pageTitle=`Volumes and Articles`
+	head={{
+		title: `Volume ${id}`,
+		description: "Acta Mechanica et Imperium all issues",
+	}}
+	navigation={{
+		navigation: [
+			...NAVIGATION.volumes.volumeItem,
+			{ name: `Volume ${id}`, url: `/volumes/${id}` },
+		],
+	}}
+	image={mainImage}
+	pageTitle=`Volumes and Articles`
 >
-  <div class="container mx-auto mt-8">
-    <div class="flex flex-row divide-secondary">
-      <div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
-        <div>
-          <h1 class="text-2xl">Volume {id}</h1>
-          <h2 class="pb-2 border-b-2 border-b-accent text-xl mt-8">
-            Pages 1-1122 (March 2025)
-          </h2>
-          <div class="pb-8 border-b-1 border-b-border-primary mt-4 mb-8">
-            <a href="" class="cursor-pointer underline hover-accent"
-              >Download full issue</a
-            >
-          </div>
-          <div class="">
-            <h2 class="text-2xl inline">Other Volumes</h2>
-            <ul class="mt-4 flex flex-col gap-2">
-              <li>
-                <a class="hover-accent" href="/volumes/1"
-                  >Volume 6 (October 2025)</a
-                >
-              </li>
-              <li>
-                <a class="hover-accent" href="/volumes/1"
-                  >Volume 5 (June 2024)</a
-                >
-              </li>
-              <li>
-                <a class="hover-accent" href="/volumes/1"
-                  >Volume 4 (March 2024)</a
-                >
-              </li>
-              <li>
-                <a class="hover-accent" href="/volumes/1"
-                  >Volume 3 (November 2023)</a
-                >
-              </li>
-              <li>
-                <a class="hover-accent" href="/volumes/1"
-                  >Volume 2 (June 2023)</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="pl-8 flex-1 gap-16 border-l-border-primary border-l-1 pt-8">
-        <div class="flex flex-row justify-between text-lg">
-          <a
-            class="flex flex-row items-center gap-2 hover-accent cursor-pointer border-b-border-primary border-b-2 pr-2 min-w-1/3 pb-1"
-          >
-            <F7ChevronLeft2 />
-            <span>Previous volume/issue</span>
-          </a>
-          <a
-            class="flex flex-row justify-end items-center gap-2 hover-accent cursor-pointer border-b-border-primary border-b-2 pr-2 min-w-1/3 pb-1"
-          >
-            <span>Next volume/issue</span>
-            <F7ChevronRight2 />
-          </a>
-        </div>
-        <div class="mt-8">
-          <h1 class="border-underline-2 pb-4 text-lg">Regular articles</h1>
-          <div class="flex flex-col gap-12 mt-8">
-            <ArticleCard
-              client:visible
-              {...article}
-              abstract={article.content.find(
-                (content) => content.type == "abstract"
-              )?.content}
-              extra="Research Article | March 21, 2025"
-            />
-            <ArticleCard
-              client:visible
-              {...article}
-              abstract={article.content.find(
-                (content) => content.type == "abstract"
-              )?.content}
-              extra="Research Article | March 21, 2025"
-            />
-            <ArticleCard
-              client:visible
-              {...article}
-              abstract={article.content.find(
-                (content) => content.type == "abstract"
-              )?.content}
-              extra="Research Article | March 21, 2025"
-            />
-            <ArticleCard
-              client:visible
-              {...article}
-              abstract={article.content.find(
-                (content) => content.type == "abstract"
-              )?.content}
-              extra="Research Article | March 21, 2025"
-            />
-            <ArticleCard
-              client:visible
-              {...article}
-              abstract={article.content.find(
-                (content) => content.type == "abstract"
-              )?.content}
-              extra="Research Article | March 21, 2025"
-            />
-            <ArticleCard
-              client:visible
-              {...article}
-              abstract={article.content.find(
-                (content) => content.type == "abstract"
-              )?.content}
-              extra="Research Article | March 21, 2025"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container mx-auto mt-8">
+		<div class="flex flex-row divide-secondary">
+			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+				<div>
+					<h1 class="text-2xl">Volume {id}</h1>
+					<h2 class="pb-2 border-b-2 border-b-accent text-xl mt-8">
+						Pages 1-1122 (March 2025)
+					</h2>
+					<div
+						class="pb-8 border-b-1 border-b-border-primary mt-4 mb-8"
+					>
+						<a href="" class="cursor-pointer underline hover-accent"
+							>Download full issue</a
+						>
+					</div>
+					<div class="">
+						<h2 class="text-2xl inline">Other Volumes</h2>
+						<ul class="mt-4 flex flex-col gap-2">
+							<li>
+								<a class="hover-accent" href="/volumes/1"
+									>Volume 6 (October 2025)</a
+								>
+							</li>
+							<li>
+								<a class="hover-accent" href="/volumes/1"
+									>Volume 5 (June 2024)</a
+								>
+							</li>
+							<li>
+								<a class="hover-accent" href="/volumes/1"
+									>Volume 4 (March 2024)</a
+								>
+							</li>
+							<li>
+								<a class="hover-accent" href="/volumes/1"
+									>Volume 3 (November 2023)</a
+								>
+							</li>
+							<li>
+								<a class="hover-accent" href="/volumes/1"
+									>Volume 2 (June 2023)</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div
+				class="pl-8 flex-1 gap-16 border-l-border-primary border-l-1 pt-8"
+			>
+				<div class="flex flex-row justify-between text-lg">
+					<a
+						class="flex flex-row items-center gap-2 hover-accent cursor-pointer border-b-border-primary border-b-2 pr-2 min-w-1/3 pb-1"
+					>
+						<F7ChevronLeft2 />
+						<span>Previous volume/issue</span>
+					</a>
+					<a
+						class="flex flex-row justify-end items-center gap-2 hover-accent cursor-pointer border-b-border-primary border-b-2 pr-2 min-w-1/3 pb-1"
+					>
+						<span>Next volume/issue</span>
+						<F7ChevronRight2 />
+					</a>
+				</div>
+				<div class="mt-8">
+					<h1 class="border-underline-2 pb-4 text-lg">
+						Regular articles
+					</h1>
+					<div class="flex flex-col gap-12 mt-8">
+						<ArticleCard
+							client:visible
+							{...article}
+							abstract={article.content.find(
+								(content) => content.type == "abstract"
+							)?.content}
+							extra="Research Article | March 21, 2025"
+						/>
+						<ArticleCard
+							client:visible
+							{...article}
+							abstract={article.content.find(
+								(content) => content.type == "abstract"
+							)?.content}
+							extra="Research Article | March 21, 2025"
+						/>
+						<ArticleCard
+							client:visible
+							{...article}
+							abstract={article.content.find(
+								(content) => content.type == "abstract"
+							)?.content}
+							extra="Research Article | March 21, 2025"
+						/>
+						<ArticleCard
+							client:visible
+							{...article}
+							abstract={article.content.find(
+								(content) => content.type == "abstract"
+							)?.content}
+							extra="Research Article | March 21, 2025"
+						/>
+						<ArticleCard
+							client:visible
+							{...article}
+							abstract={article.content.find(
+								(content) => content.type == "abstract"
+							)?.content}
+							extra="Research Article | March 21, 2025"
+						/>
+						<ArticleCard
+							client:visible
+							{...article}
+							abstract={article.content.find(
+								(content) => content.type == "abstract"
+							)?.content}
+							extra="Research Article | March 21, 2025"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </BaseInformationPageLayout>

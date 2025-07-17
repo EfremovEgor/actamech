@@ -1,362 +1,373 @@
 ---
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
 import BoardDistinctPersonCard from "@components/pages/editorial-board/BoardDistinctPersonCard.astro";
 import "@styles/about/editorial-board.css";
+import { NAVIGATION } from "@lib/client/navigation";
+import mainImage from "@assets/images/mainImages/futuristic-time-machines-design.jpg";
 ---
 
 <BaseInformationPageLayout
-  head={{
-    title: "Editorial board",
-    description: "Acta Mechanica et Imperium editorial board",
-  }}
-  image={aboutPageMainImage}
-  pageTitle="Editorial board"
+	head={{
+		title: "Editorial board",
+		description: "Acta Mechanica et Imperium editorial board",
+	}}
+	navigation={{
+		navigation: NAVIGATION.about.editorialBoard,
+	}}
+	image={mainImage}
+	pageTitle="Editorial board"
 >
-  <div class="container mx-auto mt-8">
-    <div class="flex flex-row divide-secondary">
-      <div class="flex flex-col gap-8 pr-16 left_navigation-sticky">
-        <div>
-          <h2 class="font-semibold pb-2 border-b-1 border-b-accent">
-            Editorial board by country/region:
-          </h2>
-          <ul class="flex ml-2 flex-col gap-2 mt-4">
-            <li>Russia (8)</li>
-            <li>United States (2)</li>
-            <li>China (3)</li>
-            <li>Canada (2)</li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="font-semibold pb-2 border-b-1 border-b-accent">
-            Editorial board for subject areas:
-          </h2>
-          <ul class="flex flex-col gap-2 mt-4 ml-2">
-            <li>
-              <a class="hover-accent" href="#gnc"
-                >Guidance Navigation & Control</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#aod">Attitude & Orbital Dynamics</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#mdoo"
-                >Mission Design, Operation & Optimization</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#spp"> Space Power & Propulsion</a>
-            </li>
-            <li>
-              <a class="hover-accent" href="#asm"> Advanced Space Materials</a>
-            </li>
-            <li>
-              <a class="hover-accent" href="#saoe">
-                Sensors, Actuators & On-Board Equipment</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#sple">
-                Space Projects & Lessons Learned</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#ssmm">
-                Space Structures On The Moon & Mars</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#lar"
-                >Lunar & Asteroid Resources
-              </a>
-            </li>
-            <li>
-              <a class="hover-accent" href="#rsa"
-                >Remote Sensing Applications
-              </a>
-            </li>
-            <li>
-              <a class="hover-accent" href="#aisa">
-                Artificial Intelligence In Space Applications</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div
-        class="pl-16 flex-1 flex flex-col gap-16 border-l-border-primary border-l-1"
-      >
-        <div>
-          <h2 class="text-2xl pb-2 border-b-2 w-1/2">Editor in chief</h2>
-          <div class="mt-8 grid grid-cols-3 gap-8">
-            <BoardDistinctPersonCard
-              {...{
-                fullName: "Yury Razoumny",
-                country: "Russia",
-                affiliation: "RUDN University",
-                color: "accent",
-              }}
-            />
-          </div>
-        </div>
-        <div>
-          <h2 class="text-2xl pb-2 border-b-2 w-1/2">Co-Editors</h2>
-          <div>
-            <h2
-              id="gnc"
-              class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
-            >
-              Guidance Navigation & Control
-            </h2>
-            <div class="mt-8 grid grid-cols-3 gap-8">
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-            </div>
-          </div>
-          <div>
-            <h2
-              id="aod"
-              class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
-            >
-              Attitude & Orbital Dynamics
-            </h2>
-            <div class="mt-8 grid grid-cols-3 gap-8">
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-            </div>
-          </div>
-          <div>
-            <h2
-              id="mdoo"
-              class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
-            >
-              Mission Design, Operation & Optimization
-            </h2>
-            <div class="mt-8 grid grid-cols-3 gap-8">
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-            </div>
-          </div>
-          <div>
-            <h2
-              id="spp"
-              class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
-            >
-              Space Power & Propulsion
-            </h2>
-            <div class="mt-8 grid grid-cols-3 gap-8">
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-            </div>
-          </div>
-          <div>
-            <h2
-              id="asm"
-              class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
-            >
-              Advanced Space Materials
-            </h2>
-            <div class="mt-8 grid grid-cols-3 gap-8">
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-              <BoardDistinctPersonCard
-                {...{
-                  fullName: "Petr Ivanov",
-                  country: "Russia",
-                  affiliation: "RUDN University",
-                  color: "secondary",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container mx-auto mt-8">
+		<div class="flex flex-row divide-secondary">
+			<div class="flex flex-col gap-8 pr-16 left_navigation-sticky">
+				<div>
+					<h2 class="font-semibold pb-2 border-b-1 border-b-accent">
+						Editorial board by country/region:
+					</h2>
+					<ul class="flex ml-2 flex-col gap-2 mt-4">
+						<li>Russia (8)</li>
+						<li>United States (2)</li>
+						<li>China (3)</li>
+						<li>Canada (2)</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="font-semibold pb-2 border-b-1 border-b-accent">
+						Editorial board for subject areas:
+					</h2>
+					<ul class="flex flex-col gap-2 mt-4 ml-2">
+						<li>
+							<a class="hover-accent" href="#gnc"
+								>Guidance Navigation & Control</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#aod"
+								>Attitude & Orbital Dynamics</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#mdoo"
+								>Mission Design, Operation & Optimization</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#spp">
+								Space Power & Propulsion</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#asm">
+								Advanced Space Materials</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#saoe">
+								Sensors, Actuators & On-Board Equipment</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#sple">
+								Space Projects & Lessons Learned</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#ssmm">
+								Space Structures On The Moon & Mars</a
+							>
+						</li>
+						<li>
+							<a class="hover-accent" href="#lar"
+								>Lunar & Asteroid Resources
+							</a>
+						</li>
+						<li>
+							<a class="hover-accent" href="#rsa"
+								>Remote Sensing Applications
+							</a>
+						</li>
+						<li>
+							<a class="hover-accent" href="#aisa">
+								Artificial Intelligence In Space Applications</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div
+				class="pl-16 flex-1 flex flex-col gap-16 border-l-border-primary border-l-1"
+			>
+				<div>
+					<h2 class="text-2xl pb-2 border-b-2 w-1/2">
+						Editor in chief
+					</h2>
+					<div class="mt-8 grid grid-cols-3 gap-8">
+						<BoardDistinctPersonCard
+							{...{
+								fullName: "Yury Razoumny",
+								country: "Russia",
+								affiliation: "RUDN University",
+								color: "accent",
+							}}
+						/>
+					</div>
+				</div>
+				<div>
+					<h2 class="text-2xl pb-2 border-b-2 w-1/2">Co-Editors</h2>
+					<div>
+						<h2
+							id="gnc"
+							class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
+						>
+							Guidance Navigation & Control
+						</h2>
+						<div class="mt-8 grid grid-cols-3 gap-8">
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+						</div>
+					</div>
+					<div>
+						<h2
+							id="aod"
+							class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
+						>
+							Attitude & Orbital Dynamics
+						</h2>
+						<div class="mt-8 grid grid-cols-3 gap-8">
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+						</div>
+					</div>
+					<div>
+						<h2
+							id="mdoo"
+							class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
+						>
+							Mission Design, Operation & Optimization
+						</h2>
+						<div class="mt-8 grid grid-cols-3 gap-8">
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+						</div>
+					</div>
+					<div>
+						<h2
+							id="spp"
+							class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
+						>
+							Space Power & Propulsion
+						</h2>
+						<div class="mt-8 grid grid-cols-3 gap-8">
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+						</div>
+					</div>
+					<div>
+						<h2
+							id="asm"
+							class="text-xl pb-2 border-b-1 mt-8 w-fit pr-8 border-b-accent"
+						>
+							Advanced Space Materials
+						</h2>
+						<div class="mt-8 grid grid-cols-3 gap-8">
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+							<BoardDistinctPersonCard
+								{...{
+									fullName: "Petr Ivanov",
+									country: "Russia",
+									affiliation: "RUDN University",
+									color: "secondary",
+								}}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </BaseInformationPageLayout>
 
 <!-- <div>

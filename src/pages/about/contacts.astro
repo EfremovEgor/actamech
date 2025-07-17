@@ -1,0 +1,49 @@
+---
+import ContactsForm from "@components/pages/contacts/ContactsForm";
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import { NAVIGATION } from "@lib/client/navigation";
+import mainImage from "@assets/images/mainImages/futuristic-time-machines-design.jpg";
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: "Contacts",
+		description: "Acta Mechanica et Imperium contacts",
+	}}
+	navigation={{
+		navigation: NAVIGATION.about.contacts,
+	}}
+	image={mainImage}
+	pageTitle="Contacts"
+>
+	<div class="container mx-auto mt-8 grid grid-cols-3 gap-4">
+		<div class="col-span-2">
+			<section class="text-left-border">
+				<p>
+					If you don't find the answer you are looking for on our
+					website or in your account, you can contact us by using our
+					submission form:
+				</p>
+				<h1
+					class="border-underline-2 w-fit font-semibold text-tertiary-text text-lg mt-4"
+				>
+					General information about the journal
+				</h1>
+				<p class="mt-4">
+					<ul class="list">
+						<li>
+							Street Adress: 117000, Russia, Moscow, Ordzhonikidze
+							str., 3
+						</li>
+						<li>E-mail: info@actamech.com</li>
+						<li>Phone: +7 (495) 000-00-00</li>
+						<li>Web-site: www.actamech.com</li>
+					</ul>
+				</p>
+			</section>
+		</div>
+		<div>
+			<ContactsForm />
+		</div>
+	</div>
+</BaseInformationPageLayout>

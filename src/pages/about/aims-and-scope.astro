@@ -1,8 +1,11 @@
 ---
+import { type IBreadcrumb } from "@components/types/interfaces/common";
 import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
 import AimsAndScopeSection from "@components/pages/journal-insights/sections/AimsAndScopeSection.astro";
 import JournalInsights from "@components/pages/journal-insights/sections/JournalInsights.astro";
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import { NAVIGATION } from "@lib/client/navigation";
+import mainImage from "@assets/images/mainImages/futuristic-time-machines-design.jpg";
 ---
 
 <BaseInformationPageLayout
@@ -10,7 +13,10 @@ import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro"
 		title: "Aims and scope",
 		description: "Acta Mechanica et Imperium Aims and scope",
 	}}
-	image={aboutPageMainImage}
+	navigation={{
+		navigation: NAVIGATION.about.aimsAndScope,
+	}}
+	image={mainImage}
 	pageTitle="Aims and scope"
 >
 	<div class="container mx-auto mt-8">

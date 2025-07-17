@@ -1,11 +1,12 @@
 ---
 export const prerender = false;
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg";
+import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
 import F7ChevronLeft2 from "~icons/f7/chevron-left-2";
 import F7ChevronRight2 from "~icons/f7/chevron-right-2";
 import ArticleCard from "@components/common/articles/ArticleCard";
 import { ARTICLES } from "../ExampleArticle";
+import { NAVIGATION } from "@lib/client/navigation";
 const { id } = Astro.params;
 const article = ARTICLES[0];
 ---
@@ -15,7 +16,10 @@ const article = ARTICLES[0];
 		title: `Articles in press`,
 		description: "Acta Mechanica et Imperium all issues",
 	}}
-	image={aboutPageMainImage}
+	navigation={{
+		navigation: NAVIGATION.articlesAndIssues.articlesInPress,
+	}}
+	image={mainImage}
 	pageTitle=`Articles in press`
 >
 	<div class="container mx-auto mt-8">

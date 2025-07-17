@@ -1,14 +1,17 @@
+import type { IBreadcrumb } from "@components/types/interfaces/common";
+
 export interface IBaseInformationPageLayout extends IBaseLayout {
-	pageTitle: string;
-	image: ImageMetadata;
+  pageTitle: string;
+  image: ImageMetadata;
+  navigation?: IBreadcrumb;
 }
 
 export interface IBaseLayout {
-	head?: IHead;
+  head?: IHead;
 }
 
 export interface IHead {
-	title?: string;
-	description?: string;
-	keywords?: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
 }

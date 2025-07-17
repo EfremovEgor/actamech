@@ -8,76 +8,81 @@ import ArticleCard from "@components/common/articles/ArticleCard";
 import { ARTICLES } from "../articles/ExampleArticle";
 import NewsCard from "@components/pages/news/NewsCard";
 import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+import { NAVIGATION } from "@lib/client/navigation";
 const { id } = Astro.params;
 const article = ARTICLES[0];
 ---
 
 <BaseInformationPageLayout
-  head={{
-    title: `News`,
-    description: "Acta Mechanica et Imperium news",
-  }}
-  image={aboutPageMainImage}
-  pageTitle=`News`
+	head={{
+		title: `News`,
+		description: "Acta Mechanica et Imperium news",
+	}}
+	navigation={{
+		navigation: NAVIGATION.news.index,
+	}}
+	image={aboutPageMainImage}
+	pageTitle=`News`
 >
-  <div class="container mx-auto mt-8">
-    <div class="flex flex-col gap-12 mt-8">
-      <NewsCard
-        {...{
-          title: "Special Issue on the topic of Distributed Space Missions",
-          date: "1 March 2025",
-          text: "The distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be considered...",
-          extra:
-            "Guest editors: Yury Razoumny, Antonio Prado, Ketan Kotecha, Shufan Wu, Ravinder Rena, Giancarlo Genta, Tarun Singh, Renuganth Varatharajoo, Meena Laad, Shruti Patil",
-        }}
-      />
-      <NewsCard
-        {...{
-          title: "New Regular Issue",
-          date: "1 December 2024",
-          text: "The distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be considered...",
-          extra:
-            "Guest editors:  Yury Razoumny, Antonio Prado, Ketan Kotecha, Shufan Wu, Ravinder Rena,  Giancarlo Genta, Tarun Singh,  Renuganth Varatharajoo, Meena Laad, Shruti Patil",
-        }}
-      />
-      <NewsCard
-        {...{
-          title:
-            "Calls For Papers for 6th International SciTech Space Forum 2025",
-          date: "1 December 2024",
-          text: "This special issue highlights selected proceedings of the 6th International SciTech Space Forum 2025, held during November 2025 in Moscow, Russia (RUDN University). The papers in this special issue cover a range of topics related to planetary defense, which is defense against Earth impacts by hazardous asteroids and comets. These include  Spaceflight Mechanics...",
-          extra:
-            "Guest editors:  Yury Razoumny, Antonio Prado, Ketan Kotecha, Shufan Wu, Ravinder Rena,  Giancarlo Genta, Tarun Singh,  Renuganth Varatharajoo, Meena Laad, Shruti Patil",
-        }}
-      />
-    </div>
-    <div class="mt-8 flex flex-row flex-wrap gap-2 items-center justify-center">
-      <span
-        class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
-      >
-        1
-      </span>
-      <span
-        class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
-      >
-        2
-      </span>
-      <span
-        class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
-      >
-        3
-      </span>
-      <span
-        class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
-      >
-        4
-      </span>
-      <span
-        class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
-      >
-        5
-      </span>
-      <span class="p-2">...</span>
-    </div>
-  </div>
+	<div class="container mx-auto mt-8">
+		<div class="flex flex-col gap-12 mt-8">
+			<NewsCard
+				client:load
+				{...{
+					title: "Special Issue on the topic of Distributed Space Missions",
+					date: "1 March 2025",
+					text: "The distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be considered",
+					imageURL: "/images/test/news/1.png",
+				}}
+			/>
+			<NewsCard
+				client:load
+				{...{
+					title: "New Regular Issue",
+					date: "1 December 2024",
+					text: "The distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be consideredThe distributed mission concept opens new prospective and challenges to small spacecraft, which can be the building blocks of larger systems. In principle, such approach enables new capabilities, such as mission flexibility, system reconfigurability, graceful degradation versus failures; topics including constellations, formations, swarms, and fractionated spacecraft will also be considered",
+					imageURL: "/images/test/news/2.png",
+				}}
+			/>
+			<NewsCard
+				client:load
+				{...{
+					title: "Calls For Papers for 6th International SciTech Space Forum 2025",
+					date: "1 December 2024",
+					text: "This special issue highlights selected proceedings of the 6th International SciTech Space Forum 2025, held during November 2025 in Moscow, Russia (RUDN University). The papers in this special issue cover a range of topics related to planetary defense, which is defense against Earth impacts by hazardous asteroids and comets. These include  Spaceflight Mechanics This special issue highlights selected proceedings of the 6th International SciTech Space Forum 2025, held during November 2025 in Moscow, Russia (RUDN University). The papers in this special issue cover a range of topics related to planetary defense, which is defense against Earth impacts by hazardous asteroids and comets. These include  Spaceflight Mechanics This special issue highlights selected proceedings of the 6th International SciTech Space Forum 2025, held during November 2025 in Moscow, Russia (RUDN University). The papers in this special issue cover a range of topics related to planetary defense, which is defense against Earth impacts by hazardous asteroids and comets. These include  Spaceflight Mechanics",
+					imageURL: "/images/test/news/3.png",
+				}}
+			/>
+		</div>
+		<div
+			class="mt-8 flex flex-row flex-wrap gap-2 items-center justify-center"
+		>
+			<span
+				class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
+			>
+				1
+			</span>
+			<span
+				class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
+			>
+				2
+			</span>
+			<span
+				class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
+			>
+				3
+			</span>
+			<span
+				class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
+			>
+				4
+			</span>
+			<span
+				class="p-2 rounded bg-secondary/10 hover:bg-accent cursor-pointer hover:text-secondary-text"
+			>
+				5
+			</span>
+			<span class="p-2">...</span>
+		</div>
+	</div>
 </BaseInformationPageLayout>
