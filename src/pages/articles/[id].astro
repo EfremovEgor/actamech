@@ -7,17 +7,26 @@ import ArticleContent from "@components/articles/ArticleContent";
 import Authors from "@components/pages/article-item/Authors";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Breadcrumb from "@components/common/Breadcrumb.astro";
+import { apiInstance } from "src/api/axiosInstance";
+import axios from "axios";
+import {
+	type BaseAPIResponse,
+	type SingleArticleResponse,
+} from "src/api/types";
+import { resolveArticleType } from "@lib/articles";
+import { getArticleById } from "src/api/api";
 const { id } = Astro.params;
-const article = ARTICLES.find((article) => article.id == id);
-if (!article) {
-	return new Response(null, { status: 404 });
-}
+const article = ARTICLES[0];
+if (!id) return new Response(null, { status: 404 });
+const response = await getArticleById(id);
+if (!response) return new Response(null, { status: 404 });
+const articleData = response.data;
 ---
 
 <BaseLayout
 	head={{
-		title: article.title,
-		description: article.highlights?.join(", ").toLowerCase(),
+		title: articleData.title,
+		description: articleData.abstract,
 	}}
 >
 	<div class="container mx-auto mt-8">
@@ -39,13 +48,22 @@ if (!article) {
 		<div class="border-b-secondary border-b-2 pb-8">
 			<div class="text-center mt-8">
 				<h1 class="text-3xl uppercase">ACTA MECHANICA ET IMPERIUM</h1>
-				<h2 class="text-xl uppercase">{article.collectionInfo}</h2>
 			</div>
 		</div>
 		<div class="mt-8 border-b-secondary border-b-2 pb-4">
 			<div class="text-center mt-16">
-				<h1 class="text-3xl font-semibold">{article.title}</h1>
-				<Authors client:load authors={article.authors} />
+				<h1 class="text-3xl font-semibold">{articleData.title}</h1>
+				<h2 class="uppercase mt-2">
+					volume {articleData.volume.volume_number}, {
+						new Date(articleData.volume.published_at)
+							.toLocaleString("en-US", {
+								month: "long",
+								year: "numeric",
+							})
+							.toUpperCase()
+					}, pages {articleData.pages_in_volume}
+				</h2>
+				<Authors client:load authors={articleData.authors} />
 			</div>
 			<div
 				class="flex flex-row justify-between text-primary-text/30 mt-16"
@@ -53,21 +71,24 @@ if (!article) {
 				<span
 					class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-left"
 				>
-					Research paper
+					{resolveArticleType(articleData.type)}
 				</span>
 				<span
 					class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-right"
 				>
-					<a target="_blank" href=`https://doi.org/${article.doi}`>
-						{article.doi}
+					<a
+						target="_blank"
+						href=`https://doi.org/${articleData.doi}`
+					>
+						{articleData.doi}
 					</a>
 				</span>
 			</div>
 		</div>
 
 		<div class="flex flex-row mt-16 article_grid">
-			<ArticleNav client:load article={article} />
-			<ArticleContent article={article} />
+			<ArticleNav client:load article={articleData} />
+			<ArticleContent article={articleData} />
 		</div>
 	</div>
 </BaseLayout>

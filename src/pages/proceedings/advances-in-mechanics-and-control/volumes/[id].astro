@@ -1,0 +1,87 @@
+---
+export const prerender = false;
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import ArticleCard from "@components/common/articles/ArticleCard";
+import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+const { id } = Astro.params;
+import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
+import { NAVIGATION } from "@lib/client/navigation";
+import { ARTICLES } from "src/pages/articles/ExampleArticle";
+import { getProceedingVolumeById } from "src/api/api";
+import { resolveArticleType } from "@lib/articles";
+const article = ARTICLES[0];
+
+if (!id) return new Response(null, { status: 404 });
+const response = await getProceedingVolumeById(id);
+if (!response) return new Response(null, { status: 404 });
+const volumeData = response.data;
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: volumeData.title,
+		description: volumeData.description,
+	}}
+	navigation={{
+		navigation: [
+			...NAVIGATION.proceedings.advancesInMechanicsAndControl,
+			{
+				name: volumeData.title,
+				url: `/proceedings/advances-in-mechanics-and-control/volumes/${volumeData.id}`,
+			},
+		],
+	}}
+	image={mainImage}
+	pageTitle={`${volumeData.proceeding.title}, ${volumeData.title}`}
+>
+	<div class="container mx-auto mt-8">
+		<h1 class="text-3xl border-underline-2 pb-4 w-fit">
+			{volumeData.conference_full_name}
+		</h1>
+		<p class="mt-4 text-lg text-tertiary-text">
+			{volumeData.place} |
+			{volumeData.held_at}
+		</p>
+		<article
+			class="base-text-section bg-secondary/5 rounded-base px-4 py-4 text-lg mt-4"
+		>
+			{volumeData.description}
+		</article>
+		<SectionTitleNoContainer title="Volume Editors" />
+		<div class="grid grid-cols-2 gap-8 mt-8">
+			{
+				volumeData.editors.map((ed) => (
+					<div class="bg-secondary/5 rounded-base px-4 py-4">
+						<h1 class="text-accent">
+							{ed.prefix} {ed.first_name} {ed.last_name}
+						</h1>
+						<p class="mt-4 text-sm">
+							{ed.title}, {ed.institution}, {ed.country}
+						</p>
+					</div>
+				))
+			}
+		</div>
+		<SectionTitleNoContainer title="Articles" />
+		<p class="mt-4 text-lg text-tertiary-text">
+			<div class="flex flex-col gap-12 mt-8">
+				{
+					volumeData.articles.map((article) => (
+						<ArticleCard
+							client:visible
+							{...{
+								...article,
+							}}
+						/>
+					))
+				}
+				<!-- abstract={ -->
+				<!-- // 	article.content.find(
+							// 		(content) => content.type == "abstract"
+							// 	)?.content
+							// }
+							// extra="Research Article | March 21, 2025" -->
+			</div>
+		</p>
+	</div>
+</BaseInformationPageLayout>

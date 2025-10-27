@@ -1,3 +1,5 @@
+import type { AffiliationInAuthor, AuthorInArticle } from "src/api/types";
+
 export const scrollToId = (id: string) => {
 	const element = document.getElementById(id);
 	if (!element) return;
@@ -10,3 +12,12 @@ export const scrollToId = (id: string) => {
 		behavior: "smooth",
 	});
 };
+
+export function formatDate(isoString: string) {
+	const date = new Date(isoString);
+	return date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
+}

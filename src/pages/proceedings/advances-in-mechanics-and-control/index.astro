@@ -1,0 +1,71 @@
+---
+import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
+import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+import ArticleCard from "@components/common/articles/ArticleCard";
+import { NAVIGATION } from "@lib/client/navigation";
+import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
+import { ARTICLES } from "src/pages/articles/ExampleArticle";
+import { getProceedingById } from "src/api/api";
+import ProceedingVolume from "@components/proceedings/ProceedingVolume";
+const article = ARTICLES[0];
+const response = await getProceedingById("advances-in-mechanics-and-control");
+if (!response) return new Response(null, { status: 404 });
+const proceedingData = response.data;
+console.log(proceedingData);
+---
+
+<BaseInformationPageLayout
+	head={{
+		title: proceedingData.title,
+		description: proceedingData.title,
+	}}
+	navigation={{
+		navigation: NAVIGATION.proceedings.advancesInMechanicsAndControl,
+	}}
+	image={mainImage}
+	pageTitle={proceedingData.title}
+>
+	<div class="container mx-auto mt-8">
+		<p>
+			This page contains a list of all available article collections,
+			special issues and supplements published within the journal.
+		</p>
+
+		<div class="grid grid-cols-3 mt-4 justify-items-center gap-x-4 gap-y-8">
+			{
+				proceedingData.volumes.map((vol) => (
+					<>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+						<ProceedingVolume
+							volumeData={vol}
+							proceedingId="advances-in-mechanics-and-control"
+						/>
+					</>
+				))
+			}
+		</div>
+	</div>
+</BaseInformationPageLayout>

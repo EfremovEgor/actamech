@@ -1,13 +1,40 @@
 import type { IArticlePreview } from "@components/types/interfaces/articles";
+import { resolveArticleType } from "@lib/articles";
+import { formatDate } from "@lib/client/utils";
 import React, { useState } from "react";
+import type { TArticleType } from "src/api/types";
 import LucideChevronDown from "~icons/lucide/chevron-down";
 export interface IArticleCard extends IArticlePreview {}
-const ArticleCard = ({ title, authors, id, extra, abstract }: IArticleCard) => {
+interface Props {
+	id: string;
+	abstract: string;
+	title: string;
+	type: TArticleType;
+	editorial: boolean;
+	published_at: string;
+	authors: {
+		first_name: string;
+		last_name: string;
+	}[];
+}
+
+const ArticleCard = ({
+	id,
+	abstract,
+	title,
+	authors,
+	type,
+	editorial,
+	published_at,
+}: Props) => {
 	const [open, setOpen] = useState(false);
 	return (
 		<div>
 			<div className="pb-4 border-b-border-secondary border-b-2">
-				<span className="text-tertiary-text">{extra}</span>
+				<span className="text-tertiary-text">
+					{editorial ? "Editorial" : resolveArticleType(type)}{" "}
+					{published_at && `| ${formatDate(published_at)}`}
+				</span>
 				<a
 					className="mt-4 text-xl cursor-pointer hover-accent block"
 					href={`/articles/${id}`}
@@ -15,7 +42,12 @@ const ArticleCard = ({ title, authors, id, extra, abstract }: IArticleCard) => {
 					{title}
 				</a>
 				<h2 className="text-accent mt-2">
-					{authors.map(({ fullName }) => fullName).join(", ")}
+					{authors
+						.map(
+							({ first_name, last_name }) =>
+								`${first_name} ${last_name}`
+						)
+						.join(", ")}
 				</h2>
 
 				<div className="flex flex-row justify-between mt-6">

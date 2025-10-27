@@ -30,6 +30,16 @@ export const NAVIGATION = {
 			{ name: "Guide For Authors", url: "/publish/guide-for-authors" },
 		],
 	},
+	proceedings: {
+		advancesInMechanicsAndControl: [
+			{ name: "Home", url: "/" },
+			{ name: "Proceedings" },
+			{
+				name: "Advances in Mechanics and Control",
+				url: "/proceedings/advances-in-mechanics-and-control",
+			},
+		],
+	},
 	articlesAndIssues: {
 		allIssues: [
 			{ name: "Home", url: "/" },
