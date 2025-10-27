@@ -4,8 +4,9 @@ from pydantic_settings import BaseSettings,SettingsConfigDict # Use pydantic_set
 
 class Settings(BaseSettings):
     database_url: str = Field(alias="DATABASE_URL")
+    file_storage_path: str = Field(alias="FILE_STORAGE_PATH")
+    pagination_items_per_page: int = 20
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
-
 
 
 @lru_cache

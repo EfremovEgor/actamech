@@ -18,8 +18,9 @@ from app.models.base import Base
 from app.models.affiliations import Affiliation, AffiliationAlias, AffiliationClarification
 from app.models.authors import Author
 from app.models.articles import Article
-
-
+from app.models.files import File
+from app.models.proceedings import ProceedingVolume, Proceeding
+from app.models.editors import Editor
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
