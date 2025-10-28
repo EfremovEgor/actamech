@@ -11,8 +11,10 @@ WORKDIR /app
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY . .
 
-RUN chmod +x ./scripts/entrypoint.sh
+RUN apt-get update && apt-get install -y dos2unix && \
+    dos2unix ./scripts/entrypoint.sh && \
+    chmod +x ./scripts/entrypoint.sh
+
 EXPOSE 8000
 
 ENTRYPOINT [ "/bin/bash", "./scripts/entrypoint.sh" ]
-# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
