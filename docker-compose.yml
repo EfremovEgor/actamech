@@ -30,8 +30,8 @@ services:
         ports:
             - "127.0.0.1:3022:8000"
         volumes:
-            - api_data: ${FILE_STORAGE_PATH}
+            - api_data:${FILE_STORAGE_PATH}
 volumes:
     postgres_data:
-    pgadmin_data:
+    # pgadmin_data:
     api_data:
