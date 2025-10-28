@@ -2,7 +2,6 @@ services:
     actamech_postgres:
         image: postgres:latest
         restart: unless-stopped
-        container_name: postgres
         environment:
             - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
             - POSTGRES_DB=${DATABASE_NAME}
