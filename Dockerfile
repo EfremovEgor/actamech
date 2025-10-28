@@ -11,7 +11,7 @@ WORKDIR /app
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY . .
 
-
+RUN chmod +x ./scripts/entrypoint.sh
 EXPOSE 8000
 
 ENTRYPOINT [ "./scripts/entrypoint.sh" ]
