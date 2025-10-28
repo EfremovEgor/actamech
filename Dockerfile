@@ -14,5 +14,5 @@ COPY . .
 RUN chmod +x ./scripts/entrypoint.sh
 EXPOSE 8000
 
-ENTRYPOINT [ "./scripts/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash", "./scripts/entrypoint.sh" ]
 # CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
