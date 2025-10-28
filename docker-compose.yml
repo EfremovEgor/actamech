@@ -1,5 +1,5 @@
 services:
-    postgres:
+    actamech_postgres:
         image: postgres:latest
         restart: unless-stopped
         container_name: postgres
@@ -11,18 +11,18 @@ services:
             - 5432
         volumes:
             - postgres_data:/var/lib/postgresql/data
-    pgadmin:
-        container_name: pgadmin4_container
-        image: dpage/pgadmin4:latest
-        restart: unless-stopped
-        environment:
-            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-        ports:
-            - "3000:80"
-        volumes:
-            - pgadmin_data:/var/lib/pgadmin
-    api:
+    # pgadmin:
+    #     container_name: pgadmin4_container
+    #     image: dpage/pgadmin4:latest
+    #     restart: unless-stopped
+    #     environment:
+    #         PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+    #         PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    #     ports:
+    #         - "3000:80"
+    #     volumes:
+    #         - pgadmin_data:/var/lib/pgadmin
+    actamech_api:
         build: ./ 
         restart: unless-stopped
         ports:
