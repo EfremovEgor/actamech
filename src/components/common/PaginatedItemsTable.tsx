@@ -99,10 +99,11 @@ const PaginatedItemsTable = ({
 							>
 								{enumerate && (
 									<td className="p-2 text-center">
-										{(i + 1) *
+										{i *
 											(paginationMeta
 												? paginationMeta.page
-												: 0)}
+												: 0) +
+											1}
 									</td>
 								)}
 								{fieldsToShow.map((field) => {
