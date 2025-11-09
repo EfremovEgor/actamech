@@ -4,7 +4,7 @@ import { articleService } from "./api/services/articleService";
 function App() {
 	const { data, isLoading } = useQuery({
 		queryKey: ["articles"],
-		queryFn: articleService.getArticles,
+		queryFn: () => articleService.getArticles(),
 	});
 	if (isLoading) return <p>Loading...</p>;
 	if (!data) return <p>No data fetched</p>;
