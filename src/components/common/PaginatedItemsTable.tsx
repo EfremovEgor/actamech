@@ -101,8 +101,8 @@ const PaginatedItemsTable = ({
 									<td className="p-2 text-center">
 										{i *
 											(paginationMeta
-												? paginationMeta.page
-												: 0) +
+												? paginationMeta.page + 1
+												: 1) +
 											1}
 									</td>
 								)}
