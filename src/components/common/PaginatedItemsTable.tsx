@@ -98,7 +98,12 @@ const PaginatedItemsTable = ({
 								key={item[key] as string | number}
 							>
 								{enumerate && (
-									<td className="p-2 text-center">{i + 1}</td>
+									<td className="p-2 text-center">
+										{(i + 1) *
+											(paginationMeta
+												? paginationMeta.page
+												: 0)}
+									</td>
 								)}
 								{fieldsToShow.map((field) => {
 									const data = item[field];
