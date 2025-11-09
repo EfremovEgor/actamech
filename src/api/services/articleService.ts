@@ -7,6 +7,7 @@ import type {
 	AuthorListItem,
 	BaseAPIResponse,
 	BasePaginatedAPIResponse,
+	PaginatatedSearchRequest,
 	PaginationReturn,
 } from "../types";
 
@@ -25,11 +26,12 @@ export const articleService = {
 		return res.data.data;
 	},
 
-	async getArticles(): Promise<PaginationReturn<ArticleListItem[]>> {
-		const res =
-			await apiV1Instance.get<
-				BasePaginatedAPIResponse<ArticleListItem[]>
-			>(`/articles`);
+	async getArticles(
+		params?: PaginatatedSearchRequest
+	): Promise<PaginationReturn<ArticleListItem[]>> {
+		const res = await apiV1Instance.get<
+			BasePaginatedAPIResponse<ArticleListItem[]>
+		>(`/articles`, { params });
 		return [res.data.data.items, res.data.data.meta];
 	},
 

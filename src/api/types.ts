@@ -2,6 +2,13 @@ export interface BaseAPIResponse<T> {
 	data: T;
 	message?: string;
 }
+export interface PaginatedRequest {
+	page?: number;
+	per_page?: number;
+}
+export interface PaginatatedSearchRequest extends PaginatedRequest {
+	search_string?: string;
+}
 
 export type APIErrorResponse<T> = BaseAPIResponse<T>;
 

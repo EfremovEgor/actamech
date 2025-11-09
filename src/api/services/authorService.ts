@@ -6,19 +6,18 @@ import type {
 	AuthorUpdate,
 	BaseAPIResponse,
 	BasePaginatedAPIResponse,
+	PaginatatedSearchRequest,
 	PaginationReturn,
 } from "@api/types";
 import apiV1Instance from "../axios";
 export const authorService = {
 	async getAuthors(
-		searchString?: string
+		params?: PaginatatedSearchRequest
 	): Promise<PaginationReturn<AuthorListItem[]>> {
 		const res = await apiV1Instance.get<
 			BasePaginatedAPIResponse<AuthorListItem[]>
 		>(`/authors`, {
-			params: {
-				search_string: searchString,
-			},
+			params,
 		});
 		return [res.data.data.items, res.data.data.meta];
 	},
