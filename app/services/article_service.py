@@ -30,6 +30,7 @@ from app.services.file_service import FileService
 class ArticleService(BaseService):
     async def get_articles(
         self,
+        search_string: str | None,
         page: int = 0,
         per_page: int = get_app_settings().pagination_items_per_page,
     ):
@@ -37,6 +38,14 @@ class ArticleService(BaseService):
         stmt = select(Article.id, Article.title, Article.doi).order_by(
             desc(Article.created_at)
         )
+        if search_string:
+            stmt = stmt.where(
+                or_(
+                    Article.id.ilike(f"%{search_string}%"),
+                    Article.title.ilike(f"%{search_string}%"),
+                    Article.doi.ilike(f"%{search_string}%"),
+                )
+            )
         data = await paginate(self.db, stmt, page, per_page)
         return {
             "items": [
