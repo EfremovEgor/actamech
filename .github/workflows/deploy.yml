@@ -1,0 +1,33 @@
+name: Deploy to Server
+
+on:
+    push:
+        branches: [backend]
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup SSH
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y sshpass
+
+            - name: Deploy to server
+              run: |
+                  sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no \
+                  ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} '
+                  set -e
+                  echo "Starting deployment..."
+
+                  cd /var/www/actamech.com/backend
+                  git pull origin backend
+
+                  echo "Running docker compose up..."
+                  docker compose up --build -d
+
+                  echo "Deployment completed successfully!"
+                  '
