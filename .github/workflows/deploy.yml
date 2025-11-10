@@ -3,9 +3,6 @@ name: Deploy to Server
 on:
     push:
         branches: [admin-panel]
-        paths:
-            - "src/**"
-            - "public/**"
 
 jobs:
     deploy:
