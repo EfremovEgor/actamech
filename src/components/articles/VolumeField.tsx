@@ -67,9 +67,10 @@ const VolumeField = ({ volume, onSelect = () => {}, articleId }: Props) => {
 							{volumeToSelect.map((vol) => (
 								<div className="flex flex-row gap-2 items-center justify-between">
 									<p>
-										{vol.title} {vol.volume_number}
+										{vol.title} #{vol.volume_number}
 									</p>
-									{volume && volume.id != vol.id && (
+									{(!volume ||
+										(volume && volume.id !== vol.id)) && (
 										<button
 											onClick={() =>
 												handleSelectVolume(vol.id)
