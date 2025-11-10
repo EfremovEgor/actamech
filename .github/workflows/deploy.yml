@@ -1,39 +1,42 @@
-# name: Deploy to Server
+name: Deploy to Server
 
-# on:
-#     push:
-#         branches: [master]
+on:
+    push:
+        branches: [master]
 
-# jobs:
-#     deploy:
-#         runs-on: ubuntu-latest
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
 
-#         steps:
-#             - name: Checkout code
-#               uses: actions/checkout@v4
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-#             - name: Setup SSH
-#               run: |
-#                   sudo apt-get update
-#                   sudo apt-get install -y sshpass
+            - name: Setup SSH
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y sshpass
 
-#             - name: Deploy to server
-#               run: |
-#                   sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no \
-#                   ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} '
-#                   set -e
-#                   echo "Starting deployment..."
+            - name: Deploy to server
+              run: |
+                  sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no \
+                  ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} '
+                  set -e
+                  echo "Starting deployment..."
 
-#                   cd /var/www/spacescitech.com/frontend/
-#                   git pull origin master
+                  cd /var/www/actamech.com/frontend/
+                  git pull origin master
 
-#                   export PATH="$HOME/.nvm/versions/node/v24.9.0/bin:$PATH"
+                  export PATH="$HOME/.nvm/versions/node/v24.9.0/bin:$PATH"
 
-#                   echo "Running yarn install..."
-#                   yarn install
+                  echo "Running yarn install..."
+                  yarn install
 
-#                   echo "Running yarn build..."
-#                   yarn build
+                  echo "Running yarn build..."
+                  yarn build
 
-#                   echo "Deployment completed successfully!"
-#                   '
+                  echo "Running pm2"
+                  pm2 start ecosystem.config.cjs --env production
+
+                  echo "Deployment completed successfully!"
+                  '
