@@ -32,35 +32,45 @@ const volumeData = response.data;
 		],
 	}}
 	image={mainImage}
-	pageTitle={`${volumeData.proceeding.title}, ${volumeData.title}`}
+	pageTitle={`${volumeData.proceeding.title}`}
 >
+	<div class="border-y-accent border-b-2">
+		<div class="container mx-auto py-4">
+			<h1 class="text-3xl">Proceedings, {volumeData.title}</h1>
+		</div>
+	</div>
 	<div class="container mx-auto mt-8">
-		<h1 class="text-3xl border-underline-2 pb-4 w-fit">
-			{volumeData.conference_full_name}
-		</h1>
-		<p class="mt-4 text-lg text-tertiary-text">
-			{volumeData.place} |
-			{volumeData.held_at}
-		</p>
-		<article
-			class="base-text-section bg-secondary/5 rounded-base px-4 py-4 text-lg mt-4"
-		>
-			{volumeData.description}
-		</article>
-		<SectionTitleNoContainer title="Volume Editors" />
-		<div class="grid grid-cols-2 gap-8 mt-8">
-			{
-				volumeData.editors.map((ed) => (
-					<div class="bg-secondary/5 rounded-base px-4 py-4">
-						<h1 class="text-accent">
-							{ed.prefix} {ed.first_name} {ed.last_name}
-						</h1>
-						<p class="mt-4 text-sm">
-							{ed.title}, {ed.institution}, {ed.country}
-						</p>
-					</div>
-				))
-			}
+		<div class="flex flex-row items-center gap-8 mt-4">
+			<img
+				src={`/images/covers/${volumeData.id}.webp`}
+				width="auto"
+				height="1"
+				alt=""
+				class="h-80 w-fit"
+			/>
+			<div class="bg-secondary/5 rounded-base px-4 py-4 text-lg w-full">
+				<p class="text-xl">{volumeData.conference_full_name}</p>
+				<p class="text-sm my-1 text-tertiary-text">
+					{volumeData.place} |
+					{volumeData.held_at}
+				</p>
+				<div class="flex flex-col">
+					<h2 class="font-bold">Volume Editors:</h2>
+					{
+						volumeData.editors.map((ed) => (
+							<p>
+								{ed.first_name} {ed.last_name}, {ed.institution}
+								, {ed.country}
+							</p>
+						))
+					}
+				</div>
+				<div class="text-tertiary-text">
+					<p>Number of Papers:</p>
+					<p>Views 000 | Downloads 000 | Citations 0</p>
+				</div>
+				<article class="base-text-section"></article>
+			</div>
 		</div>
 		<SectionTitleNoContainer title="Articles" />
 		<p class="mt-4 text-lg text-tertiary-text">

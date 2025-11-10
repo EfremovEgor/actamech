@@ -1,7 +1,5 @@
 ---
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
-import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
-import ArticleCard from "@components/common/articles/ArticleCard";
 import { NAVIGATION } from "@lib/client/navigation";
 import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
 import { ARTICLES } from "src/pages/articles/ExampleArticle";
@@ -36,30 +34,7 @@ console.log(proceedingData);
 				proceedingData.volumes.map((vol) => (
 					<>
 						<ProceedingVolume
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-						<ProceedingVolume
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-						<ProceedingVolume
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-						<ProceedingVolume
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-						<ProceedingVolume
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-						<ProceedingVolume
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-						<ProceedingVolume
+							image={`/images/covers/${vol.id}.webp`}
 							volumeData={vol}
 							proceedingId="advances-in-mechanics-and-control"
 						/>
