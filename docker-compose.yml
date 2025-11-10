@@ -40,7 +40,6 @@ services:
         depends_on:
             actamech_postgres:
                 condition: service_healthy
-        network_mode: host
 volumes:
     postgres_data:
     # pgadmin_data:
