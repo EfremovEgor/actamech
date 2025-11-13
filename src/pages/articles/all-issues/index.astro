@@ -1,7 +1,6 @@
 ---
 import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro";
 import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg";
-import BoardDistinctPersonCard from "@components/pages/editorial-board/BoardDistinctPersonCard.astro";
 import IssueCard from "@components/pages/all-issues/IssueCard.astro";
 import { NAVIGATION } from "@lib/client/navigation";
 ---
@@ -15,20 +14,19 @@ import { NAVIGATION } from "@lib/client/navigation";
 		navigation: NAVIGATION.articlesAndIssues.allIssues,
 	}}
 	image={mainImage}
-	pageTitle="All issues"
+	pageTitle="Volumes & Issues"
 >
 	<div class="container mx-auto mt-8">
 		<div class="flex flex-row divide-secondary">
-			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+			<div
+				class="flex flex-col gap-8 pr-8 left_navigation-sticky min-w-1/5"
+			>
 				<div>
 					<h2 class="font-semibold pb-2 border-b-1 border-b-accent">
 						All issues:
 					</h2>
 					<ul class="flex flex-col gap-2 mt-4">
-						<li>2025 — Volumes 226-230</li>
-						<li>2024 — Volumes 221-225</li>
-						<li>2023 — Volumes 216-220</li>
-						<li>2022 — Volumes 211-215</li>
+						<li>Volume 1</li>
 					</ul>
 				</div>
 			</div>
@@ -37,93 +35,13 @@ import { NAVIGATION } from "@lib/client/navigation";
 			>
 				<div>
 					<h2 class="text-xl font-semibold pb-2 border-b-2 w-1/2">
-						2025 — Volumes 226-230
+						2025 — Volume 1
 					</h2>
 					<div class="mt-8 grid grid-cols-2 gap-8">
 						<IssueCard
 							{...{
-								issueName: "Volume 232",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 231",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 230",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 229",
-								info: "In progress (July 2025)",
-							}}
-						/>
-					</div>
-				</div>
-				<div>
-					<h2 class="text-xl font-semibold pb-2 border-b-2 w-1/2">
-						2024 — Volumes 221-225
-					</h2>
-					<div class="mt-8 grid grid-cols-2 gap-8">
-						<IssueCard
-							{...{
-								issueName: "Volume 232",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 231",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 230",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 229",
-								info: "In progress (July 2025)",
-							}}
-						/>
-					</div>
-				</div>
-				<div>
-					<h2 class="text-xl font-semibold pb-2 border-b-2 w-1/2">
-						2023 — Volumes 202-213
-					</h2>
-					<div class="mt-8 grid grid-cols-2 gap-8">
-						<IssueCard
-							{...{
-								issueName: "Volume 232",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 231",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 230",
-								info: "In progress (July 2025)",
-							}}
-						/>
-						<IssueCard
-							{...{
-								issueName: "Volume 229",
-								info: "In progress (July 2025)",
+								issueName: "Volume 1",
+								info: "In progress",
 							}}
 						/>
 					</div>

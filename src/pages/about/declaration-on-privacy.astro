@@ -3,6 +3,7 @@ import BaseInformationPageLayout from "@layouts/BaseInformationPageLayout.astro"
 import SectionTitle from "@components/common/SectionTitle.astro";
 import { NAVIGATION } from "@lib/client/navigation";
 import mainImage from "@assets/images/mainImages/futuristic-time-machines-design.jpg";
+import InformationPageToC from "@components/layout/page/InformationPageToC.astro";
 ---
 
 <BaseInformationPageLayout
@@ -42,10 +43,10 @@ import mainImage from "@assets/images/mainImages/futuristic-time-machines-design
 				pursuing any other goals.
 			</p>
 		</article>
-	</div>
-	<SectionTitle title="Policy towards plagiarism" />
-	<section class="container mx-auto mt-8">
-		<article class="text-left-border">
+		<InformationPageToC
+			parts={[
+				{
+					content: `<article class="text-left-border">
 			<p>
 				All the papers submitted to the Editorial office at the
 				preliminary stage of consideration are to be inspected in
@@ -123,11 +124,12 @@ import mainImage from "@assets/images/mainImages/futuristic-time-machines-design
 				in journals and collections) in volume greater than 30% are not
 				accepted for publishing.
 			</p>
-		</article>
-	</section>
-	<SectionTitle title="The rules of retraction" />
-	<section class="container mx-auto mt-8">
-		<article class="text-left-border">
+		</article>`,
+					title: "Policy Towards Plagiarism",
+					id: "policyTowardsPlagiarism",
+				},
+				{
+					content: `<article class="text-left-border">
 			<p>
 				Revocation of text from the publication (retraction) is a
 				mechanism of correcting the published information and alerts
@@ -177,6 +179,11 @@ import mainImage from "@assets/images/mainImages/futuristic-time-machines-design
 				<li>the author’s appeal on the revocation of the article;</li>
 				<li>the decide of the chief editor of the journal.</li>
 			</ul>
-		</article>
-	</section>
+		</article>`,
+					title: "The Rules Of Retraction",
+					id: "theRulesOfRetraction",
+				},
+			]}
+		/>
+	</div>
 </BaseInformationPageLayout>

@@ -4,273 +4,247 @@ import aboutPageMainImage from "@assets/images/aboutPage/aboutPageMainImage.jpg"
 import SectionTitle from "@components/common/SectionTitle.astro";
 import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
 import { NAVIGATION } from "@lib/client/navigation";
+import InformationPageToC from "@components/layout/page/InformationPageToC.astro";
 ---
 
 <BaseInformationPageLayout
-  head={{
-    title: `Author Guidelines`,
-    description: "Acta Mechanica et Imperium Author Guidelines",
-  }}
-  navigation={{
-    navigation: NAVIGATION.publish.guideForAuthors,
-  }}
-  image={aboutPageMainImage}
-  pageTitle=`Author Guidelines`
+	head={{
+		title: `Author Guidelines`,
+		description: "Acta Mechanica et Imperium Author Guidelines",
+	}}
+	navigation={{
+		navigation: NAVIGATION.publish.guideForAuthors,
+	}}
+	image={aboutPageMainImage}
+	pageTitle=`Author Guidelines`
 >
-  <div class="container mx-auto mt-8">
-    <div class="flex flex-row divide-secondary">
-      <div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
-        <div>
-          <ul class="flex flex-col gap-2">
-            <li>
-              <a class="hover-accent" href="#submission">Submission</a>
-            </li>
-            <!-- <li>
-              <a class="hover-accent" href="#typesOfContributions"
-                >Types of Contributions</a
-              >
-            </li> -->
-            <li>
-              <a class="hover-accent" href="#submissionChecklist"
-                >Submission checklist</a
-              >
-            </li>
-            <li>
-              <a
-                class="hover-accent"
-                href="#declarationOfGenerativeAIInScientificWriting"
-                >Declaration of generative AI in scientific writing</a
-              >
-            </li>
-            <li>
-              <a
-                class="hover-accent"
-                href="#submissionDeclarationAndVerification"
-                >Submission declaration and verification</a
-              >
-            </li>
-            <li>
-              <a class="hover-accent" href="#copyright">Copyright</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="pl-8 flex-1 gap-16">
-        <SectionTitleNoContainer id="submission" top="0" title="Submission" />
-        <section class="container mx-auto mt-8">
-          <article class="text-left-border">
-            <p>
-              Submission to this journal proceeds totally online. Use the
-              following guidelines to prepare your article via the ConfChair®
-              homepage of this journal (https://confchair.org) you will be
-              guided stepwise through the creation and uploading of the various
-              files. The system automatically converts source files to a single
-              Adobe Acrobat PDF version of the article, which is used in the
-              peer-review process. Please note that even though manuscript
-              source files are converted to PDF at submission for the review
-              process, these source files are needed for further processing
-              after acceptance. All correspondence, including notification of
-              the Editor's decision and requests for revision, takes place by
-              e-mail and via the author's homepage, removing the need for a
-              hard-copy paper trail.
-            </p>
-            <p>
-              You are recommended to use the Actamech Word article
-              <a href="" class="underline hover-accent">template</a> to prepare your
-              manuscript.
-            </p>
-            <p>
-              Please write your text in good English (American or British usage
-              is accepted, but not a mixture of these).
-            </p>
-          </article>
-        </section>
-        <!-- <SectionTitleNoContainer
-          id="typesOfContributions"
-          top="8"
-          title="Types of Contributions"
-        /> -->
-        <!-- <section class="container mx-auto mt-8">
-          <article class="text-left-border">
-            <p>Original research papers and Notes (see section below).</p>
-          </article>
-        </section> -->
-
-        <SectionTitleNoContainer
-          id="submissionChecklist"
-          top="8"
-          title="Submission checklist"
-        />
-        <section class="container mx-auto mt-8">
-          <article class="text-left-border">
-            <p>
-              You can use this list to carry out a final check of your
-              submission before you send it to the journal for review. Please
-              check the relevant section in this Guide for Authors for more
-              details.
-            </p>
-            <p>Ensure that the following items are present:</p>
-            <p>
-              1. One author has been designated as the corresponding author with
-              contact details:
-              <ul class="list ml-2">
-                <li>E-mail address</li>
-                <li>Full postal address</li>
-              </ul>
-            </p>
-            <p>
-              2. All necessary files have been uploaded:
-              <ul class="list ml-2">
-                <li>Manuscript</li>
-                <li>Include keywords</li>
-                <li>All figures (include relevant captions)</li>
-                <li>All tables (including titles, description, footnotes)</li>
-              </ul>
-            </p>
-            <p>
-              3. Ensure all figure and table citations in the text match the
-              files provided; Indicate clearly if color should be used for any
-              figures in print
-            </p>
-            <ul class="list ml-2">
-              <li>Graphical Abstracts / Highlights files (where applicable)</li>
-              <li>Supplemental files (where applicable)</li>
-            </ul>
-            <p>
-              4. Further considerations:
-              <ul class="list ml-2">
-                <li>
-                  Manuscript has been 'spell checked' and 'grammar checked'
-                </li>
-                <li>
-                  All references mentioned in the Reference List are cited in
-                  the text, and vice versa
-                </li>
-                <li>
-                  Permission has been obtained for use of copyrighted material
-                  from other sources (including the Internet)
-                </li>
-                <li>
-                  A competing interests statement is provided, even if the
-                  authors have no competing interests to declare
-                </li>
-              </ul>
-            </p>
-            <p>Journal policies detailed in this guide have been reviewed</p>
-          </article>
-        </section>
-
-        <SectionTitleNoContainer
-          id="declarationOfGenerativeAIInScientificWriting"
-          top="8"
-          title="Declaration of generative AI in scientific writing"
-        />
-        <section class="container mx-auto mt-8">
-          <article class="text-left-border">
-            <p>
-              The below guidance only refers to the writing process, and not to
-              the use of AI tools to analyse and draw insights from data as part
-              of the research process.
-            </p>
-            <p>
-              Where authors use generative artificial intelligence (AI) and
-              AI-assisted technologies in the writing process, authors should
-              only use these technologies to improve readability and language.
-              Applying the technology should be done with human oversight and
-              control, and authors should carefully review and edit the result,
-              as AI can generate authoritative-sounding output that can be
-              incorrect, incomplete or biased. AI and AI-assisted technologies
-              should not be listed as an author or co-author, or be cited as an
-              author. Authorship implies responsibilities and tasks that can
-              only be attributed to and performed by humans, as outlined in
-              Elsevier's AI policy for authors.
-            </p>
-            <p>
-              Authors should disclose in their manuscript the use of AI and
-              AI-assisted technologies in the writing process by following the
-              instructions below. A statement will appear in the published work.
-              Please note that authors are ultimately responsible and
-              accountable for the contents of the work.
-            </p>
-            <p>Disclosure instructions</p>
-            <p>
-              Authors must disclose the use of generative AI and AI-assisted
-              technologies in the writing process by adding a statement at the
-              end of their manuscript in the core manuscript file, before the
-              References list. The statement should be placed in a new section
-              entitled 'Declaration of Generative AI and AI-assisted
-              technologies in the writing process'
-            </p>
-            <p>
-              Statement: During the preparation of this work the author(s) used
-              [NAME TOOL / SERVICE] in order to [REASON]. After using this
-              tool/service, the author(s) reviewed and edited the content as
-              needed and take(s) full responsibility for the content of the
-              publication
-            </p>
-            <p>
-              This declaration does not apply to the use of basic tools for
-              checking grammar, spelling, references etc. If there is nothing to
-              disclose, there is no need to add a statement.
-            </p>
-          </article>
-        </section>
-
-        <SectionTitleNoContainer
-          id="submissionDeclarationAndVerification"
-          top="8"
-          title="Submission declaration and verification"
-        />
-        <section class="container mx-auto mt-8">
-          <article class="text-left-border">
-            <p>
-              Submission of an article implies that the work described has not
-              been published previously (except in the form of an abstract, a
-              published lecture or academic thesis, see 'Multiple, redundant or
-              concurrent publication' for more information), that it is not
-              under consideration for publication elsewhere, that its
-              publication is approved by all authors and tacitly or explicitly
-              by the responsible authorities where the work was carried out, and
-              that, if accepted, it will not be published elsewhere in the same
-              form, in English or in any other language, including
-              electronically without the written consent of the
-              copyright-holder. To verify compliance, your article may be
-              checked by Crossref Similarity Check and other originality or
-              duplicate checking software.
-            </p>
-          </article>
-        </section>
-
-        <SectionTitleNoContainer id="copyright" top="8" title="Copyright" />
-        <section class="container mx-auto mt-8">
-          <article class="text-left-border">
-            <p>
-              Upon acceptance of an article, authors will be asked to complete a
-              'Journal Publishing Agreement' (see more information on this). An
-              e-mail will be sent to the corresponding author confirming receipt
-              of the manuscript together with a 'Journal Publishing Agreement'
-              form or a link to the online version of this agreement.
-            </p>
-            <p>
-              Subscribers may reproduce tables of contents or prepare lists of
-              articles including abstracts for internal circulation within their
-              institutions. Permission of the Publisher is required for resale
-              or distribution outside the institution and for all other
-              derivative works, including compilations and translations. If
-              excerpts from other copyrighted works are included, the author(s)
-              must obtain written permission from the copyright owners and
-              credit the source(s) in the article. Elsevier has preprinted forms
-              for use by authors in these cases.
-            </p>
-            <p>
-              For gold open access articles: Upon acceptance of an article,
-              authors will be asked to complete a 'License Agreement' (more
-              information). Permitted third party reuse of gold open access
-              articles is determined by the author's choice of user license.
-            </p>
-          </article>
-        </section>
-      </div>
-    </div>
-  </div>
+	<div class="container mx-auto mt-8">
+		<InformationPageToC
+			parts={[
+				{
+					content: `<article class="text-left-border">
+					<p>
+						Submission to this journal proceeds totally online. Use
+						the following guidelines to prepare your article via the
+						ConfChair® homepage of this journal
+						(https://confchair.org) you will be guided stepwise
+						through the creation and uploading of the various files.
+						The system automatically converts source files to a
+						single Adobe Acrobat PDF version of the article, which
+						is used in the peer-review process. Please note that
+						even though manuscript source files are converted to PDF
+						at submission for the review process, these source files
+						are needed for further processing after acceptance. All
+						correspondence, including notification of the Editor's
+						decision and requests for revision, takes place by
+						e-mail and via the author's homepage, removing the need
+						for a hard-copy paper trail.
+					</p>
+					<p>
+						You are recommended to use the Actamech Word article
+						<a href="" class="underline hover-accent">template</a> to
+						prepare your manuscript.
+					</p>
+					<p>
+						Please write your text in good English (American or
+						British usage is accepted, but not a mixture of these).
+					</p>
+				</article>`,
+					title: "Submission Guidelines",
+					id: "submission-guidelines",
+				},
+				{
+					content: `<article class="text-left-border">
+						<p>
+							You can use this list to carry out a final check of
+							your submission before you send it to the journal
+							for review. Please check the relevant section in
+							this Guide for Authors for more details.
+						</p>
+						<p>Ensure that the following items are present:</p>
+						<p>
+							1. One author has been designated as the
+							corresponding author with contact details:
+							<ul class="list ml-2">
+								<li>E-mail address</li>
+								<li>Full postal address</li>
+							</ul>
+						</p>
+						<p>
+							2. All necessary files have been uploaded:
+							<ul class="list ml-2">
+								<li>Manuscript</li>
+								<li>Include keywords</li>
+								<li>All figures (include relevant captions)</li>
+								<li>
+									All tables (including titles, description,
+									footnotes)
+								</li>
+							</ul>
+						</p>
+						<p>
+							3. Ensure all figure and table citations in the text
+							match the files provided; Indicate clearly if color
+							should be used for any figures in print
+						</p>
+						<ul class="list ml-2">
+							<li>
+								Graphical Abstracts / Highlights files (where
+								applicable)
+							</li>
+							<li>Supplemental files (where applicable)</li>
+						</ul>
+						<p>
+							4. Further considerations:
+							<ul class="list ml-2">
+								<li>
+									Manuscript has been 'spell checked' and
+									'grammar checked'
+								</li>
+								<li>
+									All references mentioned in the Reference
+									List are cited in the text, and vice versa
+								</li>
+								<li>
+									Permission has been obtained for use of
+									copyrighted material from other sources
+									(including the Internet)
+								</li>
+								<li>
+									A competing interests statement is provided,
+									even if the authors have no competing
+									interests to declare
+								</li>
+							</ul>
+						</p>
+						<p>
+							Journal policies detailed in this guide have been
+							reviewed
+						</p>
+					</article>`,
+					title: "Submission Checklist",
+					id: "submissionChecklist",
+				},
+				{
+					content: `<article class="text-left-border">
+						<p>
+							The below guidance only refers to the writing
+							process, and not to the use of AI tools to analyse
+							and draw insights from data as part of the research
+							process.
+						</p>
+						<p>
+							Where authors use generative artificial intelligence
+							(AI) and AI-assisted technologies in the writing
+							process, authors should only use these technologies
+							to improve readability and language. Applying the
+							technology should be done with human oversight and
+							control, and authors should carefully review and
+							edit the result, as AI can generate
+							authoritative-sounding output that can be incorrect,
+							incomplete or biased. AI and AI-assisted
+							technologies should not be listed as an author or
+							co-author, or be cited as an author. Authorship
+							implies responsibilities and tasks that can only be
+							attributed to and performed by humans, as outlined
+							in Elsevier's AI policy for authors.
+						</p>
+						<p>
+							Authors should disclose in their manuscript the use
+							of AI and AI-assisted technologies in the writing
+							process by following the instructions below. A
+							statement will appear in the published work. Please
+							note that authors are ultimately responsible and
+							accountable for the contents of the work.
+						</p>
+						<p>Disclosure instructions</p>
+						<p>
+							Authors must disclose the use of generative AI and
+							AI-assisted technologies in the writing process by
+							adding a statement at the end of their manuscript in
+							the core manuscript file, before the References
+							list. The statement should be placed in a new
+							section entitled 'Declaration of Generative AI and
+							AI-assisted technologies in the writing process'
+						</p>
+						<p>
+							Statement: During the preparation of this work the
+							author(s) used [NAME TOOL / SERVICE] in order to
+							[REASON]. After using this tool/service, the
+							author(s) reviewed and edited the content as needed
+							and take(s) full responsibility for the content of
+							the publication
+						</p>
+						<p>
+							This declaration does not apply to the use of basic
+							tools for checking grammar, spelling, references
+							etc. If there is nothing to disclose, there is no
+							need to add a statement.
+						</p>
+					</article>`,
+					title: "Declaration Of Generative AI In Scientific Writing",
+					id: "declarationOfGenerativeAIInScientificWriting",
+				},
+				{
+					content: `<article class="text-left-border">
+						<p>
+							Submission of an article implies that the work
+							described has not been published previously (except
+							in the form of an abstract, a published lecture or
+							academic thesis, see 'Multiple, redundant or
+							concurrent publication' for more information), that
+							it is not under consideration for publication
+							elsewhere, that its publication is approved by all
+							authors and tacitly or explicitly by the responsible
+							authorities where the work was carried out, and
+							that, if accepted, it will not be published
+							elsewhere in the same form, in English or in any
+							other language, including electronically without the
+							written consent of the copyright-holder. To verify
+							compliance, your article may be checked by Crossref
+							Similarity Check and other originality or duplicate
+							checking software.
+						</p>
+					</article>`,
+					title: "Submission Declaration And Verification",
+					id: "submissionDeclarationAndVerification",
+				},
+				{
+					content: `<article class="text-left-border">
+						<p>
+							Upon acceptance of an article, authors will be asked
+							to complete a 'Journal Publishing Agreement' (see
+							more information on this). An e-mail will be sent to
+							the corresponding author confirming receipt of the
+							manuscript together with a 'Journal Publishing
+							Agreement' form or a link to the online version of
+							this agreement.
+						</p>
+						<p>
+							Subscribers may reproduce tables of contents or
+							prepare lists of articles including abstracts for
+							internal circulation within their institutions.
+							Permission of the Publisher is required for resale
+							or distribution outside the institution and for all
+							other derivative works, including compilations and
+							translations. If excerpts from other copyrighted
+							works are included, the author(s) must obtain
+							written permission from the copyright owners and
+							credit the source(s) in the article. Elsevier has
+							preprinted forms for use by authors in these cases.
+						</p>
+						<p>
+							For gold open access articles: Upon acceptance of an
+							article, authors will be asked to complete a
+							'License Agreement' (more information). Permitted
+							third party reuse of gold open access articles is
+							determined by the author's choice of user license.
+						</p>
+					</article>`,
+					title: "Copyright",
+					id: "copyright",
+				},
+			]}
+		/>
+	</div>
 </BaseInformationPageLayout>

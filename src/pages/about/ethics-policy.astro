@@ -7,6 +7,7 @@ import GuidanceForPeerReviewers from "@components/pages/ethics-policy/GuidanceFo
 import GuidanceInConflicts from "@components/pages/ethics-policy/GuidanceInConflicts.astro";
 import { NAVIGATION } from "@lib/client/navigation";
 import mainImage from "@assets/images/mainImages/futuristic-time-machines-design.jpg";
+import InformationPageToC from "@components/layout/page/InformationPageToC.astro";
 ---
 
 <BaseInformationPageLayout
@@ -31,10 +32,60 @@ import mainImage from "@assets/images/mainImages/futuristic-time-machines-design
 			as leading Russian and foreign peer-reviewed journals and publishing
 			houses.
 		</section>
-		<GuidanceForAuthors />
-		<GuidanceForEditorial />
-		<GuidanceForEditorInChief />
-		<GuidanceForPeerReviewers />
-		<GuidanceInConflicts />
+		<div class="flex flex-row divide-secondary mt-8">
+			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+				<div>
+					<ul class="flex flex-col gap-2">
+						<li>
+							<a
+								class="hover-accent"
+								href={`#guidanceForAuthors`}
+							>
+								Guidance For Authors
+							</a>
+						</li>
+						<li>
+							<a
+								class="hover-accent"
+								href={`#guidanceForEditorial`}
+							>
+								Guidance For Editorial
+							</a>
+						</li>
+						<li>
+							<a
+								class="hover-accent"
+								href={`#guidanceForEditorInChief`}
+							>
+								Guidance For Editor-In-Chief
+							</a>
+						</li>
+						<li>
+							<a
+								class="hover-accent"
+								href={`#guidanceForPeerReviewers`}
+							>
+								Guidance For Peer-Reviewers
+							</a>
+						</li>
+						<li>
+							<a
+								class="hover-accent"
+								href={`#guidanceInConflicts`}
+							>
+								Guidance In Conflicts
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="pl-8 flex-1 gap-16">
+				<GuidanceForAuthors />
+				<GuidanceForEditorial />
+				<GuidanceForEditorInChief />
+				<GuidanceForPeerReviewers />
+				<GuidanceInConflicts />
+			</div>
+		</div>
 	</div>
 </BaseInformationPageLayout>

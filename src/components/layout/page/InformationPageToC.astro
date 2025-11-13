@@ -1,0 +1,47 @@
+---
+import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+
+interface Props {
+	parts: {
+		content: string;
+		title: string;
+		tocTitle?: string;
+		id: string;
+	}[];
+}
+const { parts } = Astro.props;
+---
+
+<div class="flex flex-row divide-secondary">
+	<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+		<div>
+			<ul class="flex flex-col gap-2">
+				{
+					parts.map((p) => (
+						<li>
+							<a class="hover-accent" href={`#${p.id}`}>
+								{p.tocTitle ? p.tocTitle : p.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+	<div class="pl-8 flex-1 gap-16">
+		{
+			parts.map((p, index) => (
+				<Fragment>
+					<SectionTitleNoContainer
+						top={index === 0 ? "0" : "8"}
+						id={p.id}
+						title={p.title}
+					/>
+					<section class="container mx-auto mt-8">
+						<div slot={`content-${index}`} set:html={p.content} />
+					</section>
+				</Fragment>
+			))
+		}
+	</div>
+</div>
