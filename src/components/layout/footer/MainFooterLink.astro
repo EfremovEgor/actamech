@@ -4,10 +4,27 @@ interface Props {
 	text: string;
 	url: string;
 	external?: boolean;
+	disabled?: boolean;
 }
-const { text, url, external = false } = Astro.props;
+const { text, url, external = false, disabled = false } = Astro.props;
 ---
 
-<a class="w-fit underline-on-hover uppercase text-sm font-semibold" href={url}
-	>{text}{external && <EiExternalLink className="inline" />}</a
->
+{
+	disabled ? (
+		<span
+			title="Will be available soon"
+			class="w-fit text-contrast-disabled-text uppercase text-sm font-semibold"
+		>
+			{text}
+			{external && <EiExternalLink className="inline" />}
+		</span>
+	) : (
+		<a
+			class="w-fit underline-on-hover uppercase text-sm font-semibold"
+			href={url}
+		>
+			{text}
+			{external && <EiExternalLink className="inline" />}
+		</a>
+	)
+}

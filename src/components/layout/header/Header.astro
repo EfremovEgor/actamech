@@ -36,6 +36,7 @@ import HeaderDropdownLink from "./HeaderDropdownLink.astro";
 					<ul class="flex flex-col gap-5 text-sm">
 						<HeaderDropdownLink
 							text="Latest issue"
+							disabled
 							url="/volumes/1"
 						/>
 						<HeaderDropdownLink
@@ -100,6 +101,7 @@ import HeaderDropdownLink from "./HeaderDropdownLink.astro";
 							url="https://confchair.org"
 						/>
 						<HeaderDropdownLink
+							disabled
 							text="Guide for authors"
 							url="/publish/guide-for-authors"
 						/>
@@ -109,7 +111,7 @@ import HeaderDropdownLink from "./HeaderDropdownLink.astro";
 		</ul>
 		<div>
 			<div class="flex flex-row self-stretch items-center">
-				<a
+				<!-- <a
 					href="/"
 					class="w-fit hover:text-accent uppercase font-semibold whitespace-nowrap px-4 border-x-1 border-accent h-full flex items-center"
 				>
@@ -125,7 +127,24 @@ import HeaderDropdownLink from "./HeaderDropdownLink.astro";
 					class="w-fit hover:text-accent uppercase font-semibold whitespace-nowrap px-4 border-r-1 border-accent h-full flex items-center"
 				>
 					<span> Guide for authors </span>
-				</a>
+				</a> -->
+
+				<span
+					class="w-fit text-contrast-disabled-text uppercase font-semibold whitespace-nowrap px-4 border-x-1 border-accent h-full flex items-center"
+					title="Will be available soon"
+				>
+					<span>
+						Submit an article <EiExternalLink
+							className="inline my-auto"
+						/></span
+					>
+				</span>
+
+				<span
+					class="w-fit text-contrast-disabled-text uppercase font-semibold whitespace-nowrap px-4 border-r-1 border-accent h-full flex items-center"
+				>
+					<span> Guide for authors </span>
+				</span>
 				<div>
 					<div class="p-4 text-2xl cursor-pointer hover:text-accent">
 						<EiSearch />

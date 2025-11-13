@@ -19,6 +19,7 @@
   /* --color-secondary: #122F3D;
     --color-secondary-hover: #275A66; */
   --color-secondary: var(--color-slate-900);
+  --color-contrast-disabled-text: var(--color-slate-400);
   --color-background-tertiary: var(--color-slate-700);
   --color-secondary-hover: var(--color-slate-700);
   --color-accent: #f96e46;
@@ -42,6 +43,7 @@
   --color-tertiary-text: var(--color-tertiary-text);
   --color-border-primary: var(--color-border-primary);
   --color-border-secondary: var(--color-border-secondary);
+  --color-contrast-disabled-text: var(--color-contrast-disabled-text);
 }
 
 .border-0-5 {

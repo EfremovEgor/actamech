@@ -19,21 +19,9 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 				>
 					ACTA MECHANICA ET IMPERIUM
 				</h1>
-				<!-- <p class="text-justify text-xs">
-					Online edition – an electronic journal «Acta Mechanica Et
-					Imperium» («Scientific and Technical Journal Acta Mechanica
-					Et Imperium», ActaMech Journal)
-				</p> -->
+
 				<div class="mt-6 flex flex-row gap-2 justify-between">
 					<Image class="h-10 w-auto" src={RUDNLogo} alt="RUDN Logo" />
-					<!-- <div class="flex flex-row gap-2 items-center">
-            <Image
-              class="h-10 w-auto"
-              src={ConfChairLogo}
-              alt="ConfChair Logo"
-            />
-            <p class="text-xl">ConfChair</p>
-          </div> -->
 				</div>
 			</div>
 			<Image class="h-30 w-auto ml-5" src={siteIcon} alt="Site icon" />
@@ -47,10 +35,12 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 				<h1 class="uppercase text-lg font-bold mb-4">
 					Articles & Issues
 				</h1>
-				<MainFooterLink text="Latest issue" url="/" />
-				<MainFooterLink text="All issues" url="/" />
-				<MainFooterLink text="Articles in press" url="/" />
-				<MainFooterLink text="Article collections" url="/" />
+				<MainFooterLink disabled text="Latest issue" url="/volumes/1" />
+				<MainFooterLink text="All issues" url="/articles/all-issues" />
+				<MainFooterLink
+					text="Articles in press"
+					url="/articles/articles-in-press"
+				/>
 			</div>
 		</section>
 		<div
@@ -60,11 +50,23 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 		<section>
 			<div class="flex flex-col gap-2">
 				<h1 class="uppercase text-lg font-bold mb-4">About</h1>
-				<MainFooterLink text="Aims and scope" url="/" />
-				<MainFooterLink text="Editorial board" url="/" />
-				<MainFooterLink text="Ethics Policy" url="/" />
-				<MainFooterLink text="Declaration on privacy" url="/" />
-				<MainFooterLink text="Contacts" url="/" />
+				<MainFooterLink
+					text="Aims and scope"
+					url="/about/aims-and-scope"
+				/>
+				<MainFooterLink
+					text="Editorial board"
+					url="/about/editorial-board"
+				/>
+				<MainFooterLink
+					text="Ethics Policy"
+					url="/about/ethics-policy"
+				/>
+				<MainFooterLink
+					text="Declaration on privacy"
+					url="/about/declaration-on-privacy"
+				/>
+				<MainFooterLink text="Contacts" url="/about/contacts" />
 			</div>
 		</section>
 		<div
@@ -74,9 +76,17 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 		<section>
 			<div class="flex flex-col gap-2">
 				<h1 class="uppercase text-lg font-bold mb-4">Publish</h1>
-				<MainFooterLink external text="Submit your article " url="/" />
-				<MainFooterLink text="Guide for authors" url="/" />
-				<MainFooterLink text="News" url="/" />
+				<MainFooterLink
+					disabled
+					external
+					text="Submit your article "
+					url="/"
+				/>
+				<MainFooterLink
+					disabled
+					text="Guide for authors"
+					url="/publish/guide-for-authors"
+				/>
 			</div>
 		</section>
 	</div>
@@ -91,10 +101,10 @@ import MaterialSymbolsMailOutline from "~icons/material-symbols/mail-outline";
 				class="hover:text-gray-100 base-colors-transition"
 				href="/about/contacts">Contact</a
 			> |
-			<a
+			<!-- <a
 				class="hover:text-gray-100 base-colors-transition"
 				href="/sitemap">Site Map</a
-			> |
+			> | -->
 			<a
 				class="hover:text-gray-100 base-colors-transition"
 				href="/about/declaration-on-privacy">Terms & Privacy Policy</a

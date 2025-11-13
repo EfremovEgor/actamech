@@ -3,4 +3,5 @@ export interface IHeaderLink {
 	url: string;
 	target?: "_blank" | "_parent" | "_self" | "_top";
 	external?: boolean;
+	disabled?: boolean;
 }
