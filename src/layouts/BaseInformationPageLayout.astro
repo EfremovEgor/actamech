@@ -4,52 +4,57 @@ import { type IBaseInformationPageLayout } from "./interfaces";
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from "astro:assets";
 import Breadcrumb from "@components/common/Breadcrumb.astro";
+import { ISSN } from "@lib/constants";
 interface Props extends IBaseInformationPageLayout {}
 const {
-  head: { title = "Acta Mechanica et Imperium", description, keywords } = {},
-  image,
-  pageTitle,
-  navigation,
+	head: { title = "Acta Mechanica et Imperium", description, keywords } = {},
+	image,
+	pageTitle,
+	navigation,
 } = Astro.props;
 ---
 
 <BaseLayout {...Astro.props}>
-  <div class="mb-16">
-    <div class="w-full relative">
-      <Image
-        class="w-full brightness-50 h-80 object-cover object-[25%_0%] bg-scroll"
-        src={image}
-        alt={"Main page image"}
-      />
-      <div
-        class="text-secondary-text absolute z-10
+	<div class="mb-16">
+		<div class="w-full relative">
+			<Image
+				class="w-full brightness-50 h-80 object-cover object-[25%_0%] bg-scroll"
+				src={image}
+				alt={"Main page image"}
+			/>
+			<div
+				class="text-secondary-text absolute z-10
               
               top-0 left-0 h-full w-full
               flex items-center justify-center"
-      >
-        <div
-          class="py-8 backdrop-blur-xs w-full flex items-center justify-center flex-col"
-        >
-          <h1 class="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
-            ACTA MECHANICA ET IMPERIUM
-          </h1>
-          <div class="text-center flex flex-col gap-4 mt-4">
-            <p class="px-8 py-2 italic border-accent border-b-2 text-xl">
-              Publishing model: Online
-            </p>
-            <p>ISSN: 2400-9900</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container mx-auto mt-8">
-      {navigation && <Breadcrumb {...navigation} />}
-    </div>
-    <div class="border-y-accent border-y-2 mt-8">
-      <div class="container mx-auto py-8">
-        <h1 class="text-4xl uppercase">{pageTitle}</h1>
-      </div>
-    </div>
-    <slot />
-  </div>
+			>
+				<div
+					class="py-8 backdrop-blur-xs w-full flex items-center justify-center flex-col"
+				>
+					<h1
+						class="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]"
+					>
+						ACTA MECHANICA ET IMPERIUM
+					</h1>
+					<div class="text-center flex flex-col gap-4 mt-4">
+						<p
+							class="px-8 py-2 italic border-accent border-b-2 text-xl"
+						>
+							Publishing model: Online
+						</p>
+						<p>{ISSN}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container mx-auto mt-8">
+			{navigation && <Breadcrumb {...navigation} />}
+		</div>
+		<div class="border-y-accent border-y-2 mt-8">
+			<div class="container mx-auto py-8">
+				<h1 class="text-4xl uppercase">{pageTitle}</h1>
+			</div>
+		</div>
+		<slot />
+	</div>
 </BaseLayout>

@@ -5,6 +5,7 @@ import AbstractingAndIndexing from "./AbstractingAndIndexing.astro";
 import ArticlePublishingOptions from "./ArticlePublishingOptions.astro";
 import SubjectAreas from "./SubjectAreas.astro";
 import ContentDelimiter from "@components/common/ContentDelimiter.astro";
+import { ISSN } from "@lib/constants";
 ---
 
 <div class="container mx-auto mt-8">
@@ -96,7 +97,7 @@ import ContentDelimiter from "@components/common/ContentDelimiter.astro";
 			<p
 				class="text-center font-semibold text-accent border-b-2 border-b-border-secondary pb-2"
 			>
-				2400-9900
+				{ISSN}
 			</p>
 		</div>
 		<div class="px-4 py-6 border-r-1 border-r-border-primary">
@@ -131,13 +132,14 @@ import ContentDelimiter from "@components/common/ContentDelimiter.astro";
 		<p class="mt-2">
 			Acta Mechanica et Imperium is registered by the Federal Service for
 			Supervision in the Sphere of Telecom, Information Technologies and
-			Mass Communication. Registration Certificate El № FS77-89672 dd.
-			June 15, 2025. The journal is registered in Centre International de
-			l’ISSN and has an International Standard Serial Number of
-			periodicals E-ISSN XXXX-XXXX.
+			Mass Communication (registration certificate El № FS77-89672 dd.
+			June 15, 2025).
 		</p>
+		<!-- The journal is registered in Centre International de
+			l’ISSN and has an International Standard Serial Number of
+			periodicals E-ISSN {ISSN}. -->
 	</div>
 	<SubjectAreas />
-	<ArticlePublishingOptions />
+	<!-- <ArticlePublishingOptions /> -->
 	<AbstractingAndIndexing />
 </div>

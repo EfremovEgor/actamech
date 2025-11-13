@@ -6,6 +6,7 @@ import ArticleCard from "@components/common/articles/ArticleCard";
 import { ARTICLES } from "../articles/ExampleArticle";
 import { EXAMPLE_CALLS } from "./ExampleCall";
 import SectionTitleNoContainer from "@components/common/SectionTitleNoContainer.astro";
+import { ISSN } from "@lib/constants";
 const { id } = Astro.params;
 const callForPapers = EXAMPLE_CALLS[0];
 const article = ARTICLES[0];
@@ -28,7 +29,8 @@ const article = ARTICLES[0];
 		</p>
 		<article
 			class="base-text-section whitespace-pre-wrap bg-secondary/5 rounded-base px-4 py-4 text-lg mt-4"
-		>{callForPapers.description}
+		>
+			{callForPapers.description}
 		</article>
 		<SectionTitleNoContainer title="Guest Editors" />
 		<div class="grid grid-cols-2 gap-8 mt-8">
@@ -70,8 +72,9 @@ const article = ARTICLES[0];
 			<p class="py-2"></p>
 			<p>
 				Guide for Authors will be helpful for your future contributions,
-				read more: Guide for authors - Acta Mechanica Et Imperium - ISSN
-				2400-9900 (elsevier.com)
+				read more: Guide for authors - Acta Mechanica Et Imperium - {
+					ISSN
+				} (elsevier.com)
 			</p>
 			<p class="py-2"></p>
 			<p>
