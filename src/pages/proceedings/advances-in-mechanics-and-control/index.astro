@@ -9,6 +9,9 @@ const article = ARTICLES[0];
 const response = await getProceedingById("advances-in-mechanics-and-control");
 if (!response) return new Response(null, { status: 404 });
 const proceedingData = response.data;
+const volumes = proceedingData.volumes.sort((a, b) => {
+	return a.volume_number < b.volume_number ? 1 : -1;
+});
 console.log(proceedingData);
 ---
 
@@ -24,23 +27,62 @@ console.log(proceedingData);
 	pageTitle={proceedingData.title}
 >
 	<div class="container mx-auto mt-8">
-		<p>
-			This page contains a list of all available article collections,
-			special issues and supplements published within the journal.
-		</p>
-
-		<div class="grid grid-cols-3 mt-4 justify-items-center gap-x-4 gap-y-8">
-			{
-				proceedingData.volumes.map((vol) => (
-					<>
-						<ProceedingVolume
-							image={`/images/covers/${vol.id}.webp`}
-							volumeData={vol}
-							proceedingId="advances-in-mechanics-and-control"
-						/>
-					</>
-				))
-			}
+		<div class="flex flex-row divide-secondary">
+			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+				<ul class="flex flex-col gap-2">
+					<h2 class="text-xl font-bold">All volumes:</h2>
+					{
+						volumes.map((vol) => (
+							<li>
+								<a
+									class="hover-accent"
+									href={`/proceedings/advances-in-mechanics-and-control/volumes/${vol.id}`}
+								>
+									Volume {vol.volume_number}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div class="pl-8 grid grid-cols-4 gap-x-4 gap-y-8">
+				{
+					volumes.map((vol) => (
+						<>
+							<ProceedingVolume
+								image={`/images/covers/${vol.id}.webp`}
+								volumeData={vol}
+								proceedingId="advances-in-mechanics-and-control"
+							/>
+							<ProceedingVolume
+								image={`/images/covers/${vol.id}.webp`}
+								volumeData={vol}
+								proceedingId="advances-in-mechanics-and-control"
+							/>
+							<ProceedingVolume
+								image={`/images/covers/${vol.id}.webp`}
+								volumeData={vol}
+								proceedingId="advances-in-mechanics-and-control"
+							/>
+							<ProceedingVolume
+								image={`/images/covers/${vol.id}.webp`}
+								volumeData={vol}
+								proceedingId="advances-in-mechanics-and-control"
+							/>
+							<ProceedingVolume
+								image={`/images/covers/${vol.id}.webp`}
+								volumeData={vol}
+								proceedingId="advances-in-mechanics-and-control"
+							/>
+							<ProceedingVolume
+								image={`/images/covers/${vol.id}.webp`}
+								volumeData={vol}
+								proceedingId="advances-in-mechanics-and-control"
+							/>
+						</>
+					))
+				}
+			</div>
 		</div>
 	</div>
 </BaseInformationPageLayout>

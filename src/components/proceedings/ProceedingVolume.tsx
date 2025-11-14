@@ -22,9 +22,7 @@ const ProceedingVolume = ({
 				<img
 					src={image ?? "/images/test/example_cover.png"}
 					className="h-80 w-fit"
-					width="auto"
-					height="1"
-					alt=""
+					alt={volumeData.title}
 				/>
 			</div>
 			<div className="text-lg flex flex-col items-center">
