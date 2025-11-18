@@ -12,7 +12,7 @@ DATABASE_URL = settings.database_url.replace(
 
 engine = create_async_engine(
     DATABASE_URL,
-    echo=False,
+    echo=True,
     future=True,
 )
 

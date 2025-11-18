@@ -1,3 +1,4 @@
+import json
 import uuid
 from fastapi import Depends, UploadFile
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
@@ -14,6 +15,7 @@ from app.models.authors import Author, AuthorAffiliationAssociation
 from app.models.files import File
 from app.models.proceedings import ProceedingVolume
 from app.schemas.article import (
+    AffiliationInAuthor,
     ArticleBase,
     ArticleInCreate,
     ArticleUpdate,
@@ -25,6 +27,7 @@ from app.models.association_tables import proceeding_volume_articles_association
 from app.schemas.author import MultipleAuthorsResponse
 from app.services.base import BaseService
 from app.services.file_service import FileService
+from app.utils import object_as_dict
 
 
 class ArticleService(BaseService):
@@ -144,6 +147,25 @@ class ArticleService(BaseService):
         await self.db.delete(article)
         await self.db.commit()
 
+    def convert_affiliations(self, author: Author) -> list[AffiliationInAuthor]:
+        result = []
+        for assoc in author.affiliation_associations:
+            aff = assoc.affiliation
+            clar = assoc.clarification
+
+            result.append(
+                AffiliationInAuthor(
+                    id=aff.id,
+                    name=aff.name,
+                    address=aff.address,
+                    country=aff.country,
+                    postal_code=aff.postal_code,
+                    aliases=aff.aliases,  # если есть
+                    clarifications=[clar] if clar else [],
+                )
+            )
+        return result
+
     async def get_article_by_id(self, id: str):
         stmt = (
             select(Article)
@@ -152,20 +174,11 @@ class ArticleService(BaseService):
                 selectinload(Article.authors)
                 .selectinload(Author.affiliation_associations)
                 .options(
-                    selectinload(AuthorAffiliationAssociation.affiliation).selectinload(
-                        Affiliation.aliases
+                    selectinload(AuthorAffiliationAssociation.affiliation).options(
+                        selectinload(Affiliation.aliases)
                     ),
-                ),
-                selectinload(Article.authors)
-                .selectinload(Author.affiliation_associations)
-                .options(
-                    selectinload(AuthorAffiliationAssociation.affiliation),
-                ),
-                selectinload(Article.authors)
-                .selectinload(Author.affiliation_associations)
-                .options(
                     selectinload(AuthorAffiliationAssociation.clarification),
-                ),
+                )
             )
         )
 
@@ -185,7 +198,9 @@ class ArticleService(BaseService):
             )
         result = await self.db.execute(stmt)
         article_data = SingleArticleResponse.model_validate(article)
-
+        for author in article_data.authors:
+            orm_author = next(a for a in article.authors if a.id == author.id)
+            author.affiliations = self.convert_affiliations(orm_author)
         volume = result.scalar_one_or_none()
         if volume is not None:
             volume_data = ArticleVolume.model_validate(volume)
