@@ -11,7 +11,7 @@ class ProceedingBase(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
     )
-    
+
     id: str
     title: str
 
@@ -23,18 +23,19 @@ class VolumeInProceeding(BaseModel):
     id: str
     title: str
     volume_number: str
-    
+
+
 class ProceedingResponse(ProceedingBase):
     model_config = ConfigDict(
         from_attributes=True,
     )
     volumes: list[VolumeInProceeding] = []
-    
+
 
 class AuthorInArticle(BaseModel):
     first_name: str
     last_name: str
-    
+
 
 class ArticleInVolume(BaseModel):
     model_config = ConfigDict(
@@ -42,13 +43,14 @@ class ArticleInVolume(BaseModel):
     )
     id: str
     abstract: str
-    doi: str
+    doi: str | None
     title: str
     type: str
     editorial: bool
     published_at: datetime | None
     authors: list[AuthorInArticle] = []
-    
+
+
 class ProceedingVolumeResponse(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
@@ -66,10 +68,11 @@ class ProceedingVolumeResponse(BaseModel):
     published_at: datetime | None
     articles: list[ArticleInVolume] = []
 
+
 class ProceedingVolumeListItemResponse(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
-    )    
+    )
     id: str
     title: str
     volume_number: str
