@@ -1,3 +1,4 @@
+import SerialFormatting from "@components/common/SerialFormatting";
 import React from "react";
 
 const ProceedingVolume = ({
@@ -27,7 +28,7 @@ const ProceedingVolume = ({
 			</div>
 			<div className="text-lg flex flex-col items-center mt-2 text-center">
 				<p>Volume {volumeData.volume_number}</p>
-				<p>{volumeData.title}</p>
+				<SerialFormatting str={volumeData.title} wrapper="p" />
 			</div>
 		</a>
 	);

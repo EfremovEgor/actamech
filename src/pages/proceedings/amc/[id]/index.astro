@@ -9,6 +9,7 @@ import { NAVIGATION } from "@lib/client/navigation";
 import { ARTICLES } from "src/pages/articles/ExampleArticle";
 import { getProceedingVolumeById } from "src/api/api";
 import { resolveArticleType } from "@lib/articles";
+import SerialFormatting from "@components/common/SerialFormatting";
 const article = ARTICLES[0];
 
 if (!id) return new Response(null, { status: 404 });
@@ -36,7 +37,12 @@ const volumeData = response.data;
 >
 	<div class="border-y-accent border-b-2">
 		<div class="container mx-auto py-4">
-			<h1 class="text-3xl">Proceedings, {volumeData.title}</h1>
+			<h1 class="text-3xl">
+				Proceedings, <SerialFormatting
+					str={volumeData.title}
+					wrapper="span"
+				/>
+			</h1>
 		</div>
 	</div>
 	<div class="container mx-auto mt-8">
@@ -50,24 +56,35 @@ const volumeData = response.data;
 			<div
 				class="bg-secondary/5 h-full flex flex-col justify-center rounded-base px-4 py-4 text-lg w-full"
 			>
-				<p class="text-xl">{volumeData.conference_full_name}</p>
+				<p class="text-xl font-bold">
+					<SerialFormatting
+						str={volumeData.conference_full_name}
+						wrapper="span"
+					/>
+				</p>
 				<p class="text-sm my-1 text-tertiary-text">
 					{volumeData.place} |
 					{volumeData.held_at}
 				</p>
-				<div class="flex flex-col">
+				<div>
 					<h2 class="font-bold">Volume Editors:</h2>
-					{
-						volumeData.editors.map((ed) => (
-							<p>
-								{ed.first_name} {ed.last_name}, {ed.institution}
-								, {ed.country}
-							</p>
-						))
-					}
+					<div class="text-sm">
+						{
+							volumeData.editors.map((ed) => (
+								<p>
+									{ed.first_name} {ed.last_name},{" "}
+									{ed.institution}, {ed.country}
+								</p>
+							))
+						}
+					</div>
 				</div>
-				<div class="text-tertiary-text">
-					<p>Number of Papers:</p>
+				<div>
+					{
+						volumeData.total_pages && (
+							<p>Number of Papers: {volumeData.total_pages}</p>
+						)
+					}
 					<p>Views 000 | Downloads 000 | Citations 0</p>
 				</div>
 				<article class="base-text-section"></article>
