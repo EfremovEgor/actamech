@@ -15,7 +15,7 @@ const ProceedingVolume = ({
 }) => {
 	return (
 		<a
-			href={`/proceedings/${proceedingId}/volumes/${volumeData.id}`}
+			href={`/proceedings/${proceedingId}/${volumeData.id}`}
 			className="w-fit"
 		>
 			<div className="relative">

@@ -12,7 +12,6 @@ const proceedingData = response.data;
 const volumes = proceedingData.volumes.sort((a, b) => {
 	return a.volume_number < b.volume_number ? 1 : -1;
 });
-console.log(proceedingData);
 ---
 
 <BaseInformationPageLayout
@@ -42,7 +41,7 @@ console.log(proceedingData);
 								<li>
 									<a
 										class="hover-accent"
-										href={`/proceedings/advances-in-mechanics-and-control/volumes/${vol.id}`}
+										href={`/proceedings/amc/${vol.id}`}
 									>
 										Volume {vol.volume_number}
 									</a>
@@ -61,7 +60,7 @@ console.log(proceedingData);
 							<ProceedingVolume
 								image={`/images/covers/${vol.id}.webp`}
 								volumeData={vol}
-								proceedingId="advances-in-mechanics-and-control"
+								proceedingId="amc"
 							/>
 						</>
 					))

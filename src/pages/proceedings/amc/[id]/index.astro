@@ -73,25 +73,24 @@ const volumeData = response.data;
 			</div>
 		</div>
 		<SectionTitleNoContainer title="Articles" />
-		<p class="mt-4 text-lg text-tertiary-text">
-			<div class="flex flex-col gap-12 mt-8">
-				{
-					volumeData.articles.map((article) => (
-						<ArticleCard
-							client:visible
-							{...{
-								...article,
-							}}
-						/>
-					))
-				}
-				<!-- abstract={ -->
-				<!-- // 	article.content.find(
+		<div class="flex flex-col gap-8 mt-8">
+			{
+				volumeData.articles.map((article) => (
+					<ArticleCard
+						client:visible
+						{...{
+							...article,
+							link: `${volumeData.id}/${article.id}`,
+						}}
+					/>
+				))
+			}
+			<!-- abstract={ -->
+			<!-- // 	article.content.find(
 							// 		(content) => content.type == "abstract"
 							// 	)?.content
 							// }
 							// extra="Research Article | March 21, 2025" -->
-			</div>
-		</p>
+		</div>
 	</div>
 </BaseInformationPageLayout>

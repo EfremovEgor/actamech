@@ -1,22 +1,14 @@
 ---
 export const prerender = false;
-import { ARTICLES } from "./ExampleArticle";
 import ArticleNav from "@components/articles/ArticleNav";
 import "@styles/articles/articles.css";
 import ArticleContent from "@components/articles/ArticleContent";
 import Authors from "@components/pages/article-item/Authors";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Breadcrumb from "@components/common/Breadcrumb.astro";
-import { apiInstance } from "src/api/axiosInstance";
-import axios from "axios";
-import {
-	type BaseAPIResponse,
-	type SingleArticleResponse,
-} from "src/api/types";
 import { resolveArticleType } from "@lib/articles";
 import { getArticleById } from "src/api/api";
 const { id } = Astro.params;
-const article = ARTICLES[0];
 if (!id) return new Response(null, { status: 404 });
 const response = await getArticleById(id);
 if (!response) return new Response(null, { status: 404 });
@@ -35,14 +27,20 @@ const articleData = response.data;
 				navigation: [
 					{ name: "Home", url: "/" },
 					{
-						name: "Volumes And Articles",
-						url: "/articles/all-issues",
+						name: "Proceedings",
 					},
 					{
-						name: `Volume ${articleData.volume.volume_number}`,
-						url: `/volumes/${id}`,
+						name: "Advances in Mechanics and Control",
+						url: "/proceedings/amc",
 					},
-					{ name: `${id}`, url: `/articles/${id}` },
+					{
+						name: `${articleData.volume.id}`,
+						url: `/proceedings/amc/${articleData.volume.id}`,
+					},
+					{
+						name: `${id}`,
+						url: `/proceedings/amc/${articleData.volume.id}/${id}`,
+					},
 				],
 			}}
 		/>
@@ -64,6 +62,10 @@ const articleData = response.data;
 							month: "long",
 							year: "numeric",
 						})
+					}, {
+						articleData.pages_in_volume
+							? `Pages ${articleData.pages_in_volume}`
+							: articleData.id.toUpperCase()
 					}
 				</h2>
 				<h1 class="text-3xl font-semibold">{articleData.title}</h1>
