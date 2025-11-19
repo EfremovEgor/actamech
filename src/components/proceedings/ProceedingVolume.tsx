@@ -16,7 +16,7 @@ const ProceedingVolume = ({
 	return (
 		<a
 			href={`/proceedings/${proceedingId}/volumes/${volumeData.id}`}
-			className="flex flex-col gap-2 w-fit"
+			className="w-fit"
 		>
 			<div className="relative">
 				<img
@@ -25,7 +25,7 @@ const ProceedingVolume = ({
 					alt={volumeData.title}
 				/>
 			</div>
-			<div className="text-lg flex flex-col items-center">
+			<div className="text-lg flex flex-col items-center mt-2 text-center">
 				<p>Volume {volumeData.volume_number}</p>
 				<p>{volumeData.title}</p>
 			</div>

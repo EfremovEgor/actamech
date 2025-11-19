@@ -138,14 +138,14 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
 				{/* <section>
 					<h2 id="references">Cited by (0)</h2>
 				</section> */}
-				<section className="text-accent font-semibold mt-8">
-					{/* <p>View Abstract</p> */}
+				{/* <section className="text-accent font-semibold mt-8">
+					<p>View Abstract</p>
 					<p>
 						© 2025 IAA. Published by Actamech. All rights are
 						reserved, including those for text and data mining, AI
 						training, and similar technologies.
 					</p>
-				</section>
+				</section> */}
 			</article>
 		</div>
 	);

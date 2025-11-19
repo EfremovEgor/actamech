@@ -38,7 +38,10 @@ const articleData = response.data;
 						name: "Volumes And Articles",
 						url: "/articles/all-issues",
 					},
-					{ name: `Volume 1`, url: `/volumes/${id}` },
+					{
+						name: `Volume ${articleData.volume.volume_number}`,
+						url: `/volumes/${id}`,
+					},
 					{ name: `${id}`, url: `/articles/${id}` },
 				],
 			}}
@@ -53,17 +56,39 @@ const articleData = response.data;
 		<div class="mt-8 border-b-secondary border-b-2 pb-4">
 			<div class="text-center mt-16">
 				<h1 class="text-3xl font-semibold">{articleData.title}</h1>
-				<h2 class="uppercase mt-2">
-					volume {articleData.volume.volume_number}, {
-						new Date(articleData.volume.published_at)
-							.toLocaleString("en-US", {
-								month: "long",
-								year: "numeric",
-							})
-							.toUpperCase()
-					}, pages {articleData.pages_in_volume}
+				<h2 class="mt-2">
+					Volume {articleData.volume.volume_number}, {
+						new Date(
+							articleData.volume.published_at
+						).toLocaleString("en-US", {
+							month: "long",
+							year: "numeric",
+						})
+					}
 				</h2>
 				<Authors client:load authors={articleData.authors} />
+				<div class="text-primary-text/40">
+					{
+						articleData.received_at && (
+							<p>
+								Received at{" "}
+								{new Date(
+									articleData.received_at
+								).toLocaleDateString()}
+							</p>
+						)
+					}
+					{
+						articleData.revised_at && (
+							<p>
+								Revised at{" "}
+								{new Date(
+									articleData.revised_at
+								).toLocaleDateString()}
+							</p>
+						)
+					}
+				</div>
 			</div>
 			<div
 				class="flex flex-row justify-between text-primary-text/30 mt-16"

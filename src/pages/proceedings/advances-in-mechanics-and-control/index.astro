@@ -28,24 +28,33 @@ console.log(proceedingData);
 >
 	<div class="container mx-auto mt-8">
 		<div class="flex flex-row divide-secondary">
-			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
-				<ul class="flex flex-col gap-2">
-					<h2 class="text-xl font-bold">All volumes:</h2>
-					{
-						volumes.map((vol) => (
-							<li>
-								<a
-									class="hover-accent"
-									href={`/proceedings/advances-in-mechanics-and-control/volumes/${vol.id}`}
-								>
-									Volume {vol.volume_number}
-								</a>
-							</li>
-						))
-					}
-				</ul>
+			<div
+				class="flex flex-col gap-8 pr-8 left_navigation-sticky min-w-1/5"
+			>
+				<div>
+					<h2 class="font-semibold pb-2 border-b-1 border-b-accent">
+						All volumes:
+					</h2>
+
+					<ul class="flex flex-col gap-2 mt-4">
+						{
+							volumes.map((vol) => (
+								<li>
+									<a
+										class="hover-accent"
+										href={`/proceedings/advances-in-mechanics-and-control/volumes/${vol.id}`}
+									>
+										Volume {vol.volume_number}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 			</div>
-			<div class="pl-8 grid grid-cols-4 gap-x-4 gap-y-8">
+			<div
+				class="pl-8 grid grid-cols-4 gap-x-4 gap-y-8 border-l-border-primary border-l-1"
+			>
 				{
 					volumes.map((vol) => (
 						<>
