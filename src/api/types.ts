@@ -40,6 +40,7 @@ export interface ArticleVolume {
 	title: string;
 	published_at: string;
 	volume_number: string;
+	conference_full_name: string;
 }
 
 export interface AuthorInArticle {

@@ -50,7 +50,10 @@ const AuthorsAffiliations = ({
 					</ul>
 					<div className="text-primary-text/60 text-sm mt-2">
 						This article belongs to the Proceedings of{" "}
-						<SerialFormatting str={volume!.title} wrapper="span" />
+						<SerialFormatting
+							str={volume!.conference_full_name}
+							wrapper="span"
+						/>
 					</div>
 				</div>
 			)}

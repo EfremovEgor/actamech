@@ -17,6 +17,7 @@ export const makeAffiliationsTagsFromAuthors = (
 				affiliationAliases[af.id] = String.fromCharCode(currentLetter);
 			}
 			affiliationsData[af.id] = af;
+			currentLetter += 1;
 		});
 	});
 	return [affiliationAliases, affiliationsData];
