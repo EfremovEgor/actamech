@@ -36,7 +36,7 @@ export const NAVIGATION = {
 			{ name: "Proceedings" },
 			{
 				name: "Advances in Mechanics and Control",
-				url: "/proceedings/advances-in-mechanics-and-control",
+				url: "/proceedings/amc",
 			},
 		],
 	},
