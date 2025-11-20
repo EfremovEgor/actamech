@@ -9,11 +9,10 @@ from app.utils import clean_spaces
 
 class BaseVolumeEditor(BaseModel):
     id: int
-    prefix:str
-    first_name: str 
-    last_name: str
+    prefix: str
+    full_name: str | None
     title: str
-    institution: str 
+    institution: str
     country: str
 
     model_config = ConfigDict(from_attributes=True)
