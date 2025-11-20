@@ -6,10 +6,8 @@ from fastapi import APIRouter, Body, Depends, Form, HTTPException, Query, Upload
 from fastapi.responses import FileResponse
 from starlette import status
 
-from app.database.database import get_async_session
 from app.models.files import File
 from app.schemas.article import (
-    ArticleBase,
     ArticleInCreate,
     ArticleUpdate,
     MultipleArticlesResponse,
