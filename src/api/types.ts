@@ -90,9 +90,8 @@ export interface ProceedingResponse extends BaseProceeding {
 
 export interface VolumeEditor {
 	id: number;
-	prefix: string;
-	first_name: string;
-	last_name: string;
+	prefix?: string;
+	full_name: string;
 	title: string;
 	institution: string;
 	country: string;

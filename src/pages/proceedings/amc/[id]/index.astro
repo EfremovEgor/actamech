@@ -8,7 +8,6 @@ import mainImage from "@assets/images/mainImages/futuristic_spaceship_orbits_pla
 import { NAVIGATION } from "@lib/client/navigation";
 import { ARTICLES } from "src/pages/articles/ExampleArticle";
 import { getProceedingById, getProceedingVolumeById } from "src/api/api";
-import { resolveArticleType } from "@lib/articles";
 import SerialFormatting from "@components/common/SerialFormatting";
 const article = ARTICLES[0];
 
@@ -81,14 +80,7 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				<div>
 					<h2 class="font-bold">Volume Editors:</h2>
 					<div class="text-sm">
-						{
-							volumeData.editors.map((ed) => (
-								<p>
-									{ed.first_name} {ed.last_name},{" "}
-									{ed.institution}, {ed.country}
-								</p>
-							))
-						}
+						{volumeData.editors.map((ed) => <p>{ed.full_name}</p>)}
 					</div>
 				</div>
 				<div>
