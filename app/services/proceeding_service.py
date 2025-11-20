@@ -31,6 +31,7 @@ class ProceedingService(BaseService):
                     ProceedingVolume.id,
                     ProceedingVolume.title,
                     ProceedingVolume.volume_number,
+                    ProceedingVolume.conference_full_name,
                 )
             )
         )

@@ -46,20 +46,22 @@ class AuthorInArticle(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
+
 class ArticleVolume(BaseModel):
     id: str
+    conference_full_name: str
     volume_number: str
-    title: str 
+    title: str
     published_at: datetime | None
-    
+
     model_config = ConfigDict(from_attributes=True)
 
-    
+
 class ArticleBase(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
     )
-    
+
     id: str
     title: str
     abstract: str
@@ -71,7 +73,7 @@ class ArticleBase(BaseModel):
     received_at: datetime | None
     revised_at: datetime | None
     accepted_at: datetime | None
-    published_at: datetime| None
+    published_at: datetime | None
     body: list[dict[str, Any]] | None
 
 
@@ -79,21 +81,26 @@ class SingleArticleResponse(ArticleBase):
     authors: list[AuthorInArticle] = []
     volume: Optional[ArticleVolume] = None
 
+
 class ArticleInCreate(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
     )
-    
-    id: Optional[str] = Field(default_factory=lambda:f"UN-{generate_random_hex_string(16)}")
+
+    id: Optional[str] = Field(
+        default_factory=lambda: f"UN-{generate_random_hex_string(16)}"
+    )
     title: Optional[str] = "New Article"
-    doi: Optional[str] = None 
+    doi: Optional[str] = None
     abstract: Optional[str] = ""
     keywords: Optional[list[str]] = []
     authors: Optional[list[str]] = []
     type: Literal["research_paper", "conference_paper"] = "conference_paper"
     editorial: Optional[bool] = False
 
-    @field_validator("id", "doi" ,"title", "abstract", "keywords", "type", mode="before")
+    @field_validator(
+        "id", "doi", "title", "abstract", "keywords", "type", mode="before"
+    )
     def normalize_spaces(cls, v):
         return clean_spaces(v)
 
@@ -105,13 +112,13 @@ class MultipleArticlesResponse(BaseModel):
     id: str
     title: str
     doi: Optional[str] = None
-     
-     
+
+
 class ArticleUpdate(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
     )
-    
+
     id: Optional[str] = None
     title: Optional[str] = None
     abstract: Optional[str] = None
@@ -126,8 +133,3 @@ class ArticleUpdate(BaseModel):
     published_at: Optional[datetime] = None
     body: Optional[list[dict[str, Any]]] = None
     volume_id: Optional[str] = None
-    
-
-    
-    
-    

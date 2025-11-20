@@ -22,6 +22,7 @@ class VolumeInProceeding(BaseModel):
     )
     id: str
     title: str
+    conference_full_name: str
     volume_number: str
 
 
