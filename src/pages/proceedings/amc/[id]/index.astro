@@ -24,6 +24,9 @@ if (!volume) return new Response(null, { status: 404 });
 const response = await getProceedingVolumeById(volume.id);
 if (!response) return new Response(null, { status: 404 });
 const volumeData = response.data;
+volumeData.articles = volumeData.articles.sort((a, b) =>
+	parseInt(a.id.split("-")[2]) < parseInt(b.id.split("-")[2]) ? 1 : -1
+);
 ---
 
 <BaseInformationPageLayout
