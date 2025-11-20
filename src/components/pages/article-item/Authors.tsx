@@ -2,10 +2,16 @@ import AuthorSlidePanel from "@components/authors/AuthorSlidePanel";
 import React, { useState } from "react";
 import type { IArticleAuthor } from "src/pages/articles/ExampleArticle";
 import AuthorsAffiliations from "./AuthorsAffiliations";
-import type { AuthorInArticle } from "src/api/types";
+import type { ArticleVolume, AuthorInArticle } from "src/api/types";
 import { makeAffiliationsTagsFromAuthors } from "@lib/articles";
 
-const Authors = ({ authors }: { authors: AuthorInArticle[] }) => {
+const Authors = ({
+	authors,
+	volume,
+}: {
+	authors: AuthorInArticle[];
+	volume?: ArticleVolume;
+}) => {
 	const [open, setOpen] = useState(false);
 	const [currentAuthor, setCurrentAuthor] = useState<AuthorInArticle | null>(
 		null
@@ -48,7 +54,7 @@ const Authors = ({ authors }: { authors: AuthorInArticle[] }) => {
 					}}
 				/>
 			)}
-			<AuthorsAffiliations authors={authors} />
+			<AuthorsAffiliations volume={volume} authors={authors} />
 		</>
 	);
 };

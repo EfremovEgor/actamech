@@ -1,13 +1,24 @@
+import SerialFormatting from "@components/common/SerialFormatting";
 import { makeAffiliationsTagsFromAuthors } from "@lib/articles";
 import React, { useState } from "react";
-import type { AffiliationInAuthor, AuthorInArticle } from "src/api/types";
+import type {
+	AffiliationInAuthor,
+	ArticleVolume,
+	AuthorInArticle,
+} from "src/api/types";
 import type {
 	IAffiliation,
 	IArticleAuthor,
 } from "src/pages/articles/ExampleArticle";
 import LucideChevronDown from "~icons/lucide/chevron-down";
 
-const AuthorsAffiliations = ({ authors }: { authors: AuthorInArticle[] }) => {
+const AuthorsAffiliations = ({
+	authors,
+	volume,
+}: {
+	authors: AuthorInArticle[];
+	volume?: ArticleVolume;
+}) => {
 	const [open, setOpen] = useState(false);
 	const [affiliationAliases, affiliationsData] =
 		makeAffiliationsTagsFromAuthors(authors);
@@ -37,6 +48,10 @@ const AuthorsAffiliations = ({ authors }: { authors: AuthorInArticle[] }) => {
 							</li>
 						))}
 					</ul>
+					<div className="text-primary-text/60 text-sm mt-2">
+						This article belongs to the Proceedings of{" "}
+						<SerialFormatting str={volume!.title} wrapper="span" />
+					</div>
 				</div>
 			)}
 		</>

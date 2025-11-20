@@ -34,7 +34,7 @@ const articleData = response.data;
 						url: "/proceedings/amc",
 					},
 					{
-						name: `${articleData.volume.id}`,
+						name: `Volume ${articleData.volume.volume_number}`,
 						url: `/proceedings/amc/${articleData.volume.volume_number}`,
 					},
 					{
@@ -52,8 +52,10 @@ const articleData = response.data;
 			</div>
 		</div>
 		<div class="mt-8 border-b-secondary border-b-2 pb-4">
-			<div class="text-center mt-16">
-				<h2 class="mt-2">Advances in Mechanics and Control</h2>
+			<div class="text-center my-16">
+				<h2 class="mt-2 uppercase text-2xl">
+					Advances in Mechanics and Control
+				</h2>
 				<h2>
 					Volume {articleData.volume.volume_number}, {
 						new Date(
@@ -68,8 +70,12 @@ const articleData = response.data;
 							: articleData.id.toUpperCase()
 					}
 				</h2>
-				<h1 class="text-3xl font-semibold">{articleData.title}</h1>
-				<Authors client:load authors={articleData.authors} />
+				<h1 class="text-3xl font-semibold mt-4">{articleData.title}</h1>
+				<Authors
+					volume={articleData.volume}
+					client:load
+					authors={articleData.authors}
+				/>
 				<div class="text-primary-text/40">
 					{
 						articleData.received_at && (
@@ -93,9 +99,7 @@ const articleData = response.data;
 					}
 				</div>
 			</div>
-			<div
-				class="flex flex-row justify-between text-primary-text/30 mt-16"
-			>
+			<div class="flex flex-row justify-between text-primary-text/60">
 				<span
 					class="pb-1 border-b-accent border-b-1 font-semibold w-fit text-left"
 				>
@@ -114,7 +118,7 @@ const articleData = response.data;
 			</div>
 		</div>
 
-		<div class="flex flex-row mt-16 article_grid">
+		<div class="flex flex-row article_grid">
 			<ArticleNav client:load article={articleData} />
 			<ArticleContent article={articleData} />
 		</div>

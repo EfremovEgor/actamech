@@ -34,8 +34,9 @@ const volumeData = response.data;
 	navigation={{
 		navigation: [
 			...NAVIGATION.proceedings.advancesInMechanicsAndControl,
+
 			{
-				name: volumeData.title,
+				name: `Volume ${volumeData.volume_number}`,
 				url: `/proceedings/amc/${volumeData.volume_number}`,
 			},
 		],
