@@ -8,8 +8,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Breadcrumb from "@components/common/Breadcrumb.astro";
 import { resolveArticleType } from "@lib/articles";
 import { getArticleById } from "src/api/api";
-import siteIcon from "@assets/icons/siteIconLight.png";
-import Image from "astro/components/Image.astro";
 const { id } = Astro.params;
 if (!id) return new Response(null, { status: 404 });
 const response = await getArticleById(id);
@@ -140,7 +138,7 @@ const articleData = response.data;
 			</div>
 		</div>
 
-		<div class="flex flex-row article_grid">
+		<div class="flex flex-row article_grid mt-8">
 			<ArticleNav client:load article={articleData} />
 			<ArticleContent article={articleData} />
 		</div>

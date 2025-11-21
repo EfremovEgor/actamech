@@ -1,6 +1,5 @@
 import AuthorSlidePanel from "@components/authors/AuthorSlidePanel";
-import React, { useState } from "react";
-import type { IArticleAuthor } from "src/pages/articles/ExampleArticle";
+import { useState } from "react";
 import AuthorsAffiliations from "./AuthorsAffiliations";
 import type { ArticleVolume, AuthorInArticle } from "src/api/types";
 import { makeAffiliationsTagsFromAuthors } from "@lib/articles";

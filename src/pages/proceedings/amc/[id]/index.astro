@@ -82,7 +82,7 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				</div>
 				<div>
 					<h2 class="font-bold">Volume Editors:</h2>
-					<div class="text-sm">
+					<div>
 						{volumeData.editors.map((ed) => <p>{ed.full_name}</p>)}
 					</div>
 				</div>
@@ -103,15 +103,17 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				<div class="flex flex-col gap-8 mt-4">
 					{
 						volumeData.articles.length ? (
-							volumeData.articles.map((article) => (
-								<ArticleCard
-									client:visible
-									{...{
-										...article,
-										link: `${volumeData.volume_number}/${article.id}`,
-									}}
-								/>
-							))
+							volumeData.articles
+								.filter((article) => article.doi)
+								.map((article) => (
+									<ArticleCard
+										client:visible
+										{...{
+											...article,
+											link: `${volumeData.volume_number}/${article.id}`,
+										}}
+									/>
+								))
 						) : (
 							<p class="font-semibold">
 								Articles will appear here when they are
