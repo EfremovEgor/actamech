@@ -65,18 +65,20 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				class="h-80 w-auto"
 			/>
 			<div
-				class="bg-secondary/5 h-full flex flex-col justify-center rounded-base px-4 py-4 text-lg w-full"
+				class="bg-secondary/5 h-full flex flex-col justify-between rounded-base px-4 py-4 text-lg w-full"
 			>
-				<p class="text-xl font-bold">
-					<SerialFormatting
-						str={volumeData.conference_full_name}
-						wrapper="span"
-					/>
-				</p>
-				<p class="text-sm my-1 text-tertiary-text">
-					{volumeData.place} |
-					{volumeData.held_at}
-				</p>
+				<div>
+					<p class="text-xl font-bold">
+						<SerialFormatting
+							str={volumeData.conference_full_name}
+							wrapper="span"
+						/>
+					</p>
+					<p class="text-sm my-1 text-tertiary-text">
+						{volumeData.place} |
+						{volumeData.held_at}
+					</p>
+				</div>
 				<div>
 					<h2 class="font-bold">Volume Editors:</h2>
 					<div class="text-sm">
@@ -91,7 +93,6 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 					}
 					<p>Views 000 | Downloads 000 | Citations 0</p>
 				</div>
-				<article class="base-text-section"></article>
 			</div>
 		</div>
 		<SectionTitleNoContainer title="Articles" />
