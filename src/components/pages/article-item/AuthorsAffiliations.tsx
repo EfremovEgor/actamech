@@ -43,7 +43,8 @@ const AuthorsAffiliations = ({
 								<sup className="font-bold text-accent">
 									{affiliationAliases[id]}
 								</sup>{" "}
-								- {af.name}, {af.address}, {af.postal_code}{" "}
+								- {af.name}, {af.address}, {af.postal_code}
+								{", "}
 								{af.country}
 							</li>
 						))}
