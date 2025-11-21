@@ -9,8 +9,6 @@ import { ISSN } from "@lib/constants";
 ---
 
 <div class="container mx-auto mt-8">
-	<SectionTitle title="Journal Insights" />
-
 	<!-- <div class="grid grid-cols-3 justify-between w-full gap-10 mt-8">
     <div
       class="text-xl border-accent border-b-4 text-center bg-background-tertiary rounded-base p-4 text-secondary-text font-bold"
@@ -81,6 +79,10 @@ import { ISSN } from "@lib/constants";
       </p>
     </div>
   </section> -->
+
+	<!-- <ContentDelimiter className="my-8" /> -->
+	<SubjectAreas />
+	<SectionTitle title="Journal Insights" />
 	<div class="container mx-auto mt-8 grid grid-cols-3 text-secondary">
 		<!-- <div class="px-4 py-6 border-r-1 border-r-border-primary">
       <h1 class="text-xl text-center rounded-base font-bold">
@@ -119,7 +121,6 @@ import { ISSN } from "@lib/constants";
 			</p>
 		</div>
 	</div>
-	<!-- <ContentDelimiter className="my-8" /> -->
 	<div class="container mx-auto mt-8">
 		<h1 class="text-heading uppercase self-center">Publisher:</h1>
 		<p class="mt-2">
@@ -139,7 +140,7 @@ import { ISSN } from "@lib/constants";
 			l’ISSN and has an International Standard Serial Number of
 			periodicals E-ISSN {ISSN}. -->
 	</div>
-	<SubjectAreas />
-	<!-- <ArticlePublishingOptions /> -->
 	<AbstractingAndIndexing />
+
+	<!-- <ArticlePublishingOptions /> -->
 </div>

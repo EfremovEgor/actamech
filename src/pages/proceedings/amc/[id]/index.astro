@@ -50,7 +50,7 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 	<div class="border-y-accent border-b-2">
 		<div class="container mx-auto py-4">
 			<h1 class="text-3xl">
-				Proceedings, <SerialFormatting
+				Proceedings, Volume {volumeData.volume_number}, <SerialFormatting
 					str={volumeData.title}
 					wrapper="span"
 				/>
@@ -102,15 +102,22 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				<SectionTitleNoContainer title="Articles" top="4" />
 				<div class="flex flex-col gap-8 mt-4">
 					{
-						volumeData.articles.map((article) => (
-							<ArticleCard
-								client:visible
-								{...{
-									...article,
-									link: `${volumeData.volume_number}/${article.id}`,
-								}}
-							/>
-						))
+						volumeData.articles.length ? (
+							volumeData.articles.map((article) => (
+								<ArticleCard
+									client:visible
+									{...{
+										...article,
+										link: `${volumeData.volume_number}/${article.id}`,
+									}}
+								/>
+							))
+						) : (
+							<p class="font-semibold">
+								Articles will appear here when they are
+								published
+							</p>
+						)
 					}
 				</div>
 			</div>
