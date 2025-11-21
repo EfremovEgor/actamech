@@ -9,7 +9,6 @@ const article = ARTICLES[0];
 const response = await getProceedingById("advances-in-mechanics-and-control");
 if (!response) return new Response(null, { status: 404 });
 const proceedingData = response.data;
-console.log(proceedingData.volumes);
 const volumes = proceedingData.volumes.sort((a, b) => {
 	return a.volume_number < b.volume_number ? 1 : -1;
 });

@@ -8,27 +8,30 @@ interface Props {
 		tocTitle?: string;
 		id: string;
 	}[];
+	showTOC?: boolean;
 }
-const { parts } = Astro.props;
+const { parts, showTOC = true } = Astro.props;
 ---
 
 <div class="flex flex-row divide-secondary">
-	<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
-		<div>
-			<ul class="flex flex-col gap-2">
-				{
-					parts.map((p) => (
-						<li>
-							<a class="hover-accent" href={`#${p.id}`}>
-								{p.tocTitle ? p.tocTitle : p.title}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-	</div>
-	<div class="pl-8 flex-1 gap-16">
+	{
+		showTOC && (
+			<div class="flex flex-col gap-8 pr-8 left_navigation-sticky">
+				<div>
+					<ul class="flex flex-col gap-2">
+						{parts.map((p) => (
+							<li>
+								<a class="hover-accent" href={`#${p.id}`}>
+									{p.tocTitle ? p.tocTitle : p.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		)
+	}
+	<div class={`${showTOC && "pl-8"} flex-1 gap-16`}>
 		{
 			parts.map((p, index) => (
 				<Fragment>
