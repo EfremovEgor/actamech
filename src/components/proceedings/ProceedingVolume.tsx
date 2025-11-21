@@ -22,7 +22,8 @@ const ProceedingVolume = ({
 			<div className="relative">
 				<img
 					src={image ?? "/images/test/example_cover.png"}
-					className="h-80 w-fit"
+					className="h-80 w-auto mx-auto rounded-2xl"
+					width="auto"
 					alt={volumeData.title}
 				/>
 			</div>

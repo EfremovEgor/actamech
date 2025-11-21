@@ -9,6 +9,7 @@ import { NAVIGATION } from "@lib/client/navigation";
 import { ARTICLES } from "src/pages/articles/ExampleArticle";
 import { getProceedingById, getProceedingVolumeById } from "src/api/api";
 import SerialFormatting from "@components/common/SerialFormatting";
+
 const article = ARTICLES[0];
 
 if (!id) return new Response(null, { status: 404 });
@@ -62,7 +63,7 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				src={`/images/covers/${volumeData.id}.webp`}
 				alt={volumeData.title}
 				width="auto"
-				class="h-80 w-auto"
+				class="h-80 w-auto rounded-2xl"
 			/>
 			<div
 				class="bg-secondary/5 h-full flex flex-col justify-between rounded-base px-4 py-4 text-lg w-full"

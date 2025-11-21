@@ -8,6 +8,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Breadcrumb from "@components/common/Breadcrumb.astro";
 import { resolveArticleType } from "@lib/articles";
 import { getArticleById } from "src/api/api";
+import siteIcon from "@assets/icons/siteIconLight.png";
 const { id } = Astro.params;
 if (!id) return new Response(null, { status: 404 });
 const response = await getArticleById(id);
@@ -46,30 +47,45 @@ const articleData = response.data;
 		/>
 	</div>
 	<div class="container mx-auto">
-		<div class="border-b-secondary border-b-2">
-			<div class="text-center my-16">
-				<h1 class="text-3xl uppercase">ACTA MECHANICA ET IMPERIUM</h1>
+		<div class="border-b-secondary border-b-2 pb-2">
+			<div class="flex flex-row justify-between items-center">
+				<div>
+					<img
+						src={siteIcon.src}
+						width="auto"
+						class="h-60 w-auto rounded-2xl"
+					/>
+				</div>
+				<div class="text-center my-16">
+					<h1 class="text-3xl uppercase">
+						Advances In Mechanics and Control
+					</h1>
+					<h2 class="mt-4">
+						Volume {articleData.volume.volume_number}, {
+							new Date(
+								articleData.volume.published_at
+							).toLocaleString("en-US", {
+								month: "long",
+								year: "numeric",
+							})
+						}, {
+							articleData.pages_in_volume
+								? `Pages ${articleData.pages_in_volume}`
+								: articleData.id.toUpperCase()
+						}
+					</h2>
+				</div>
+				<div>
+					<img
+						src={`/images/covers/${articleData.volume.id}.webp`}
+						width="auto"
+						class="h-60 w-auto rounded-2xl"
+					/>
+				</div>
 			</div>
 		</div>
 		<div class="mt-8 border-b-secondary border-b-2 pb-4">
 			<div class="text-center my-16">
-				<h2 class="mt-2 uppercase text-2xl">
-					Advances in Mechanics and Control
-				</h2>
-				<h2>
-					Volume {articleData.volume.volume_number}, {
-						new Date(
-							articleData.volume.published_at
-						).toLocaleString("en-US", {
-							month: "long",
-							year: "numeric",
-						})
-					}, {
-						articleData.pages_in_volume
-							? `Pages ${articleData.pages_in_volume}`
-							: articleData.id.toUpperCase()
-					}
-				</h2>
 				<h1 class="text-3xl font-semibold mt-4">{articleData.title}</h1>
 				<Authors
 					volume={articleData.volume}
