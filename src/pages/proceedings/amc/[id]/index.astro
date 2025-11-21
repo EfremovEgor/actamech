@@ -58,12 +58,12 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 		</div>
 	</div>
 	<div class="container mx-auto mt-8">
-		<div class="grid grid-cols-[max-content_1fr] items-center gap-8 mt-4">
+		<div class="grid grid-cols-[240px_1fr] items-center gap-8 mt-4">
 			<img
 				src={`/images/covers/${volumeData.id}.webp`}
 				alt={volumeData.title}
-				width="auto"
-				class="h-80 w-auto rounded-2xl"
+				height="auto"
+				class="w-60 h-auto rounded-2xl"
 			/>
 			<div
 				class="bg-secondary/5 h-full flex flex-col justify-between rounded-base px-4 py-4 text-lg w-full"
@@ -86,7 +86,7 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 						{volumeData.editors.map((ed) => <p>{ed.full_name}</p>)}
 					</div>
 				</div>
-				<div>
+				<div class="text-sm my-1 text-tertiary-text">
 					{
 						volumeData.total_pages && (
 							<p>Number of Papers: {volumeData.total_pages}</p>
@@ -96,25 +96,24 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				</div>
 			</div>
 		</div>
-		<SectionTitleNoContainer title="Articles" />
-		<div class="flex flex-col gap-8 mt-8">
-			{
-				volumeData.articles.map((article) => (
-					<ArticleCard
-						client:visible
-						{...{
-							...article,
-							link: `${volumeData.volume_number}/${article.id}`,
-						}}
-					/>
-				))
-			}
-			<!-- abstract={ -->
-			<!-- // 	article.content.find(
-							// 		(content) => content.type == "abstract"
-							// 	)?.content
-							// }
-							// extra="Research Article | March 21, 2025" -->
+		<div class="grid grid-cols-[240px_1fr] items-center gap-8">
+			<div></div>
+			<div>
+				<SectionTitleNoContainer title="Articles" top="4" />
+				<div class="flex flex-col gap-8 mt-4">
+					{
+						volumeData.articles.map((article) => (
+							<ArticleCard
+								client:visible
+								{...{
+									...article,
+									link: `${volumeData.volume_number}/${article.id}`,
+								}}
+							/>
+						))
+					}
+				</div>
+			</div>
 		</div>
 	</div>
 </BaseInformationPageLayout>

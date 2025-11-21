@@ -29,7 +29,7 @@ const ProceedingVolume = ({
 			</div>
 			<div className="text-lg flex flex-col items-center mt-2 text-center">
 				<p>Volume {volumeData.volume_number}</p>
-				<SerialFormatting str={volumeData.title} wrapper="p" />
+				{/* <SerialFormatting str={volumeData.title} wrapper="p" /> */}
 			</div>
 		</a>
 	);

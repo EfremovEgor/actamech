@@ -9,6 +9,7 @@ import Breadcrumb from "@components/common/Breadcrumb.astro";
 import { resolveArticleType } from "@lib/articles";
 import { getArticleById } from "src/api/api";
 import siteIcon from "@assets/icons/siteIconLight.png";
+import Image from "astro/components/Image.astro";
 const { id } = Astro.params;
 if (!id) return new Response(null, { status: 404 });
 const response = await getArticleById(id);
@@ -51,10 +52,15 @@ const articleData = response.data;
 			<div class="flex flex-row justify-between items-center">
 				<div>
 					<img
-						src={siteIcon.src}
-						width="auto"
-						class="h-60 w-auto rounded-2xl"
+						src="/images/logo.png"
+						class="w-28 h-28 mx-auto"
+						alt=""
 					/>
+					<div
+						class="font-semibold text-center font-[ZT-Neue-Ralewe-Regular] text-xl"
+					>
+						<p>ACTA MECHANICA</p><p>ET IMPERIUM</p>
+					</div>
 				</div>
 				<div class="text-center my-16">
 					<h1 class="text-3xl uppercase">

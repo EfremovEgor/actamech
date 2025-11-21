@@ -163,14 +163,47 @@ const CO_EDITORS: {
 					</div>
 				</div>
 				<div>
-					<h2 class="text-2xl pb-2 border-b-2 w-1/2">Co-Editors</h2>
+					<h2 class="text-2xl pb-2 border-b-2 w-1/2">
+						Managing Editors
+					</h2>
+					<div class="mt-8 grid grid-cols-3 gap-8">
+						<BoardDistinctPersonCard
+							{...{
+								fullName: "Vladimir Razoumny",
+								country: "Russia",
+								affiliation: "RUDN University",
+								color: "accent",
+							}}
+						/>
+						<BoardDistinctPersonCard
+							{...{
+								fullName: "Sofia Paplauskas",
+								country: "Russia",
+								affiliation: "RUDN University",
+								color: "accent",
+							}}
+						/>
+						<BoardDistinctPersonCard
+							{...{
+								fullName: "Egor Efremov",
+								country: "Russia",
+								affiliation: "RUDN University",
+								color: "accent",
+							}}
+						/>
+					</div>
+				</div>
+				<div>
+					<h2 class="text-2xl pb-2 border-b-2 w-1/2">
+						Associate Editors
+					</h2>
 					<div>
 						<div class="mt-8 grid grid-cols-3 gap-8">
 							{
 								CO_EDITORS.map((e) => (
 									<BoardDistinctPersonCard
 										{...e}
-										color="secondary"
+										color="accent"
 									/>
 								))
 							}
