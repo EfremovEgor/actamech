@@ -7,19 +7,18 @@ import type {
 	APIErrorResponse,
 	BaseAPIResponse,
 	BasePaginatedAPIResponse,
+	PaginatatedSearchRequest,
 	PaginationReturn,
 } from "@api/types";
 
 export const affiliationService = {
 	async getAffiliations(
-		searchString?: string
+		params?: PaginatatedSearchRequest
 	): Promise<PaginationReturn<AffiliationListItem[]>> {
 		const res = await apiV1Instance.get<
 			BasePaginatedAPIResponse<AffiliationListItem[]>
 		>(`/affiliations`, {
-			params: {
-				search_string: searchString,
-			},
+			params,
 		});
 		return [res.data.data.items, res.data.data.meta];
 	},

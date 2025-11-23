@@ -57,7 +57,9 @@ const AffiliationField = ({
 		await onAdd(affiliationId);
 	};
 	const handleFetchAffiliations = async () => {
-		const data = await affiliationService.getAffiliations(searchString);
+		const data = await affiliationService.getAffiliations({
+			search_string: searchString,
+		});
 		setAffiliationsToAdd(data[0]);
 	};
 	const handleFetchAffiliation = async (id: string) => {
