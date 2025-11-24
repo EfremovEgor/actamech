@@ -81,7 +81,7 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 					</p>
 				</div>
 				<div>
-					<h2 class="font-bold">Volume Editors:</h2>
+					<h2 class="font-bold text-base">Volume Editors:</h2>
 					<div>
 						{volumeData.editors.map((ed) => <p>{ed.full_name}</p>)}
 					</div>
@@ -89,7 +89,9 @@ volumeData.articles = volumeData.articles.sort((a, b) =>
 				<div class="text-sm my-1 text-tertiary-text">
 					{
 						volumeData.total_pages && (
-							<p>Number of Papers: {volumeData.total_pages}</p>
+							<p>
+								Number of Papers: {volumeData.articles.length}
+							</p>
 						)
 					}
 					<p>Views 000 | Downloads 000 | Citations 0</p>
