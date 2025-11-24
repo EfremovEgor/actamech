@@ -4,41 +4,11 @@ import BoardDistinctPersonCard from "@components/pages/editorial-board/BoardDist
 import "@styles/about/editorial-board.css";
 import { NAVIGATION } from "@lib/client/navigation";
 import mainImage from "@assets/images/mainImages/futuristic-time-machines-design.jpg";
-const CO_EDITORS: {
-	fullName: string;
-	country: string;
-	affiliation: string;
-	color?: "accent" | "secondary";
-}[] = [
+const CO_EDITORS = [
 	{
-		fullName: "Antonio F.B.A. Prado",
-		affiliation: "National Institute for Space Research",
-		country: "Brazil",
-	},
-	{
-		fullName: "Shufan Wu",
-		affiliation: "Shanghai Jiao Tong University",
-		country: "China",
-	},
-	{
-		fullName: "Ketan Kotecha",
-		affiliation: "Symbiosis International (Deemed University)",
-		country: "India",
-	},
-	{
-		fullName: "Renuganth Varatharajoo",
-		affiliation: "Universiti Putra Malaysia",
-		country: "Malaysia",
-	},
-	{
-		fullName: "Meena Laad",
-		affiliation: "Symbiosis International (Deemed University)",
-		country: "India",
-	},
-	{
-		fullName: "Ravinder Rena",
-		affiliation: "Durban University of Technology",
-		country: "South Africa",
+		fullName: "Vera Galishnikova",
+		affiliation: "Moscow State University of Civil Engineering",
+		country: "Russia",
 	},
 	{
 		fullName: "Fabio Krykhtine",
@@ -46,9 +16,50 @@ const CO_EDITORS: {
 		country: "Brazil",
 	},
 	{
+		fullName: "Mikhail Konstantinov",
+		affiliation: "Moscow Aviation Institute",
+		country: "Russia",
+	},
+	{
+		fullName: "Ketan Kotecha",
+		affiliation: "Symbiosis International (Deemed University)",
+		country: "India",
+	},
+	{
+		fullName: "Meena Laad",
+		affiliation: "Symbiosis International (Deemed University)",
+		country: "India",
+	},
+	{
 		fullName: "Felix Mora-Kamino",
 		affiliation: "French Civil Aviation University",
 		country: "France",
+	},
+	{
+		fullName: "Antonio F.B.A. Prado",
+		affiliation: "National Institute for Space Research",
+		country: "Brazil",
+	},
+	{
+		fullName: "Ravinder Rena",
+		affiliation: "Durban University of Technology",
+		country: "South Africa",
+	},
+	{
+		fullName: "Ivan Stepanyan",
+		affiliation:
+			"Mechanical Engineering Research Institute of the Russian Academy of Sciences",
+		country: "Russia",
+	},
+	{
+		fullName: "Renuganth Varatharajoo",
+		affiliation: "Universiti Putra Malaysia",
+		country: "Malaysia",
+	},
+	{
+		fullName: "Shufan Wu",
+		affiliation: "Shanghai Jiao Tong University",
+		country: "China",
 	},
 ];
 ---
@@ -73,7 +84,7 @@ const CO_EDITORS: {
 					</h2>
 					<ul class="flex ml-2 flex-col gap-2 mt-4">
 						<li>Brazil (2)</li>
-						<li>Russia (4)</li>
+						<li>Russia (7)</li>
 						<li>India (2)</li>
 						<li>China (1)</li>
 						<li>South Africa (1)</li>
