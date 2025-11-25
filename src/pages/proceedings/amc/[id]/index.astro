@@ -27,6 +27,7 @@ const volumeData = response.data;
 volumeData.articles = volumeData.articles.sort((a, b) =>
 	parseInt(a.id.split("-")[2]) < parseInt(b.id.split("-")[2]) ? -1 : 1
 );
+volumeData.articles = [];
 ---
 
 <BaseInformationPageLayout
