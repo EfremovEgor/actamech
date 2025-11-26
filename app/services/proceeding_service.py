@@ -39,8 +39,8 @@ class ProceedingService(BaseService):
         proceeding = result.scalar_one_or_none()
         if proceeding is None:
             return None
-
-        return ProceedingResponse.model_validate(proceeding)
+        proc = ProceedingResponse.model_validate(proceeding)
+        return proc
 
 
 class ProceedingVolumeService(BaseService):
